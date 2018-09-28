@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */; };
+		3A3A8DA7215E1AB400E07741 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA6215E1AB400E07741 /* GameScene.sks */; };
+		3A3A8DA9215E1AB400E07741 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA8215E1AB400E07741 /* Actions.sks */; };
+		3A3A8DAB215E1AB400E07741 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DAA215E1AB400E07741 /* GameScene.swift */; };
+		3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DAC215E1AB400E07741 /* GameViewController.swift */; };
+		3A3A8DB0215E1AB400E07741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DAE215E1AB400E07741 /* Main.storyboard */; };
+		3A3A8DB2215E1AB800E07741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DB1215E1AB800E07741 /* Assets.xcassets */; };
+		3A3A8DB5215E1AB800E07741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DB3215E1AB800E07741 /* LaunchScreen.storyboard */; };
+		3A3A8DC0215E1AB800E07741 /* towerwarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DBF215E1AB800E07741 /* towerwarsTests.swift */; };
+		3A3A8DCB215E1AB800E07741 /* towerwarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DCA215E1AB800E07741 /* towerwarsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A3A8DBC215E1AB800E07741 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A3A8D99215E1AB400E07741 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A3A8DA0215E1AB400E07741;
+			remoteInfo = towerwars;
+		};
+		3A3A8DC7215E1AB800E07741 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A3A8D99215E1AB400E07741 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A3A8DA0215E1AB400E07741;
+			remoteInfo = towerwars;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A3A8DA1215E1AB400E07741 /* towerwars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = towerwars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A3A8DA6215E1AB400E07741 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		3A3A8DA8215E1AB400E07741 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		3A3A8DAA215E1AB400E07741 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		3A3A8DAC215E1AB400E07741 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		3A3A8DAF215E1AB400E07741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A3A8DB1215E1AB800E07741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A3A8DB4215E1AB800E07741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3A3A8DB6215E1AB800E07741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A3A8DBB215E1AB800E07741 /* towerwarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = towerwarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A3A8DBF215E1AB800E07741 /* towerwarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = towerwarsTests.swift; sourceTree = "<group>"; };
+		3A3A8DC1215E1AB800E07741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A3A8DC6215E1AB800E07741 /* towerwarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = towerwarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A3A8DCA215E1AB800E07741 /* towerwarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = towerwarsUITests.swift; sourceTree = "<group>"; };
+		3A3A8DCC215E1AB800E07741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A3A8D9E215E1AB400E07741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A3A8DB8215E1AB800E07741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A3A8DC3215E1AB800E07741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A3A8D98215E1AB400E07741 = {
+			isa = PBXGroup;
+			children = (
+				3A3A8DA3215E1AB400E07741 /* towerwars */,
+				3A3A8DBE215E1AB800E07741 /* towerwarsTests */,
+				3A3A8DC9215E1AB800E07741 /* towerwarsUITests */,
+				3A3A8DA2215E1AB400E07741 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A3A8DA2215E1AB400E07741 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A3A8DA1215E1AB400E07741 /* towerwars.app */,
+				3A3A8DBB215E1AB800E07741 /* towerwarsTests.xctest */,
+				3A3A8DC6215E1AB800E07741 /* towerwarsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A3A8DA3215E1AB400E07741 /* towerwars */ = {
+			isa = PBXGroup;
+			children = (
+				3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */,
+				3A3A8DA6215E1AB400E07741 /* GameScene.sks */,
+				3A3A8DA8215E1AB400E07741 /* Actions.sks */,
+				3A3A8DAA215E1AB400E07741 /* GameScene.swift */,
+				3A3A8DAC215E1AB400E07741 /* GameViewController.swift */,
+				3A3A8DAE215E1AB400E07741 /* Main.storyboard */,
+				3A3A8DB1215E1AB800E07741 /* Assets.xcassets */,
+				3A3A8DB3215E1AB800E07741 /* LaunchScreen.storyboard */,
+				3A3A8DB6215E1AB800E07741 /* Info.plist */,
+			);
+			path = towerwars;
+			sourceTree = "<group>";
+		};
+		3A3A8DBE215E1AB800E07741 /* towerwarsTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A3A8DBF215E1AB800E07741 /* towerwarsTests.swift */,
+				3A3A8DC1215E1AB800E07741 /* Info.plist */,
+			);
+			path = towerwarsTests;
+			sourceTree = "<group>";
+		};
+		3A3A8DC9215E1AB800E07741 /* towerwarsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3A3A8DCA215E1AB800E07741 /* towerwarsUITests.swift */,
+				3A3A8DCC215E1AB800E07741 /* Info.plist */,
+			);
+			path = towerwarsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A3A8DA0215E1AB400E07741 /* towerwars */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A3A8DCF215E1AB800E07741 /* Build configuration list for PBXNativeTarget "towerwars" */;
+			buildPhases = (
+				3A3A8D9D215E1AB400E07741 /* Sources */,
+				3A3A8D9E215E1AB400E07741 /* Frameworks */,
+				3A3A8D9F215E1AB400E07741 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = towerwars;
+			productName = towerwars;
+			productReference = 3A3A8DA1215E1AB400E07741 /* towerwars.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A3A8DBA215E1AB800E07741 /* towerwarsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A3A8DD2215E1AB800E07741 /* Build configuration list for PBXNativeTarget "towerwarsTests" */;
+			buildPhases = (
+				3A3A8DB7215E1AB800E07741 /* Sources */,
+				3A3A8DB8215E1AB800E07741 /* Frameworks */,
+				3A3A8DB9215E1AB800E07741 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A3A8DBD215E1AB800E07741 /* PBXTargetDependency */,
+			);
+			name = towerwarsTests;
+			productName = towerwarsTests;
+			productReference = 3A3A8DBB215E1AB800E07741 /* towerwarsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3A3A8DC5215E1AB800E07741 /* towerwarsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A3A8DD5215E1AB800E07741 /* Build configuration list for PBXNativeTarget "towerwarsUITests" */;
+			buildPhases = (
+				3A3A8DC2215E1AB800E07741 /* Sources */,
+				3A3A8DC3215E1AB800E07741 /* Frameworks */,
+				3A3A8DC4215E1AB800E07741 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A3A8DC8215E1AB800E07741 /* PBXTargetDependency */,
+			);
+			name = towerwarsUITests;
+			productName = towerwarsUITests;
+			productReference = 3A3A8DC6215E1AB800E07741 /* towerwarsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A3A8D99215E1AB400E07741 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Anton Begehr";
+				TargetAttributes = {
+					3A3A8DA0215E1AB400E07741 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					3A3A8DBA215E1AB800E07741 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 3A3A8DA0215E1AB400E07741;
+					};
+					3A3A8DC5215E1AB800E07741 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 3A3A8DA0215E1AB400E07741;
+					};
+				};
+			};
+			buildConfigurationList = 3A3A8D9C215E1AB400E07741 /* Build configuration list for PBXProject "towerwars" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A3A8D98215E1AB400E07741;
+			productRefGroup = 3A3A8DA2215E1AB400E07741 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A3A8DA0215E1AB400E07741 /* towerwars */,
+				3A3A8DBA215E1AB800E07741 /* towerwarsTests */,
+				3A3A8DC5215E1AB800E07741 /* towerwarsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A3A8D9F215E1AB400E07741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A3A8DB0215E1AB400E07741 /* Main.storyboard in Resources */,
+				3A3A8DA7215E1AB400E07741 /* GameScene.sks in Resources */,
+				3A3A8DB2215E1AB800E07741 /* Assets.xcassets in Resources */,
+				3A3A8DB5215E1AB800E07741 /* LaunchScreen.storyboard in Resources */,
+				3A3A8DA9215E1AB400E07741 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A3A8DB9215E1AB800E07741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A3A8DC4215E1AB800E07741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A3A8D9D215E1AB400E07741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A3A8DAB215E1AB400E07741 /* GameScene.swift in Sources */,
+				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
+				3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A3A8DB7215E1AB800E07741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A3A8DC0215E1AB800E07741 /* towerwarsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A3A8DC2215E1AB800E07741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A3A8DCB215E1AB800E07741 /* towerwarsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A3A8DBD215E1AB800E07741 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A3A8DA0215E1AB400E07741 /* towerwars */;
+			targetProxy = 3A3A8DBC215E1AB800E07741 /* PBXContainerItemProxy */;
+		};
+		3A3A8DC8215E1AB800E07741 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A3A8DA0215E1AB400E07741 /* towerwars */;
+			targetProxy = 3A3A8DC7215E1AB800E07741 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3A3A8DAE215E1AB400E07741 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A3A8DAF215E1AB400E07741 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3A3A8DB3215E1AB800E07741 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A3A8DB4215E1AB800E07741 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A3A8DCD215E1AB800E07741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3A3A8DCE215E1AB800E07741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A3A8DD0215E1AB800E07741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EW3E677XMJ;
+				INFOPLIST_FILE = towerwars/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.begehr.towerwars;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A3A8DD1215E1AB800E07741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EW3E677XMJ;
+				INFOPLIST_FILE = towerwars/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.begehr.towerwars;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3A3A8DD3215E1AB800E07741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EW3E677XMJ;
+				INFOPLIST_FILE = towerwarsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.begehr.towerwarsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/towerwars.app/towerwars";
+			};
+			name = Debug;
+		};
+		3A3A8DD4215E1AB800E07741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EW3E677XMJ;
+				INFOPLIST_FILE = towerwarsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.begehr.towerwarsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/towerwars.app/towerwars";
+			};
+			name = Release;
+		};
+		3A3A8DD6215E1AB800E07741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EW3E677XMJ;
+				INFOPLIST_FILE = towerwarsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.begehr.towerwarsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = towerwars;
+			};
+			name = Debug;
+		};
+		3A3A8DD7215E1AB800E07741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EW3E677XMJ;
+				INFOPLIST_FILE = towerwarsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.begehr.towerwarsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = towerwars;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A3A8D9C215E1AB400E07741 /* Build configuration list for PBXProject "towerwars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A3A8DCD215E1AB800E07741 /* Debug */,
+				3A3A8DCE215E1AB800E07741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A3A8DCF215E1AB800E07741 /* Build configuration list for PBXNativeTarget "towerwars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A3A8DD0215E1AB800E07741 /* Debug */,
+				3A3A8DD1215E1AB800E07741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A3A8DD2215E1AB800E07741 /* Build configuration list for PBXNativeTarget "towerwarsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A3A8DD3215E1AB800E07741 /* Debug */,
+				3A3A8DD4215E1AB800E07741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A3A8DD5215E1AB800E07741 /* Build configuration list for PBXNativeTarget "towerwarsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A3A8DD6215E1AB800E07741 /* Debug */,
+				3A3A8DD7215E1AB800E07741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A3A8D99215E1AB400E07741 /* Project object */;
+}
