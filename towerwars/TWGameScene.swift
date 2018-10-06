@@ -16,7 +16,7 @@ class TWGameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     
-    private var map_nodes = [SKSpriteNode]()
+    private var map_nodes = [SKNode]()
     private var characters = [TWCharacter]()
     
     override func sceneDidLoad() {
@@ -37,6 +37,15 @@ class TWGameScene: SKScene {
         // add some walls
         self.addWallSprite(position: CGPoint(x:0, y:0))
         self.addWallSprite(position: CGPoint(x:100, y:100))
+        
+        // add some path walls
+        let path = CGMutablePath()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: 500, y: 30))
+        path.addLine(to: CGPoint(x: 60, y: 150))
+        path.addLine(to: CGPoint(x: 0, y: 120))
+        path.addLine(to: CGPoint(x: 0, y: 0))
+        self.addWall(path: path, position: CGPoint(x: -300, y: 0))
     }
     
     // adds wall sprite at position
@@ -49,7 +58,10 @@ class TWGameScene: SKScene {
     
     // adds wall at with path at position
     func addWall(path: CGPath, position: CGPoint) {
-        // TODO: use TWWall
+        let newWall = TWWall(path: path)
+        newWall.position = position
+        self.addChild(newWall)
+        self.map_nodes.append(newWall)
     }
     
     // adds character at position
