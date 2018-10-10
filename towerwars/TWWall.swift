@@ -24,9 +24,9 @@ class TWWall: SKShapeNode {
     var texture: SKTexture? {
         var texture: SKTexture?
         
-        if let image = UIImage(named: "Wall") {
+        if let image = UIImage(named: "WallTile") {
             
-            UIGraphicsBeginImageContext(self.frame.size)// need to use instance frame?
+            UIGraphicsBeginImageContext(self.frame.size)
             let context = UIGraphicsGetCurrentContext()
             
             if let cgImage = image.cgImage {
