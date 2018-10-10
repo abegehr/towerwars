@@ -15,7 +15,7 @@ class TWCharacter: SKShapeNode {
         super.init()
         
         // form
-        let diameter = 40
+        let diameter = 50
         self.path = CGPath.init(ellipseIn: CGRect(origin: CGPoint.zero, size: CGSize(width: diameter, height: diameter)), transform: nil)
         
         // color
