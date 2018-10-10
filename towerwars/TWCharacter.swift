@@ -11,15 +11,22 @@ import SpriteKit
 
 class TWCharacter: SKShapeNode {
     
-    override init(){
+    init(position: CGPoint){
         super.init()
         
+        // position
+        self.position = position
+        
         // form
-        let diameter = 50
-        self.path = CGPath.init(ellipseIn: CGRect(origin: CGPoint.zero, size: CGSize(width: diameter, height: diameter)), transform: nil)
+        let radius = 25
+        let diameter = 2*radius
+        self.path = CGPath.init(ellipseIn: CGRect(x: -radius, y: -radius, width: diameter, height: diameter), transform: nil)
         
         // color
         self.fillColor = UIColor.blue
+        
+        // physicsBody
+        self.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(diameter/2))
     }
     
     required init?(coder aDecoder: NSCoder) {

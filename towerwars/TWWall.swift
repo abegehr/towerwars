@@ -13,12 +13,18 @@ class TWWall: SKShapeNode {
     
     init(path: CGPath) {
         super.init()
+        
+        // path
         self.path = path
         
         // texture
         self.strokeColor = .black
         self.fillColor = .white
         self.fillTexture = self.texture
+        
+        // physics body
+        self.physicsBody = SKPhysicsBody(polygonFrom: path)
+        self.physicsBody?.isDynamic = false
     }
     
     var texture: SKTexture? {
