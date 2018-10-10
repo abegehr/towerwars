@@ -28,32 +28,64 @@ class TWGameScene: SKScene {
         self.createMap()
         
         // add character
-        self.addCharacter(position: CGPoint(x: 0, y: -300))
+        self.addCharacter(position: CGPoint(x: 0, y: -500))
+        
+        // add goal
+        let goal = SKShapeNode(circleOfRadius: 25)
+        goal.fillColor = .red
+        goal.position = CGPoint(x: 0, y: 500)
+        self.addChild(goal)
     }
     
     func createMap() {
         print("creating map!")
         
-        // add some walls
-        self.addWallSprite(position: CGPoint(x:0, y:0))
-        self.addWallSprite(position: CGPoint(x:100, y:100))
+        // add some boxes
+        //self.addBox(position: CGPoint(x:0, y:0))
+        //self.addBox(position: CGPoint(x:100, y:100))
         
-        // add some path walls
-        let path = CGMutablePath()
+        // add some walls
+        //left 1
+        var path = CGMutablePath()
         path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 500, y: 30))
+        path.addLine(to: CGPoint(x: 400, y: 30))
+        path.addLine(to: CGPoint(x: 60, y: 150))
+        path.addLine(to: CGPoint(x: 0, y: 120))
+        path.addLine(to: CGPoint(x: 0, y: 0))
+        self.addWall(path: path, position: CGPoint(x: -300, y: -300))
+        //left 2
+        path = CGMutablePath()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: 200, y: 70))
+        path.addLine(to: CGPoint(x: 200, y: 200))
         path.addLine(to: CGPoint(x: 60, y: 150))
         path.addLine(to: CGPoint(x: 0, y: 120))
         path.addLine(to: CGPoint(x: 0, y: 0))
         self.addWall(path: path, position: CGPoint(x: -300, y: 0))
+        //right 1
+        path = CGMutablePath()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: -450, y: 30))
+        path.addLine(to: CGPoint(x: -450, y: 100))
+        path.addLine(to: CGPoint(x: -60, y: 70))
+        path.addLine(to: CGPoint(x: -60, y: 300))
+        path.addLine(to: CGPoint(x: -550, y: 500))
+        path.addLine(to: CGPoint(x: -550, y: 530))
+        path.addLine(to: CGPoint(x: 0, y: 400))
+        path.addLine(to: CGPoint(x: 0, y: 0))
+        self.addWall(path: path, position: CGPoint(x: 350, y: -100))
+        //ellipsis
+        path = CGMutablePath()
+        path.addEllipse(in: CGRect(x: 0, y: 0, width: 100, height: 60))
+        self.addWall(path: path, position: CGPoint(x: 0, y: 0))
     }
     
-    // adds wall sprite at position
-    func addWallSprite(position: CGPoint) {
-        let newWall = SKSpriteNode(imageNamed: "Wall")
-        newWall.position = position
-        self.addChild(newWall)
-        self.map_nodes.append(newWall)
+    // adds box sprite at position
+    func addBox(position: CGPoint) {
+        let newBox = SKSpriteNode(imageNamed: "Box")
+        newBox.position = position
+        self.addChild(newBox)
+        self.map_nodes.append(newBox)
     }
     
     // adds wall at with path at position
