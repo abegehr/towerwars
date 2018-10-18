@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A04BE0321613C8200B8D3AA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE0221613C8200B8D3AA /* GameScene.swift */; };
-		3A04BE0521613EDB00B8D3AA /* TWCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE0421613EDB00B8D3AA /* TWCharacter.swift */; };
-		3A04BE072161416800B8D3AA /* TWWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE062161416800B8D3AA /* TWWall.swift */; };
+		3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE0421613EDB00B8D3AA /* TWCreep.swift */; };
+		3A04BE072161416800B8D3AA /* TWWallPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE062161416800B8D3AA /* TWWallPolygon.swift */; };
 		3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */; };
 		3A3A8DA7215E1AB400E07741 /* TWGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA6215E1AB400E07741 /* TWGameScene.sks */; };
 		3A3A8DA9215E1AB400E07741 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA8215E1AB400E07741 /* Actions.sks */; };
@@ -20,6 +20,9 @@
 		3A3A8DB5215E1AB800E07741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DB3215E1AB800E07741 /* LaunchScreen.storyboard */; };
 		3A3A8DC0215E1AB800E07741 /* towerwarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DBF215E1AB800E07741 /* towerwarsTests.swift */; };
 		3A3A8DCB215E1AB800E07741 /* towerwarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DCA215E1AB800E07741 /* towerwarsUITests.swift */; };
+		3A8CF0F221775A9600EA69C3 /* TWCreepAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F121775A9600EA69C3 /* TWCreepAgent.swift */; };
+		3A8CF0F42178818500EA69C3 /* TWCreepBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F32178818500EA69C3 /* TWCreepBehavior.swift */; };
+		3A8CF0F62178A71700EA69C3 /* TWWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F52178A71700EA69C3 /* TWWall.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +44,8 @@
 
 /* Begin PBXFileReference section */
 		3A04BE0221613C8200B8D3AA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		3A04BE0421613EDB00B8D3AA /* TWCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCharacter.swift; sourceTree = "<group>"; };
-		3A04BE062161416800B8D3AA /* TWWall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWall.swift; sourceTree = "<group>"; };
+		3A04BE0421613EDB00B8D3AA /* TWCreep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCreep.swift; sourceTree = "<group>"; };
+		3A04BE062161416800B8D3AA /* TWWallPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWallPolygon.swift; sourceTree = "<group>"; };
 		3A3A8DA1215E1AB400E07741 /* towerwars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = towerwars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A3A8DA6215E1AB400E07741 /* TWGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TWGameScene.sks; sourceTree = "<group>"; };
@@ -59,6 +62,9 @@
 		3A3A8DC6215E1AB800E07741 /* towerwarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = towerwarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3A8DCA215E1AB800E07741 /* towerwarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = towerwarsUITests.swift; sourceTree = "<group>"; };
 		3A3A8DCC215E1AB800E07741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A8CF0F121775A9600EA69C3 /* TWCreepAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWCreepAgent.swift; sourceTree = "<group>"; };
+		3A8CF0F32178818500EA69C3 /* TWCreepBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCreepBehavior.swift; sourceTree = "<group>"; };
+		3A8CF0F52178A71700EA69C3 /* TWWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWWall.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +118,12 @@
 				3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */,
 				3A3A8DA6215E1AB400E07741 /* TWGameScene.sks */,
 				3A3A8DA8215E1AB400E07741 /* Actions.sks */,
-				3A04BE0421613EDB00B8D3AA /* TWCharacter.swift */,
-				3A04BE062161416800B8D3AA /* TWWall.swift */,
+				3A04BE0421613EDB00B8D3AA /* TWCreep.swift */,
+				3A8CF0F121775A9600EA69C3 /* TWCreepAgent.swift */,
+				3A8CF0F32178818500EA69C3 /* TWCreepBehavior.swift */,
+				3A04BE062161416800B8D3AA /* TWWallPolygon.swift */,
 				3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */,
+				3A8CF0F52178A71700EA69C3 /* TWWall.swift */,
 				3A04BE0221613C8200B8D3AA /* GameScene.swift */,
 				3A3A8DAC215E1AB400E07741 /* GameViewController.swift */,
 				3A3A8DAE215E1AB400E07741 /* Main.storyboard */,
@@ -278,9 +287,12 @@
 			files = (
 				3A3A8DAB215E1AB400E07741 /* TWGameScene.swift in Sources */,
 				3A04BE0321613C8200B8D3AA /* GameScene.swift in Sources */,
-				3A04BE0521613EDB00B8D3AA /* TWCharacter.swift in Sources */,
+				3A8CF0F42178818500EA69C3 /* TWCreepBehavior.swift in Sources */,
+				3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */,
+				3A8CF0F62178A71700EA69C3 /* TWWall.swift in Sources */,
 				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
-				3A04BE072161416800B8D3AA /* TWWall.swift in Sources */,
+				3A8CF0F221775A9600EA69C3 /* TWCreepAgent.swift in Sources */,
+				3A04BE072161416800B8D3AA /* TWWallPolygon.swift in Sources */,
 				3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,7 +41,8 @@ class TWGameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     
     private var map_nodes = [SKNode]()
-    private var characters = [TWCharacter]()
+    private var creeps = [TWCreep]()
+    private var creep_path: GKPath = GKPath()
     
     override func sceneDidLoad() {
         
@@ -54,8 +55,8 @@ class TWGameScene: SKScene {
         // create a demo map
         self.createMap()
         
-        // add character
-        self.addCharacter(position: CGPoint(x: 0, y: -500))
+        // add creep
+        self.addCreep(position: CGPoint(x: 0, y: -500))
         
         // create obstacle graph
         let obstacles = SKNode.obstacles(fromNodePhysicsBodies: self.map_nodes)
@@ -67,19 +68,27 @@ class TWGameScene: SKScene {
         obstacle_graph.connectUsingObstacles(node: goal_graphnode)
         
         // find path
-        let traversal = obstacle_graph.findPath(from: spawn_graphnode, to: goal_graphnode) as! [GKGraphNode2D]
-        print("traversal: ", traversal)
-        let traversal_path = pathFromArrayOfGKGraphNode2D(array: traversal)
-        print("traversal_path: ", traversal_path)
-        // send character through path
-        let action = SKAction.follow(traversal_path, speed: 100)
+        let traversal_nodes = obstacle_graph.findPath(from: spawn_graphnode, to: goal_graphnode) as! [GKGraphNode2D]
+        print("traversal_nodes: ", traversal_nodes)
+        
+        // 1. send creeps through path using SKAction
+        /*let traversal_cgpath = pathFromArrayOfGKGraphNode2D(array: traversal_nodes)
+        print("traversal_cgpath: ", traversal_path)
+         
+        let action = SKAction.follow(traversal_cgpath, speed: 100)
         let moveTo_spawn = SKAction.move(to: CGPoint(x: 0, y: -500), duration: 1)
         let moveTo_goal = SKAction.move(to: CGPoint(x: 0, y: 500), duration: 1)
         let action_repeated = SKAction.repeatForever(SKAction.sequence([moveTo_spawn, action, moveTo_goal, action.reversed()]))
         print("action_repeated: ", action_repeated)
-        self.characters.forEach { character in
-            character.run(action_repeated)
-        }
+         
+        self.creeps.forEach { creep in
+            creep.run(action_repeated)
+        }*/
+        
+        // 2. send creeps through path using GameplayKit Agents, Behaviors, and Goals
+        let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 10)
+        print("traversal_path: ", traversal_path)
+        self.creep_path = traversal_path
     }
     
     func createMap() {
@@ -90,9 +99,10 @@ class TWGameScene: SKScene {
         //self.addBox(position: CGPoint(x:100, y:100))
         
         // walls
-        var path = CGMutablePath()
+        //var path = CGMutablePath()
         
         // add border walls
+        /*
         //left
         path = CGMutablePath()
         path.move(to: CGPoint(x: -300, y: -700))
@@ -125,8 +135,10 @@ class TWGameScene: SKScene {
         path.addLine(to: CGPoint(x: -400, y: -700))
         path.addLine(to: CGPoint(x: 400, y: -700))
         self.addWall(path: path)
+        */
         
-        // add some game walls
+        // add some game wall polygons
+        /*
         //left 1
         path = CGMutablePath()
         path.move(to: CGPoint(x: -300, y: -300))
@@ -158,28 +170,51 @@ class TWGameScene: SKScene {
         path.addLine(to: CGPoint(x: 350, y: 300))*/
         path.addLine(to: CGPoint(x: 300, y: -100))
         self.addWall(path: path)
+        */
+        
+        // add some game walls
+        // left 1
+        self.addWall(position: CGPoint(x: 0, y: -200))
+        self.addWall(position: CGPoint(x: -50, y: -200))
+        self.addWall(position: CGPoint(x: -100, y: -200))
+        self.addWall(position: CGPoint(x: -150, y: -200))
+        self.addWall(position: CGPoint(x: -200, y: -200))
+        self.addWall(position: CGPoint(x: -250, y: -200))
+        // left 2
+        self.addWall(position: CGPoint(x: 0, y: 200))
+        self.addWall(position: CGPoint(x: -50, y: 200))
+        self.addWall(position: CGPoint(x: -100, y: 200))
+        self.addWall(position: CGPoint(x: -150, y: 200))
+        self.addWall(position: CGPoint(x: -200, y: 200))
+        self.addWall(position: CGPoint(x: -250, y: 200))
+        // right 1
+        self.addWall(position: CGPoint(x: 0, y: 0))
+        self.addWall(position: CGPoint(x: 50, y: 0))
+        self.addWall(position: CGPoint(x: 100, y: 0))
+        self.addWall(position: CGPoint(x: 150, y: 0))
+        self.addWall(position: CGPoint(x: 200, y: 0))
+        self.addWall(position: CGPoint(x: 250, y: 0))
     }
     
-    // adds box sprite at position
-    func addBox(position: CGPoint) {
-        let newBox = SKSpriteNode(imageNamed: "Box")
-        newBox.position = position
-        self.addChild(newBox)
-        self.map_nodes.append(newBox)
-    }
-    
-    // adds wall at with path at position
-    func addWall(path: CGPath) {
-        let newWall = TWWall(path: path)
+    // adds wall at position
+    func addWall(position: CGPoint) {
+        let newWall = TWWall(position: position)
         self.addChild(newWall)
         self.map_nodes.append(newWall)
     }
     
-    // adds character at position
-    func addCharacter(position: CGPoint) {
-        let newCharacter = TWCharacter(position: position)
-        self.addChild(newCharacter)
-        self.characters.append(newCharacter)
+    // adds wall polygon at with path at position
+    func addWallPolygon(path: CGPath) {
+        let newWallPolygon = TWWallPolygon(path: path)
+        self.addChild(newWallPolygon)
+        self.map_nodes.append(newWallPolygon)
+    }
+    
+    // adds creep at position
+    func addCreep(position: CGPoint) {
+        let newCreep = TWCreep(position: position, path: self.creep_path)
+        self.addChild(newCreep.node.node) //TODO: this can't be the best way to to it!?
+        self.creeps.append(newCreep)
     }
     
     override func update(_ currentTime: TimeInterval) {

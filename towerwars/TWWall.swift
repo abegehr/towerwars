@@ -2,51 +2,25 @@
 //  TWWall.swift
 //  towerwars
 //
-//  Created by Anton Begehr on 30.09.18.
+//  Created by Anton Begehr on 18.10.18.
 //  Copyright © 2018 Anton Begehr. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class TWWall: SKShapeNode {
+class TWWall: SKSpriteNode {
     
-    init(path: CGPath) {
-        super.init()
+    init(position: CGPoint) {
+        let texture = SKTexture(imageNamed: "Wall")
+        super.init(texture: texture, color: .clear, size: texture.size())
         
-        // path
-        self.path = path
-        
-        // texture
-        self.strokeColor = .black
-        self.fillColor = .white
-        self.fillTexture = self.texture
+        // position
+        self.position = position
         
         // physics body
-        self.physicsBody = SKPhysicsBody(polygonFrom: path)
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
         self.physicsBody?.isDynamic = false
-    }
-    
-    var texture: SKTexture? {
-        var texture: SKTexture?
-        
-        if let image = UIImage(named: "WallTile") {
-            
-            UIGraphicsBeginImageContext(self.frame.size)
-            let context = UIGraphicsGetCurrentContext()
-            
-            if let cgImage = image.cgImage {
-                context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height), byTiling: true)
-                
-                if let tiledImage = UIGraphicsGetImageFromCurrentImageContext() {
-                    texture = SKTexture(image: tiledImage)
-                }
-            }
-            
-            UIGraphicsEndImageContext()
-        }
-        
-        return texture
     }
     
     required init?(coder aDecoder: NSCoder) {
