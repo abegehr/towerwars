@@ -22,7 +22,7 @@ class TWCreep: GKEntity {
         return agent
     }
     
-    init(position: CGPoint, path: GKPath){
+    init(position: CGPoint, path: GKPath) {
         super.init()
         
         // node

@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-func -(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+/*func -(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
     return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
 }
 
@@ -31,7 +31,7 @@ func pathFromArrayOfGKGraphNode2D(array: [GKGraphNode2D]) -> CGPath {
     }
     
     return path
-}
+}*/
 
 class TWGameScene: SKScene {
     
@@ -42,7 +42,6 @@ class TWGameScene: SKScene {
     
     private var map_nodes = [SKNode]()
     private var creeps = [TWCreep]()
-    private var creep_path: GKPath = GKPath()
     
     override func sceneDidLoad() {
         
@@ -54,9 +53,6 @@ class TWGameScene: SKScene {
         
         // create a demo map
         self.createMap()
-        
-        // add creep
-        self.addCreep(position: CGPoint(x: 0, y: -500))
         
         // create obstacle graph
         let obstacles = SKNode.obstacles(fromNodePhysicsBodies: self.map_nodes)
@@ -70,6 +66,14 @@ class TWGameScene: SKScene {
         // find path
         let traversal_nodes = obstacle_graph.findPath(from: spawn_graphnode, to: goal_graphnode) as! [GKGraphNode2D]
         print("traversal_nodes: ", traversal_nodes)
+        
+        // visulalize traversal_nodes
+        for traversal_node in traversal_nodes {
+            let node = SKShapeNode(circleOfRadius: 5)
+            node.position = CGPoint(x: CGFloat(traversal_node.position.x), y: CGFloat(traversal_node.position.y))
+            node.fillColor = .red
+            self.addChild(node)
+        }
         
         // 1. send creeps through path using SKAction
         /*let traversal_cgpath = pathFromArrayOfGKGraphNode2D(array: traversal_nodes)
@@ -88,7 +92,9 @@ class TWGameScene: SKScene {
         // 2. send creeps through path using GameplayKit Agents, Behaviors, and Goals
         let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 10)
         print("traversal_path: ", traversal_path)
-        self.creep_path = traversal_path
+        
+        // add creep
+        self.addCreep(position: CGPoint(x: 0, y: -500), path: traversal_path)
     }
     
     func createMap() {
@@ -194,6 +200,8 @@ class TWGameScene: SKScene {
         self.addWall(position: CGPoint(x: 150, y: 0))
         self.addWall(position: CGPoint(x: 200, y: 0))
         self.addWall(position: CGPoint(x: 250, y: 0))
+        // top 1
+        self.addWall(position: CGPoint(x: 50, y: 350))
     }
     
     // adds wall at position
@@ -211,9 +219,10 @@ class TWGameScene: SKScene {
     }
     
     // adds creep at position
-    func addCreep(position: CGPoint) {
-        let newCreep = TWCreep(position: position, path: self.creep_path)
+    func addCreep(position: CGPoint, path: GKPath) {
+        let newCreep = TWCreep(position: position, path: path)
         self.addChild(newCreep.node.node) //TODO: this can't be the best way to to it!?
+        //TODO: how to add entities to scene?
         self.creeps.append(newCreep)
     }
     

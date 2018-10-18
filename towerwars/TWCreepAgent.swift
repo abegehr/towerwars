@@ -44,8 +44,8 @@ class TWCreepAgent: GKAgent2D, GKAgentDelegate {
     }
     
     func agentDidUpdate(_ agent: GKAgent) {
-        print("agentDidUpdate - entity: ", entity!)
         print("agentDidUpdate")
+        print("agentDidUpdate - entity: ", entity!)
         
         guard let creep = entity?.component(ofType: TWCreepNodeComponent.self) else {
             return
