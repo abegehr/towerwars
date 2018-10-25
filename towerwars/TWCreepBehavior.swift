@@ -16,9 +16,19 @@ class TWCreepBehavior: GKBehavior {
         if (targetSpeed > 0) {
             print("TWCreepBehavior - setting goals")
             
+            print("should follow path: ", path)
+            print("     path.numPoints: ", path.numPoints)
+            print("     path.float2(at: 0): ", path.float2(at: 0))
+            print("     path.isCyclical: ", path.isCyclical)
+            print("     path.radius: ", path.radius)
+            
             setWeight(1.0, for: GKGoal(toReachTargetSpeed: targetSpeed))
-            setWeight(1.0, for: GKGoal(toStayOn: path, maxPredictionTime: 1.0))
-            setWeight(1.0, for: GKGoal(toFollow: path, maxPredictionTime: 1.0, forward: true))
+            //setWeight(1.0, for: GKGoal(toStayOn: path, maxPredictionTime: 1.0))
+            //setWeight(1.0, for: GKGoal(toFollow: path, maxPredictionTime: 1.0, forward: true))
+            
+            let to_seek = GKAgent2D()
+            to_seek.position = float2(0, 0)
+            setWeight(1.0, for: GKGoal(toSeekAgent: to_seek))
         }
     }
 }

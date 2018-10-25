@@ -90,8 +90,12 @@ class TWGameScene: SKScene {
         }*/
         
         // 2. send creeps through path using GameplayKit Agents, Behaviors, and Goals
-        let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 10)
+        //let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 10)
+        let traversal_path = GKPath(points: [float2(0, 0), float2(000, 300)], radius: 10, cyclical: true)
         print("traversal_path: ", traversal_path)
+        
+        // use a different path for testing
+        
         
         // add creep
         self.addCreep(position: CGPoint(x: 0, y: -500), path: traversal_path)
@@ -221,7 +225,7 @@ class TWGameScene: SKScene {
     // adds creep at position
     func addCreep(position: CGPoint, path: GKPath) {
         let newCreep = TWCreep(position: position, path: path)
-        self.addChild(newCreep.node.node) //TODO: this can't be the best way to to it!?
+        self.addEntity(newCreep)
         //TODO: how to add entities to scene?
         self.creeps.append(newCreep)
     }

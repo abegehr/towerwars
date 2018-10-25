@@ -34,7 +34,7 @@ class TWCreepAgent: GKAgent2D, GKAgentDelegate {
         print("agentWillUpdate")
         print("agentWillUpdate - entity: ", entity!)
         
-        guard let creep = entity?.component(ofType: TWCreepNodeComponent.self) else {
+        guard let creep = entity?.component(ofType: GKSKNodeComponent.self) else {
             return
         }
         
@@ -47,7 +47,7 @@ class TWCreepAgent: GKAgent2D, GKAgentDelegate {
         print("agentDidUpdate")
         print("agentDidUpdate - entity: ", entity!)
         
-        guard let creep = entity?.component(ofType: TWCreepNodeComponent.self) else {
+        guard let creep = entity?.component(ofType: GKSKNodeComponent.self) else {
             return
         }
         
@@ -57,9 +57,9 @@ class TWCreepAgent: GKAgent2D, GKAgentDelegate {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
-        super.update(deltaTime: seconds)
-        
         print("agent update - self: ", self)
+        
+        super.update(deltaTime: seconds)
         
         guard let entity = entity else {
             return
