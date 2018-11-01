@@ -225,7 +225,7 @@ class TWGameScene: SKScene {
     // adds creep at position
     func addCreep(position: CGPoint, path: GKPath) {
         let newCreep = TWCreep(position: position, path: path)
-        self.addEntity(newCreep)
+        self.addChild(newCreep.nodeComponent.node)
         //TODO: how to add entities to scene?
         self.creeps.append(newCreep)
     }
