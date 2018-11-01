@@ -9,7 +9,7 @@
 import Foundation
 import GameplayKit
 
-class TWCreepAgent: GKAgent2D, GKAgentDelegate {
+class TWPathMoveComponent: GKAgent2D, GKAgentDelegate {
     
     init(maxSpeed: Float, maxAcceleration: Float, radius: Float, path: GKPath) {
         super.init()
@@ -22,8 +22,8 @@ class TWCreepAgent: GKAgent2D, GKAgentDelegate {
         self.mass = 0.01
         
         // behavior
-        behavior = TWCreepBehavior(targetSpeed: maxSpeed, path: path)
-        print("TWCreepAgent - behavior: ", behavior!)
+        behavior = TWPathMoveBehavior(targetSpeed: maxSpeed, path: path)
+        print("TWPathMoveComponent - behavior: ", behavior!)
     }
     
     required init?(coder aDecoder: NSCoder) {

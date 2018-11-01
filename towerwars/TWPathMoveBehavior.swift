@@ -9,7 +9,7 @@
 import Foundation
 import GameplayKit
 
-class TWCreepBehavior: GKBehavior {
+class TWPathMoveBehavior: GKBehavior {
     init(targetSpeed: Float, path: GKPath) {
         super.init()
         
@@ -23,12 +23,8 @@ class TWCreepBehavior: GKBehavior {
             print("     path.radius: ", path.radius)
             
             setWeight(1.0, for: GKGoal(toReachTargetSpeed: targetSpeed))
-            //setWeight(1.0, for: GKGoal(toStayOn: path, maxPredictionTime: 1.0))
-            //setWeight(1.0, for: GKGoal(toFollow: path, maxPredictionTime: 1.0, forward: true))
-            
-            let to_seek = GKAgent2D()
-            to_seek.position = float2(0, 0)
-            setWeight(1.0, for: GKGoal(toSeekAgent: to_seek))
+            setWeight(1.0, for: GKGoal(toStayOn: path, maxPredictionTime: 1.0))
+            setWeight(1.0, for: GKGoal(toFollow: path, maxPredictionTime: 1.0, forward: true))
         }
     }
 }

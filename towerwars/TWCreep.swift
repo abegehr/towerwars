@@ -17,15 +17,15 @@ class TWCreep: GKEntity {
         return nodeComponent
     }
     
-    var agent: TWCreepAgent {
-        guard let agent = component(ofType: TWCreepAgent.self) else { fatalError("A Creep entity must have a GKAgent2D component.") }
-        return agent
+    var pathMoveComponent: TWPathMoveComponent {
+        guard let pathMoveComponent = component(ofType: TWPathMoveComponent.self) else { fatalError("A Creep entity must have a pathMoveComponent.") }
+        return pathMoveComponent
     }
     
     init(position: CGPoint, path: GKPath) {
         super.init()
         
-        // node
+        // nodeComponent
         let radius = Float(25)
         let node = SKShapeNode(circleOfRadius: CGFloat(radius))
         node.position = position
@@ -34,10 +34,9 @@ class TWCreep: GKEntity {
         let nodeComponent = GKSKNodeComponent(node: node)
         addComponent(nodeComponent)
         
-        // agent
-        let agent = TWCreepAgent(maxSpeed: 150, maxAcceleration: 5, radius: Float(radius), path: path)
-        print()
-        addComponent(agent)
+        // pathMoveComponent
+        let pathMoveComponent = TWPathMoveComponent(maxSpeed: 150, maxAcceleration: 5, radius: Float(radius), path: path)
+        addComponent(pathMoveComponent)
     }
     
     required init?(coder aDecoder: NSCoder) {
