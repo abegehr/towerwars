@@ -85,7 +85,7 @@ class TWGameScene: SKScene {
         }
         
         // cyclical traversal points
-        let cyclical_traversal_points = traversal_points + traversal_points.reversed()
+        //let cyclical_traversal_points = traversal_points + traversal_points.reversed()
         
         // 1. send creeps through path using SKAction
         /*let traversal_cgpath = pathFromArrayOfGKGraphNode2D(array: traversal_nodes)
@@ -102,11 +102,8 @@ class TWGameScene: SKScene {
         }*/
         
         // 2. send creeps through path using GameplayKit Agents, Behaviors, and Goals
-        let traversal_path = GKPath(points: cyclical_traversal_points, radius: 10, cyclical: true)
+        let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 20)
         print("traversal_path: ", traversal_path)
-        
-        // use a different path for testing
-        
         
         // add creep
         self.addCreep(position: CGPoint(x: 0, y: -500), path: traversal_path)
