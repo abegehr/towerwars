@@ -15,8 +15,8 @@ class TWPathMoveBehavior: GKBehavior {
         
         if (targetSpeed > 0) {
             setWeight(1.0, for: GKGoal(toReachTargetSpeed: targetSpeed))
-            setWeight(1.0, for: GKGoal(toStayOn: path, maxPredictionTime: 1.0))
-            setWeight(1.0, for: GKGoal(toFollow: path, maxPredictionTime: 1.0, forward: true))
+            setWeight(1.0, for: GKGoal(toStayOn: path, maxPredictionTime: 0.6))
+            setWeight(1.0, for: GKGoal(toFollow: path, maxPredictionTime: 0.6, forward: true))
         }
     }
 }
