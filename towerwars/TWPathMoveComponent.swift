@@ -18,7 +18,6 @@ class TWPathMoveComponent: GKAgent2D, GKAgentDelegate {
         self.maxSpeed = maxSpeed
         self.maxAcceleration = maxAcceleration
         self.radius = radius
-        print(self.mass)
         self.mass = 0.01
         
         // behavior
