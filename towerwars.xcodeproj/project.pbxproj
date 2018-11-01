@@ -136,13 +136,13 @@
 		3A3A8DA3215E1AB400E07741 /* towerwars */ = {
 			isa = PBXGroup;
 			children = (
+				3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */,
 				3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */,
 				3A0D2A26218B43E100D3F112 /* Entities */,
 				3A0D2A24218B43CF00D3F112 /* Components */,
 				3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */,
 				3A3A8DA6215E1AB400E07741 /* TWGameScene.sks */,
 				3A3A8DA8215E1AB400E07741 /* Actions.sks */,
-				3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */,
 				3A04BE0221613C8200B8D3AA /* GameScene.swift */,
 				3A3A8DAC215E1AB400E07741 /* GameViewController.swift */,
 				3A3A8DAE215E1AB400E07741 /* Main.storyboard */,

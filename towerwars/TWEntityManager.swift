@@ -49,9 +49,9 @@ class TWEntityManager {
     toRemove.insert(entity)
   }
 
-  func update(_ deltaTime: CFTimeInterval) {
+  func update(_ dt: CFTimeInterval) {
     for componentSystem in componentSystems {
-      componentSystem.update(deltaTime: deltaTime)
+      componentSystem.update(deltaTime: dt)
     }
 
     for currentRemove in toRemove {

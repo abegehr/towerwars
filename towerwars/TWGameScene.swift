@@ -40,8 +40,11 @@ class TWGameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     
+    // map nodes
     private var map_nodes = [SKNode]()
-    private var creeps = [TWCreep]()
+    
+    // entity manager
+    var entityManager: TWEntityManager!
     
     override func sceneDidLoad() {
         
@@ -50,6 +53,9 @@ class TWGameScene: SKScene {
         
         // physics settings
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        
+        // entity manager
+        entityManager = TWEntityManager(scene: self)
         
         // create a demo map
         self.createMap()
@@ -63,17 +69,23 @@ class TWGameScene: SKScene {
         obstacle_graph.connectUsingObstacles(node: spawn_graphnode)
         obstacle_graph.connectUsingObstacles(node: goal_graphnode)
         
-        // find path
+        // find path nodes
         let traversal_nodes = obstacle_graph.findPath(from: spawn_graphnode, to: goal_graphnode) as! [GKGraphNode2D]
         print("traversal_nodes: ", traversal_nodes)
         
+        // path nodes to points
+        let traversal_points = traversal_nodes.map { $0.position }
+        
         // visulalize traversal_nodes
-        for traversal_node in traversal_nodes {
+        for traversal_point in traversal_points {
             let node = SKShapeNode(circleOfRadius: 5)
-            node.position = CGPoint(x: CGFloat(traversal_node.position.x), y: CGFloat(traversal_node.position.y))
+            node.position = CGPoint(x: CGFloat(traversal_point.x), y: CGFloat(traversal_point.y))
             node.fillColor = .red
             self.addChild(node)
         }
+        
+        // cyclical traversal points
+        let cyclical_traversal_points = traversal_points + traversal_points.reversed()
         
         // 1. send creeps through path using SKAction
         /*let traversal_cgpath = pathFromArrayOfGKGraphNode2D(array: traversal_nodes)
@@ -90,8 +102,7 @@ class TWGameScene: SKScene {
         }*/
         
         // 2. send creeps through path using GameplayKit Agents, Behaviors, and Goals
-        //let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 10)
-        let traversal_path = GKPath(points: [float2(0, 0), float2(000, 300)], radius: 10, cyclical: true)
+        let traversal_path = GKPath(points: cyclical_traversal_points, radius: 10, cyclical: true)
         print("traversal_path: ", traversal_path)
         
         // use a different path for testing
@@ -112,15 +123,14 @@ class TWGameScene: SKScene {
         //var path = CGMutablePath()
         
         // add border walls
-        /*
         //left
-        path = CGMutablePath()
+        var path = CGMutablePath()
         path.move(to: CGPoint(x: -300, y: -700))
         path.addLine(to: CGPoint(x: -300, y: 700))
         path.addLine(to: CGPoint(x: -600, y: 700))
         path.addLine(to: CGPoint(x: -600, y: -700))
         path.addLine(to: CGPoint(x: -300, y: -700))
-        self.addWall(path: path)
+        self.addWallPolygon(path: path)
         //right
         path = CGMutablePath()
         path.move(to: CGPoint(x: 300, y: -700))
@@ -128,7 +138,7 @@ class TWGameScene: SKScene {
         path.addLine(to: CGPoint(x: 600, y: 700))
         path.addLine(to: CGPoint(x: 600, y: -700))
         path.addLine(to: CGPoint(x: 300, y: -700))
-        self.addWall(path: path)
+        self.addWallPolygon(path: path)
         //top
         path = CGMutablePath()
         path.move(to: CGPoint(x: 400, y: 700))
@@ -136,7 +146,7 @@ class TWGameScene: SKScene {
         path.addLine(to: CGPoint(x: -400, y: 1000))
         path.addLine(to: CGPoint(x: -400, y: 700))
         path.addLine(to: CGPoint(x: 400, y: 700))
-        self.addWall(path: path)
+        self.addWallPolygon(path: path)
         //bottom
         path = CGMutablePath()
         path.move(to: CGPoint(x: 400, y: -700))
@@ -144,8 +154,7 @@ class TWGameScene: SKScene {
         path.addLine(to: CGPoint(x: -400, y: -1000))
         path.addLine(to: CGPoint(x: -400, y: -700))
         path.addLine(to: CGPoint(x: 400, y: -700))
-        self.addWall(path: path)
-        */
+        self.addWallPolygon(path: path)
         
         // add some game wall polygons
         /*
@@ -225,9 +234,7 @@ class TWGameScene: SKScene {
     // adds creep at position
     func addCreep(position: CGPoint, path: GKPath) {
         let newCreep = TWCreep(position: position, path: path)
-        self.addChild(newCreep.nodeComponent.node)
-        //TODO: how to add entities to scene?
-        self.creeps.append(newCreep)
+        entityManager.add(newCreep)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -241,11 +248,9 @@ class TWGameScene: SKScene {
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
         
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
-        
         self.lastUpdateTime = currentTime
+        
+        // update entity manager
+        entityManager.update(dt)
     }
 }

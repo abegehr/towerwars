@@ -19,8 +19,8 @@ class TWWall: SKSpriteNode {
         self.position = position
         
         // physics body
-        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
-        self.physicsBody?.isDynamic = false
+        self.physicsBody = SKPhysicsBody(rectangleOf: self.frame.size)
+        self.physicsBody!.isDynamic = false
     }
     
     required init?(coder aDecoder: NSCoder) {
