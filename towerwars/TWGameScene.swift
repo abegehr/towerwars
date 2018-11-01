@@ -42,6 +42,8 @@ class TWGameScene: SKScene {
     
     // map nodes
     private var map_nodes = [SKNode]()
+    // creep path
+    private var creep_path = GKPath()
     
     // entity manager
     var entityManager: TWEntityManager!
@@ -57,6 +59,10 @@ class TWGameScene: SKScene {
         // entity manager
         entityManager = TWEntityManager(scene: self)
         
+        // casltes
+        entityManager.add(TWCastle(color: .green, position: CGPoint(x: 0, y: -600)))
+        entityManager.add(TWCastle(color: .red, position: CGPoint(x: 0, y: 600)))
+        
         // create a demo map
         self.createMap()
         
@@ -64,8 +70,8 @@ class TWGameScene: SKScene {
         let obstacles = SKNode.obstacles(fromNodePhysicsBodies: self.map_nodes)
         let obstacle_graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 30)
         // add spawn and goal
-        let spawn_graphnode = GKGraphNode2D(point: vector_float2(0, -500))
-        let goal_graphnode = GKGraphNode2D(point: vector_float2(0, 500))
+        let spawn_graphnode = GKGraphNode2D(point: vector_float2(0, -600))
+        let goal_graphnode = GKGraphNode2D(point: vector_float2(0, 600))
         obstacle_graph.connectUsingObstacles(node: spawn_graphnode)
         obstacle_graph.connectUsingObstacles(node: goal_graphnode)
         
@@ -104,9 +110,7 @@ class TWGameScene: SKScene {
         // 2. send creeps through path using GameplayKit Agents, Behaviors, and Goals
         let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 20)
         print("traversal_path: ", traversal_path)
-        
-        // add creep
-        self.addCreep(position: CGPoint(x: 0, y: -500), path: traversal_path)
+        self.creep_path = traversal_path
     }
     
     func createMap() {
@@ -250,4 +254,11 @@ class TWGameScene: SKScene {
         // update entity manager
         entityManager.update(dt)
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for _ in touches {
+            self.addCreep(position: CGPoint(x: 0, y: -600), path: self.creep_path)
+        }
+    }
+
 }
