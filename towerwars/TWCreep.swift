@@ -26,7 +26,7 @@ class TWCreep: GKEntity {
         super.init()
         
         // nodeComponent
-        let radius = Float(25)
+        let radius = Float(15)
         let node = SKShapeNode(circleOfRadius: CGFloat(radius))
         node.position = position
         node.fillColor = .blue
