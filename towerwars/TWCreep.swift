@@ -35,7 +35,7 @@ class TWCreep: GKEntity {
         addComponent(nodeComponent)
         
         // pathMoveComponent
-        let pathMoveComponent = TWPathMoveComponent(maxSpeed: 150, maxAcceleration: 5, radius: Float(radius), path: path)
+        let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius), path: path)
         addComponent(pathMoveComponent)
     }
     
