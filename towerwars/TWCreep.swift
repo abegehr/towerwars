@@ -12,17 +12,22 @@ import GameplayKit
 
 class TWCreep: GKEntity {
     
-    var nodeComponent: GKSKNodeComponent {
-        guard let nodeComponent = component(ofType: GKSKNodeComponent.self) else { fatalError("A Creep entity must have a Node component.") }
+    var nodeComponent: TWSpriteComponent {
+        guard let nodeComponent = component(ofType: TWSpriteComponent.self) else { fatalError("A Creep entity must have a TWSpriteComponent.") }
         return nodeComponent
     }
     
     var pathMoveComponent: TWPathMoveComponent {
-        guard let pathMoveComponent = component(ofType: TWPathMoveComponent.self) else { fatalError("A Creep entity must have a pathMoveComponent.") }
+        guard let pathMoveComponent = component(ofType: TWPathMoveComponent.self) else { fatalError("A Creep entity must have a TWPathMoveComponent.") }
         return pathMoveComponent
     }
     
-    init(position: CGPoint, path: GKPath) {
+    var teamComponent: TWTeamComponent {
+        guard let teamComponent = component(ofType: TWTeamComponent.self) else { fatalError("A Creep entity must have a TWTeamComponent.") }
+        return teamComponent
+    }
+    
+    init(position: CGPoint, path: GKPath, team: Team) {
         super.init()
         
         // nodeComponent
@@ -31,12 +36,16 @@ class TWCreep: GKEntity {
         node.position = position
         node.fillColor = .blue
         node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
-        let nodeComponent = GKSKNodeComponent(node: node)
+        let nodeComponent = TWSpriteComponent(node: node)
         addComponent(nodeComponent)
         
         // pathMoveComponent
         let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius), path: path)
         addComponent(pathMoveComponent)
+        
+        // teamComponent
+        let teamComponent = TWTeamComponent(team: team)
+        addComponent(teamComponent)
     }
     
     required init?(coder aDecoder: NSCoder) {

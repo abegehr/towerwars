@@ -25,6 +25,9 @@
 		3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */; };
 		3A8CF0F42178818500EA69C3 /* TWPathMoveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */; };
 		3A8CF0F62178A71700EA69C3 /* TWWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F52178A71700EA69C3 /* TWWall.swift */; };
+		3AAD7624219B648600C44D29 /* TWCastleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7623219B648600C44D29 /* TWCastleComponent.swift */; };
+		3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */; };
+		3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPathMoveComponent.swift; sourceTree = "<group>"; };
 		3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWPathMoveBehavior.swift; sourceTree = "<group>"; };
 		3A8CF0F52178A71700EA69C3 /* TWWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWWall.swift; sourceTree = "<group>"; };
+		3AAD7623219B648600C44D29 /* TWCastleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCastleComponent.swift; sourceTree = "<group>"; };
+		3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWTeamComponent.swift; sourceTree = "<group>"; };
+		3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSpriteComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */,
+				3AAD7623219B648600C44D29 /* TWCastleComponent.swift */,
 				3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */,
+				3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */,
+				3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -307,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAD7624219B648600C44D29 /* TWCastleComponent.swift in Sources */,
 				3A0D2A28218B46D700D3F112 /* TWEntityManager.swift in Sources */,
 				3A3A8DAB215E1AB400E07741 /* TWGameScene.swift in Sources */,
 				3A04BE0321613C8200B8D3AA /* GameScene.swift in Sources */,
@@ -317,7 +327,9 @@
 				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
 				3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */,
 				3A04BE072161416800B8D3AA /* TWWallPolygon.swift in Sources */,
+				3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */,
 				3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */,
+				3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -60,8 +60,8 @@ class TWGameScene: SKScene {
         entityManager = TWEntityManager(scene: self)
         
         // casltes
-        entityManager.add(TWCastle(color: .green, position: CGPoint(x: 0, y: -600)))
-        entityManager.add(TWCastle(color: .red, position: CGPoint(x: 0, y: 600)))
+        entityManager.add(TWCastle(color: .green, position: CGPoint(x: 0, y: -600), team: .team1, entityManager: entityManager))
+        entityManager.add(TWCastle(color: .red, position: CGPoint(x: 0, y: 600), team: .team2, entityManager: entityManager))
         
         // create a demo map
         self.createMap()
@@ -233,8 +233,8 @@ class TWGameScene: SKScene {
     }
     
     // adds creep at position
-    func addCreep(position: CGPoint, path: GKPath) {
-        let newCreep = TWCreep(position: position, path: path)
+    func addCreep(position: CGPoint, path: GKPath, team: Team) {
+        let newCreep = TWCreep(position: position, path: path, team: team)
         entityManager.add(newCreep)
     }
     
@@ -257,7 +257,8 @@ class TWGameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            self.addCreep(position: CGPoint(x: 0, y: -600), path: self.creep_path)
+            // add a creep for each touch
+            self.addCreep(position: CGPoint(x: 0, y: -600), path: self.creep_path, team: .team1)
         }
     }
 
