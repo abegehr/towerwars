@@ -9,30 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-/*func -(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-    return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
-}
-
-func pointFromGKGraphNode2D(graphnode: GKGraphNode2D) -> CGPoint {
-    return CGPoint(x: CGFloat(graphnode.position.x), y: CGFloat(graphnode.position.y))
-}
-
-func pathFromArrayOfGKGraphNode2D(array: [GKGraphNode2D]) -> CGPath {
-    let path = CGMutablePath()
-    
-    if (array.count > 0) {
-        // go to start
-        let start = pointFromGKGraphNode2D(graphnode: array[0])
-        path.move(to: CGPoint(x: 0, y: 0))
-        // build path
-        array.dropFirst().forEach { graphnode in
-            path.addLine(to: pointFromGKGraphNode2D(graphnode: graphnode)-start)
-        }
-    }
-    
-    return path
-}*/
-
 class TWGameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
@@ -91,23 +67,7 @@ class TWGameScene: SKScene {
             node.fillColor = .red
             self.addChild(node)
         }
-        
-        // cyclical traversal points
-        //let cyclical_traversal_points = traversal_points + traversal_points.reversed()
-        
-        // 1. send creeps through path using SKAction
-        /*let traversal_cgpath = pathFromArrayOfGKGraphNode2D(array: traversal_nodes)
-        print("traversal_cgpath: ", traversal_path)
-         
-        let action = SKAction.follow(traversal_cgpath, speed: 100)
-        let moveTo_spawn = SKAction.move(to: CGPoint(x: 0, y: -500), duration: 1)
-        let moveTo_goal = SKAction.move(to: CGPoint(x: 0, y: 500), duration: 1)
-        let action_repeated = SKAction.repeatForever(SKAction.sequence([moveTo_spawn, action, moveTo_goal, action.reversed()]))
-        print("action_repeated: ", action_repeated)
-         
-        self.creeps.forEach { creep in
-            creep.run(action_repeated)
-        }*/
+
         
         // 2. send creeps through path using GameplayKit Agents, Behaviors, and Goals
         let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 20)
@@ -117,13 +77,6 @@ class TWGameScene: SKScene {
     
     func createMap() {
         print("creating map!")
-        
-        // add some boxes
-        //self.addBox(position: CGPoint(x:0, y:0))
-        //self.addBox(position: CGPoint(x:100, y:100))
-        
-        // walls
-        //var path = CGMutablePath()
         
         // add border walls
         //left
@@ -158,41 +111,6 @@ class TWGameScene: SKScene {
         path.addLine(to: CGPoint(x: -400, y: -700))
         path.addLine(to: CGPoint(x: 400, y: -700))
         self.addWallPolygon(path: path)
-        
-        // add some game wall polygons
-        /*
-        //left 1
-        path = CGMutablePath()
-        path.move(to: CGPoint(x: -300, y: -300))
-        path.addLine(to: CGPoint(x: 100, y: -270))
-        path.addLine(to: CGPoint(x: 100, y: -200))
-        path.addLine(to: CGPoint(x: -240, y: -150))
-        path.addLine(to: CGPoint(x: -300, y: -180))
-        path.addLine(to: CGPoint(x: -300, y: -300))
-        self.addWall(path: path)
-        //left 2
-        path = CGMutablePath()
-        path.move(to: CGPoint(x: -300, y: 100))
-        path.addLine(to: CGPoint(x: 100, y: 170))
-        path.addLine(to: CGPoint(x: 100, y: 200))
-        //path.addLine(to: CGPoint(x: -240, y: 150)) //concave
-        path.addLine(to: CGPoint(x: -240, y: 230)) //convex
-        path.addLine(to: CGPoint(x: -300, y: 220))
-        path.addLine(to: CGPoint(x: -300, y: 100))
-        self.addWall(path: path) // notice: pathfinding does not seem to work correctly with concave shapes
-        //right 1
-        path = CGMutablePath()
-        path.move(to: CGPoint(x: 300, y: -100))
-        path.addLine(to: CGPoint(x: -100, y: -70))
-        path.addLine(to: CGPoint(x: -100, y: 0))
-        path.addLine(to: CGPoint(x: 300, y: -30))
-        /*path.addLine(to: CGPoint(x: 290, y: 200))
-        path.addLine(to: CGPoint(x: 200, y: 400))
-        path.addLine(to: CGPoint(x: 200, y: 430))
-        path.addLine(to: CGPoint(x: 350, y: 300))*/
-        path.addLine(to: CGPoint(x: 300, y: -100))
-        self.addWall(path: path)
-        */
         
         // add some game walls
         // left 1
