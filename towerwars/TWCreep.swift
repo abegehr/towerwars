@@ -6,7 +6,6 @@
 //  Copyright © 2018 Anton Begehr. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 import GameplayKit
 
