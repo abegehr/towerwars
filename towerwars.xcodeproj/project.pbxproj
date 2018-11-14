@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A04BE0321613C8200B8D3AA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE0221613C8200B8D3AA /* GameScene.swift */; };
 		3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE0421613EDB00B8D3AA /* TWCreep.swift */; };
 		3A04BE072161416800B8D3AA /* TWWallPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE062161416800B8D3AA /* TWWallPolygon.swift */; };
 		3A0D2A28218B46D700D3F112 /* TWEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */; };
 		3A0D2A2A218B540600D3F112 /* TWCastle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D2A29218B540600D3F112 /* TWCastle.swift */; };
 		3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */; };
-		3A3A8DA7215E1AB400E07741 /* TWGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA6215E1AB400E07741 /* TWGameScene.sks */; };
-		3A3A8DA9215E1AB400E07741 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA8215E1AB400E07741 /* Actions.sks */; };
 		3A3A8DAB215E1AB400E07741 /* TWGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */; };
 		3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DAC215E1AB400E07741 /* GameViewController.swift */; };
 		3A3A8DB0215E1AB400E07741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DAE215E1AB400E07741 /* Main.storyboard */; };
@@ -49,15 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A04BE0221613C8200B8D3AA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3A04BE0421613EDB00B8D3AA /* TWCreep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCreep.swift; sourceTree = "<group>"; };
 		3A04BE062161416800B8D3AA /* TWWallPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWallPolygon.swift; sourceTree = "<group>"; };
 		3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWEntityManager.swift; sourceTree = "<group>"; };
 		3A0D2A29218B540600D3F112 /* TWCastle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCastle.swift; sourceTree = "<group>"; };
 		3A3A8DA1215E1AB400E07741 /* towerwars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = towerwars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A3A8DA6215E1AB400E07741 /* TWGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TWGameScene.sks; sourceTree = "<group>"; };
-		3A3A8DA8215E1AB400E07741 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWGameScene.swift; sourceTree = "<group>"; };
 		3A3A8DAC215E1AB400E07741 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3A3A8DAF215E1AB400E07741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,9 +150,6 @@
 				3A0D2A26218B43E100D3F112 /* Entities */,
 				3A0D2A24218B43CF00D3F112 /* Components */,
 				3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */,
-				3A3A8DA6215E1AB400E07741 /* TWGameScene.sks */,
-				3A3A8DA8215E1AB400E07741 /* Actions.sks */,
-				3A04BE0221613C8200B8D3AA /* GameScene.swift */,
 				3A3A8DAC215E1AB400E07741 /* GameViewController.swift */,
 				3A3A8DAE215E1AB400E07741 /* Main.storyboard */,
 				3A3A8DB1215E1AB800E07741 /* Assets.xcassets */,
@@ -291,10 +282,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3A8DB0215E1AB400E07741 /* Main.storyboard in Resources */,
-				3A3A8DA7215E1AB400E07741 /* TWGameScene.sks in Resources */,
 				3A3A8DB2215E1AB800E07741 /* Assets.xcassets in Resources */,
 				3A3A8DB5215E1AB800E07741 /* LaunchScreen.storyboard in Resources */,
-				3A3A8DA9215E1AB400E07741 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +311,6 @@
 				3AAD7624219B648600C44D29 /* TWCastleComponent.swift in Sources */,
 				3A0D2A28218B46D700D3F112 /* TWEntityManager.swift in Sources */,
 				3A3A8DAB215E1AB400E07741 /* TWGameScene.swift in Sources */,
-				3A04BE0321613C8200B8D3AA /* GameScene.swift in Sources */,
 				3A8CF0F42178818500EA69C3 /* TWPathMoveBehavior.swift in Sources */,
 				3A0D2A2A218B540600D3F112 /* TWCastle.swift in Sources */,
 				3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */,

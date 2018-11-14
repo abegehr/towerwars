@@ -35,9 +35,6 @@ func pathFromArrayOfGKGraphNode2D(array: [GKGraphNode2D]) -> CGPath {
 
 class TWGameScene: SKScene {
     
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
-    
     private var lastUpdateTime : TimeInterval = 0
     
     // map nodes
@@ -55,6 +52,8 @@ class TWGameScene: SKScene {
         
         // init
         self.lastUpdateTime = 0
+        self.size = CGSize(width: 750, height: 1334)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         // physics settings
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
