@@ -45,6 +45,9 @@ class TWGameScene: SKScene {
     // creep path
     private var creep_path = GKPath()
     
+    // Game over detection
+    var gameOver = false
+    
     // entity manager
     var entityManager: TWEntityManager!
     
@@ -238,6 +241,51 @@ class TWGameScene: SKScene {
         entityManager.add(newCreep)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (touches.first == nil) {
+            return
+        }
+        
+        if gameOver {
+            let newScene = TWGameScene(size: size)
+            newScene.scaleMode = scaleMode
+            view?.presentScene(newScene, transition: SKTransition.flipHorizontal(withDuration: 0.5))
+            return
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for _ in touches {
+            // add a creep for each touch
+            self.addCreep(position: CGPoint(x: 0, y: -600), path: self.creep_path, team: .team1)
+        }
+    }
+    
+    func showRestartMenu(_ won: Bool) {
+        
+        if gameOver {
+            return;
+        }
+        gameOver = true
+        
+        let message = won ? "You win" : "You lose"
+        
+        let label = SKLabelNode(fontNamed: "Courier-Bold")
+        label.fontSize = 100
+        label.fontColor = SKColor.black
+        label.position = CGPoint(x: 0, y: 0)
+        label.zPosition = 1
+        label.verticalAlignmentMode = .center
+        label.text = message
+        label.setScale(0)
+        addChild(label)
+        
+        let scaleAction = SKAction.scale(to: 1.0, duration: 0.5)
+        scaleAction.timingMode = SKActionTimingMode.easeInEaseOut
+        label.run(scaleAction)
+        
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
@@ -253,12 +301,19 @@ class TWGameScene: SKScene {
         
         // update entity manager
         entityManager.update(dt)
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            // add a creep for each touch
-            self.addCreep(position: CGPoint(x: 0, y: -600), path: self.creep_path, team: .team1)
+        
+        // Check for game over
+        if let castle1 = entityManager.castleForTeam(.team1),
+            let castle1HealthComponent = castle1.component(ofType: TWHealthComponent.self) {
+            if (castle1HealthComponent.health <= 0) {
+                showRestartMenu(false)
+            }
+        }
+        if let castle2 = entityManager.castleForTeam(.team2),
+            let castle2HealthComponent = castle2.component(ofType: TWHealthComponent.self) {
+            if (castle2HealthComponent.health <= 0) {
+                showRestartMenu(true)
+            }
         }
     }
 

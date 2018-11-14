@@ -42,11 +42,9 @@ class TWCastle: GKEntity {
         let castleComponent = TWCastleComponent(entityManager: entityManager)
         addComponent(castleComponent)
         
-        
-        
         // healthComponent
-        //let healthComponent = TWHealthComponent(entityManager: entityManager)
-        //addComponent(healthComponent)
+        let healthComponent = TWHealthComponent(parentNode: spriteComponent.node, barWidth: 100, barOffset: 0, health: 100, entityManager: entityManager)
+        addComponent(healthComponent)
     }
     
     required init?(coder aDecoder: NSCoder) {

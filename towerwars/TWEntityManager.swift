@@ -70,6 +70,18 @@ class TWEntityManager {
         }
     }
     
+    func castleForTeam(_ team: Team) -> GKEntity? {
+        for entity in entities {
+            if let teamComponent = entity.component(ofType: TWTeamComponent.self),
+                let _ = entity.component(ofType: TWCastleComponent.self) {
+                if teamComponent.team == team {
+                    return entity
+                }
+            }
+        }
+        return nil
+    }
+    
     func update(_ dt: CFTimeInterval) {
         for componentSystem in componentSystems {
             componentSystem.update(deltaTime: dt)

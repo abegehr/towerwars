@@ -44,9 +44,13 @@ class TWCastleComponent: GKComponent {
             
             // Check for intersection
             if (spriteComponent.node.calculateAccumulatedFrame().intersects(enemySpriteComponent.node.calculateAccumulatedFrame())) {
-                // remove creep if it's intersecting
+                // if enemyCreep reached castle
+                // remove enemyCreep
                 entityManager.remove(enemyCreep)
-                //TODO: decrease castle health
+                // decrease castle health
+                if let castleHealthComponent = entity?.component(ofType: TWHealthComponent.self) {
+                    castleHealthComponent.takeDamage(2) //TODO: determine damage by using a TWHitComponent
+                }
             }
         }
         
