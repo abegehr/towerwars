@@ -12,9 +12,9 @@ import GameplayKit
 
 class TWCastle: GKEntity {
     
-    var nodeComponent: GKSKNodeComponent {
-        guard let nodeComponent = component(ofType: GKSKNodeComponent.self) else { fatalError("A Castle entity must have a TWSpriteComponent.") }
-        return nodeComponent
+    var spriteComponent: TWSpriteComponent {
+        guard let spriteComponent = component(ofType: TWSpriteComponent.self) else { fatalError("A Castle entity must have a TWSpriteComponent.") }
+        return spriteComponent
     }
     
     var castleComponent: TWCastleComponent {
@@ -25,18 +25,24 @@ class TWCastle: GKEntity {
     init(color: UIColor, position: CGPoint, team: Team, entityManager: TWEntityManager) {
         super.init()
         
-        // nodeComponent
+        // spriteComponent
         let size = CGSize(width: 100, height: 100)
         let node = SKShapeNode(rectOf: size)
         node.position = position
         node.fillColor = color
         node.zPosition = 100
-        let nodeComponent = GKSKNodeComponent(node: node)
-        addComponent(nodeComponent)
+        let spriteComponent = TWSpriteComponent(node: node)
+        addComponent(spriteComponent)
+        
+        // teamComponent
+        let teamComponent = TWTeamComponent(team: team)
+        addComponent(teamComponent)
         
         // castleComponent
         let castleComponent = TWCastleComponent(entityManager: entityManager)
         addComponent(castleComponent)
+        
+        
         
         // healthComponent
         //let healthComponent = TWHealthComponent(entityManager: entityManager)

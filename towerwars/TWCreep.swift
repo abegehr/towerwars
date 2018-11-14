@@ -12,9 +12,9 @@ import GameplayKit
 
 class TWCreep: GKEntity {
     
-    var nodeComponent: TWSpriteComponent {
-        guard let nodeComponent = component(ofType: TWSpriteComponent.self) else { fatalError("A Creep entity must have a TWSpriteComponent.") }
-        return nodeComponent
+    var spriteComponent: TWSpriteComponent {
+        guard let spriteComponent = component(ofType: TWSpriteComponent.self) else { fatalError("A Creep entity must have a TWSpriteComponent.") }
+        return spriteComponent
     }
     
     var pathMoveComponent: TWPathMoveComponent {
@@ -30,14 +30,14 @@ class TWCreep: GKEntity {
     init(position: CGPoint, path: GKPath, team: Team) {
         super.init()
         
-        // nodeComponent
+        // spriteComponent
         let radius = Float(15)
         let node = SKShapeNode(circleOfRadius: CGFloat(radius))
         node.position = position
         node.fillColor = .blue
         node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
-        let nodeComponent = TWSpriteComponent(node: node)
-        addComponent(nodeComponent)
+        let spriteComponent = TWSpriteComponent(node: node)
+        addComponent(spriteComponent)
         
         // pathMoveComponent
         let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius), path: path)

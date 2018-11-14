@@ -29,7 +29,7 @@ class TWPathMoveComponent: GKAgent2D, GKAgentDelegate {
     }
     
     func agentWillUpdate(_ agent: GKAgent) {
-        guard let creep = entity?.component(ofType: GKSKNodeComponent.self) else {
+        guard let creep = entity?.component(ofType: TWSpriteComponent.self) else {
             return
         }
         
@@ -37,7 +37,7 @@ class TWPathMoveComponent: GKAgent2D, GKAgentDelegate {
     }
     
     func agentDidUpdate(_ agent: GKAgent) {
-        guard let creep = entity?.component(ofType: GKSKNodeComponent.self) else {
+        guard let creep = entity?.component(ofType: TWSpriteComponent.self) else {
             return
         }
         

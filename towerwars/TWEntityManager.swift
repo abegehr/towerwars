@@ -17,7 +17,10 @@ class TWEntityManager {
     
     lazy var componentSystems: [GKComponentSystem] = {
         let pathMoveSystem = GKComponentSystem(componentClass: TWPathMoveComponent.self)
-        return [pathMoveSystem]
+        let castleSystem = GKComponentSystem(componentClass: TWCastleComponent.self)
+        let teamSystem = GKComponentSystem(componentClass: TWTeamComponent.self)
+        let spriteSystem = GKComponentSystem(componentClass: TWSpriteComponent.self)
+        return [pathMoveSystem, castleSystem, teamSystem, spriteSystem]
     }()
     
     var toRemove = Set<GKEntity>()

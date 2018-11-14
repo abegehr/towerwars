@@ -24,7 +24,7 @@ class TWCastleComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
-        
+
         super.update(deltaTime: seconds)
         
         // Get required components
@@ -45,7 +45,7 @@ class TWCastleComponent: GKComponent {
             // Check for intersection
             if (spriteComponent.node.calculateAccumulatedFrame().intersects(enemySpriteComponent.node.calculateAccumulatedFrame())) {
                 // remove creep if it's intersecting
-                entityManager.remove(entity!)
+                entityManager.remove(enemyCreep)
                 //TODO: decrease castle health
             }
         }
