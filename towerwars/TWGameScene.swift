@@ -48,8 +48,8 @@ class TWGameScene: SKScene {
         let obstacles = SKNode.obstacles(fromNodePhysicsBodies: self.map_nodes)
         let obstacle_graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 30)
         // add spawn and goal
-        let spawn_graphnode = GKGraphNode2D(point: vector_float2(0, -600))
-        let goal_graphnode = GKGraphNode2D(point: vector_float2(0, 600))
+        let spawn_graphnode = GKGraphNode2D(point: vector_float2(0, 600))
+        let goal_graphnode = GKGraphNode2D(point: vector_float2(0, -600))
         obstacle_graph.connectUsingObstacles(node: spawn_graphnode)
         obstacle_graph.connectUsingObstacles(node: goal_graphnode)
         
@@ -68,8 +68,7 @@ class TWGameScene: SKScene {
             self.addChild(node)
         }
 
-        
-        // 2. send creeps through path using GameplayKit Agents, Behaviors, and Goals
+        // send creeps through path using GameplayKit Agents, Behaviors, and Goals
         let traversal_path = GKPath(graphNodes: traversal_nodes, radius: 20)
         print("traversal_path: ", traversal_path)
         self.creep_path = traversal_path
@@ -174,7 +173,7 @@ class TWGameScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             // add a creep for each touch
-            self.addCreep(position: CGPoint(x: 0, y: -600), path: self.creep_path, team: .team1)
+            self.addCreep(position: CGPoint(x: 0, y: 600), path: self.creep_path, team: .team2)
         }
     }
     
