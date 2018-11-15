@@ -30,6 +30,8 @@ class TWCastle: GKEntity {
         node.position = position
         node.fillColor = color
         node.zPosition = 100
+        
+        // spriteComponent
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         
