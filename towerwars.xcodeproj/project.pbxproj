@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE0421613EDB00B8D3AA /* TWCreep.swift */; };
-		3A04BE072161416800B8D3AA /* TWWallPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE062161416800B8D3AA /* TWWallPolygon.swift */; };
 		3A0D2A28218B46D700D3F112 /* TWEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */; };
 		3A0D2A2A218B540600D3F112 /* TWCastle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D2A29218B540600D3F112 /* TWCastle.swift */; };
+		3A1A465E21A49182002EEF44 /* TWMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A465D21A49182002EEF44 /* TWMap.swift */; };
+		3A1A466021A49DE3002EEF44 /* TWPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A465F21A49DE3002EEF44 /* TWPathComponent.swift */; };
 		3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */; };
 		3A3A8DAB215E1AB400E07741 /* TWGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */; };
 		3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DAC215E1AB400E07741 /* GameViewController.swift */; };
@@ -22,7 +23,7 @@
 		3A82B0FA219C1DB900501A90 /* TWHealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82B0F9219C1DB900501A90 /* TWHealthComponent.swift */; };
 		3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */; };
 		3A8CF0F42178818500EA69C3 /* TWPathMoveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */; };
-		3A8CF0F62178A71700EA69C3 /* TWWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F52178A71700EA69C3 /* TWWall.swift */; };
+		3A8CF0F62178A71700EA69C3 /* TWBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F52178A71700EA69C3 /* TWBlock.swift */; };
 		3AAD7624219B648600C44D29 /* TWCastleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7623219B648600C44D29 /* TWCastleComponent.swift */; };
 		3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */; };
 		3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */; };
@@ -47,9 +48,10 @@
 
 /* Begin PBXFileReference section */
 		3A04BE0421613EDB00B8D3AA /* TWCreep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCreep.swift; sourceTree = "<group>"; };
-		3A04BE062161416800B8D3AA /* TWWallPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWallPolygon.swift; sourceTree = "<group>"; };
 		3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWEntityManager.swift; sourceTree = "<group>"; };
 		3A0D2A29218B540600D3F112 /* TWCastle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCastle.swift; sourceTree = "<group>"; };
+		3A1A465D21A49182002EEF44 /* TWMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWMap.swift; sourceTree = "<group>"; };
+		3A1A465F21A49DE3002EEF44 /* TWPathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPathComponent.swift; sourceTree = "<group>"; };
 		3A3A8DA1215E1AB400E07741 /* towerwars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = towerwars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWGameScene.swift; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		3A82B0F9219C1DB900501A90 /* TWHealthComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWHealthComponent.swift; sourceTree = "<group>"; };
 		3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPathMoveComponent.swift; sourceTree = "<group>"; };
 		3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWPathMoveBehavior.swift; sourceTree = "<group>"; };
-		3A8CF0F52178A71700EA69C3 /* TWWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWWall.swift; sourceTree = "<group>"; };
+		3A8CF0F52178A71700EA69C3 /* TWBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWBlock.swift; sourceTree = "<group>"; };
 		3AAD7623219B648600C44D29 /* TWCastleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCastleComponent.swift; sourceTree = "<group>"; };
 		3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWTeamComponent.swift; sourceTree = "<group>"; };
 		3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSpriteComponent.swift; sourceTree = "<group>"; };
@@ -101,10 +103,11 @@
 		3A0D2A24218B43CF00D3F112 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3A1A465F21A49DE3002EEF44 /* TWPathComponent.swift */,
 				3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */,
+				3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */,
 				3AAD7623219B648600C44D29 /* TWCastleComponent.swift */,
 				3A82B0F9219C1DB900501A90 /* TWHealthComponent.swift */,
-				3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */,
 				3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */,
 				3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */,
 			);
@@ -114,8 +117,7 @@
 		3A0D2A26218B43E100D3F112 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				3A04BE062161416800B8D3AA /* TWWallPolygon.swift */,
-				3A8CF0F52178A71700EA69C3 /* TWWall.swift */,
+				3A8CF0F52178A71700EA69C3 /* TWBlock.swift */,
 				3A04BE0421613EDB00B8D3AA /* TWCreep.swift */,
 				3A0D2A29218B540600D3F112 /* TWCastle.swift */,
 			);
@@ -147,6 +149,7 @@
 			children = (
 				3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */,
 				3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */,
+				3A1A465D21A49182002EEF44 /* TWMap.swift */,
 				3A0D2A26218B43E100D3F112 /* Entities */,
 				3A0D2A24218B43CF00D3F112 /* Components */,
 				3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */,
@@ -314,14 +317,15 @@
 				3A8CF0F42178818500EA69C3 /* TWPathMoveBehavior.swift in Sources */,
 				3A0D2A2A218B540600D3F112 /* TWCastle.swift in Sources */,
 				3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */,
-				3A8CF0F62178A71700EA69C3 /* TWWall.swift in Sources */,
+				3A8CF0F62178A71700EA69C3 /* TWBlock.swift in Sources */,
 				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
 				3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */,
-				3A04BE072161416800B8D3AA /* TWWallPolygon.swift in Sources */,
 				3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */,
 				3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */,
 				3A82B0FA219C1DB900501A90 /* TWHealthComponent.swift in Sources */,
 				3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */,
+				3A1A465E21A49182002EEF44 /* TWMap.swift in Sources */,
+				3A1A466021A49DE3002EEF44 /* TWPathComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

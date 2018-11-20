@@ -22,6 +22,21 @@ class TWCastleComponent: GKComponent {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func spawnCreep() {
+        guard let teamComponent = entity?.component(ofType: TWTeamComponent.self),
+            let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) else {
+                return
+        }
+        
+        let newCreep = TWCreep(position: spriteComponent.node.position, team: teamComponent.team)
+        
+        if let pathComponent = entity?.component(ofType: TWPathComponent.self) {
+            newCreep.addComponent(pathComponent)
+        }
+        
+        entityManager.add(newCreep)
+    }
+    
     override func update(deltaTime seconds: TimeInterval) {
 
         super.update(deltaTime: seconds)

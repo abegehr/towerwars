@@ -1,5 +1,5 @@
 //
-//  TWCreepBehavior.swift
+//  TWPathMoveBehavior.swift
 //  towerwars
 //
 //  Created by Anton Begehr on 18.10.18.

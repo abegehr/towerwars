@@ -26,7 +26,7 @@ class TWCreep: GKEntity {
         return teamComponent
     }
     
-    init(position: CGPoint, path: GKPath, team: Team) {
+    init(position: CGPoint, team: Team) {
         super.init()
         
         // spriteComponent
@@ -39,7 +39,7 @@ class TWCreep: GKEntity {
         addComponent(spriteComponent)
         
         // pathMoveComponent
-        let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius), path: path)
+        let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius))
         addComponent(pathMoveComponent)
         
         // teamComponent

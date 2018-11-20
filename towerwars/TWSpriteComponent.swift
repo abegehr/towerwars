@@ -1,5 +1,5 @@
 //
-//  TWTeamComponent.swift
+//  TWSpriteComponent.swift
 //  towerwars
 //
 //  Created by Anton Begehr on 13.11.18.

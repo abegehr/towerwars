@@ -1,5 +1,5 @@
 //
-//  TWCreepAgent.swift
+//  TWPathMoveComponent.swift
 //  towerwars
 //
 //  Created by Anton Begehr on 17.10.18.
@@ -11,7 +11,7 @@ import GameplayKit
 
 class TWPathMoveComponent: GKAgent2D, GKAgentDelegate {
     
-    init(maxSpeed: Float, maxAcceleration: Float, radius: Float, path: GKPath) {
+    init(maxSpeed: Float, maxAcceleration: Float, radius: Float) {
         super.init()
         
         self.delegate = self
@@ -19,9 +19,6 @@ class TWPathMoveComponent: GKAgent2D, GKAgentDelegate {
         self.maxAcceleration = maxAcceleration
         self.radius = radius
         self.mass = 0.01
-        
-        // behavior
-        behavior = TWPathMoveBehavior(targetSpeed: maxSpeed, path: path)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,5 +43,10 @@ class TWPathMoveComponent: GKAgent2D, GKAgentDelegate {
     
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
+        
+        // behavior
+        if let pathComponent = entity?.component(ofType: TWPathComponent.self) {
+            behavior = TWPathMoveBehavior(targetSpeed: maxSpeed, path: pathComponent.path)
+        }
     }
 }

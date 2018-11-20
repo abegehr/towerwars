@@ -1,5 +1,5 @@
 //
-//  TWCastleComponent.swift
+//  TWHealthComponent.swift
 //  towerwars
 //
 //  Created by Anton Begehr on 13.11.18.
@@ -17,7 +17,8 @@ class TWHealthComponent: GKComponent {
     let healthBar: SKShapeNode
     let entityManager: TWEntityManager
     
-    let soundAction = SKAction.playSoundFileNamed("smallHit.wav", waitForCompletion: false)
+    //TODO: add sounds
+    //let soundAction = SKAction.playSoundFileNamed("smallHit.wav", waitForCompletion: false)
     
     init(parentNode: SKNode, barWidth: CGFloat,
          barOffset: CGFloat, health: CGFloat, entityManager: TWEntityManager) {
@@ -48,7 +49,7 @@ class TWHealthComponent: GKComponent {
         healthBar.isHidden = false
         let healthScale = health/fullHealth
         let scaleAction = SKAction.scaleX(to: healthScale, duration: 0.5)
-        healthBar.run(SKAction.group([soundAction, scaleAction]))
+        healthBar.run(scaleAction)
         
         if health == 0 {
             if let entity = entity {
