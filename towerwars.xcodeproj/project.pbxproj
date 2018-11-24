@@ -27,6 +27,9 @@
 		3AAD7624219B648600C44D29 /* TWCastleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7623219B648600C44D29 /* TWCastleComponent.swift */; };
 		3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */; };
 		3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */; };
+		E197658821A9E41400804429 /* TWTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658721A9E41400804429 /* TWTower.swift */; };
+		E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658B21A9E64E00804429 /* TWRangeComponent.swift */; };
+		E197658E21A9E6F400804429 /* TWCreepPhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658D21A9E6F400804429 /* TWCreepPhysicsComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		3AAD7623219B648600C44D29 /* TWCastleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCastleComponent.swift; sourceTree = "<group>"; };
 		3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWTeamComponent.swift; sourceTree = "<group>"; };
 		3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSpriteComponent.swift; sourceTree = "<group>"; };
+		E197658721A9E41400804429 /* TWTower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWTower.swift; sourceTree = "<group>"; };
+		E197658B21A9E64E00804429 /* TWRangeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWRangeComponent.swift; sourceTree = "<group>"; };
+		E197658D21A9E6F400804429 /* TWCreepPhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCreepPhysicsComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,8 @@
 				3A82B0F9219C1DB900501A90 /* TWHealthComponent.swift */,
 				3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */,
 				3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */,
+				E197658B21A9E64E00804429 /* TWRangeComponent.swift */,
+				E197658D21A9E6F400804429 /* TWCreepPhysicsComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -120,6 +128,7 @@
 				3A8CF0F52178A71700EA69C3 /* TWBlock.swift */,
 				3A04BE0421613EDB00B8D3AA /* TWCreep.swift */,
 				3A0D2A29218B540600D3F112 /* TWCastle.swift */,
+				E197658721A9E41400804429 /* TWTower.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -315,12 +324,15 @@
 				3A0D2A28218B46D700D3F112 /* TWEntityManager.swift in Sources */,
 				3A3A8DAB215E1AB400E07741 /* TWGameScene.swift in Sources */,
 				3A8CF0F42178818500EA69C3 /* TWPathMoveBehavior.swift in Sources */,
+				E197658821A9E41400804429 /* TWTower.swift in Sources */,
 				3A0D2A2A218B540600D3F112 /* TWCastle.swift in Sources */,
 				3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */,
 				3A8CF0F62178A71700EA69C3 /* TWBlock.swift in Sources */,
+				E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */,
 				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
 				3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */,
 				3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */,
+				E197658E21A9E6F400804429 /* TWCreepPhysicsComponent.swift in Sources */,
 				3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */,
 				3A82B0FA219C1DB900501A90 /* TWHealthComponent.swift in Sources */,
 				3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */,

@@ -35,7 +35,7 @@ class TWCreep: GKEntity {
         node.position = position
         node.fillColor = .blue
         node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
-        let spriteComponent = TWSpriteComponent(node: node)
+        let spriteComponent = TWSpriteComponent(node: node, texture: nil)
         addComponent(spriteComponent)
         
         // pathMoveComponent

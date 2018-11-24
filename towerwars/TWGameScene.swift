@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class TWGameScene: SKScene {
+class TWGameScene: SKScene, SKPhysicsContactDelegate {
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -145,6 +145,13 @@ class TWGameScene: SKScene {
                 showRestartMenu(true)
             }
         }
+    }
+    
+    override func didMove(to view: SKView) {
+                
+        //physics changes
+        physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
     }
     
 }
