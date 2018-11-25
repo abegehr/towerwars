@@ -167,10 +167,12 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
             // get visual nodes
             if let towerNode1 = towerNode2.parent, let creepNode1 = creepNode2.parent {
 
+                /*
                 print("creepNode2: ",creepNode2)
                 print("creepNode1: ",creepNode1)
                 print("towerNode2: ", towerNode2)
                 print("towerNode1: ",towerNode1)
+                */
                 
                 // get entities
                 if let creepEntity = creepNode1.userData!["entity"] as? TWCreep {
