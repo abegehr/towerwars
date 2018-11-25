@@ -152,6 +152,44 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         //physics changes
         physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        
+        entityManager = TWEntityManager(scene: self)
+        //building tower
+        entityManager.buildTower(type: "arrow", posX: 0.0, posY: 0.0, team: Team(rawValue: 1)!)
+
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        // get range nodes
+        if let towerNode2 = contact.bodyA.node, let creepNode2 = contact.bodyB.node {
+            print("creep entered range")
+            
+            // get visual nodes
+            if let towerNode1 = towerNode2.parent, let creepNode1 = creepNode2.parent {
+
+                print("creepNode2: ",creepNode2)
+                print("creepNode1: ",creepNode1)
+                print("towerNode2: ", towerNode2)
+                print("towerNode1: ",towerNode1)
+                
+                // get entities
+                if let creepEntity = creepNode1.userData!["entity"] as? TWCreep {
+                    if let towerEntity = towerNode1.userData!["entity"] as? TWTower {
+                    
+                        // get range component
+                        if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
+                            
+                            rangeComponent.addCreepToRange(creep: creepEntity)
+                            
+                        }
+                    }
+                    
+                }
+                
+            }
+            
+        }
     }
     
 }
+

@@ -5,7 +5,7 @@ class TWCreepPhysicsComponent: GKComponent {
     
     let obligatoryNode: SKShapeNode?
     
-    init(texture: SKTexture, spriteComponent: TWSpriteComponent) {
+    init(spriteComponent: TWSpriteComponent) {
         self.obligatoryNode = SKShapeNode(circleOfRadius: w / 2)
         super.init()
         

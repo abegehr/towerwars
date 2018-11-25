@@ -26,6 +26,13 @@ class TWCreep: GKEntity {
         return teamComponent
     }
     
+    var creepPhysicsComponent: TWCreepPhysicsComponent {
+        guard let teamComponent = component(ofType: TWCreepPhysicsComponent.self) else { fatalError("A Creep entity must have a TWCreepPhysicsComponent.") }
+        return creepPhysicsComponent
+    }
+    
+    
+    
     init(position: CGPoint, team: Team) {
         super.init()
         
@@ -35,8 +42,10 @@ class TWCreep: GKEntity {
         node.position = position
         node.fillColor = .blue
         node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
-        let spriteComponent = TWSpriteComponent(node: node, texture: nil)
+        let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
+        //to access the entity later:
+        spriteComponent.addToNodeKey()
         
         // pathMoveComponent
         let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius))
@@ -45,6 +54,11 @@ class TWCreep: GKEntity {
         // teamComponent
         let teamComponent = TWTeamComponent(team: team)
         addComponent(teamComponent)
+        
+        //physicsComponent
+        let creepPhysicsComponent = TWCreepPhysicsComponent(spriteComponent: spriteComponent)
+        addComponent(creepPhysicsComponent)
+
     }
     
     required init?(coder aDecoder: NSCoder) {

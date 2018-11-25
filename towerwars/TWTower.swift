@@ -6,7 +6,6 @@ typealias TowerType = String
 
 class TWTower : GKEntity {
     
-    var didAddSprite: Bool = false
     var type: TowerType
     
     //todo: EntityManager?
@@ -15,7 +14,9 @@ class TWTower : GKEntity {
         super.init()
         //todo depend on type:
         let texture = SKTexture(imageNamed: "arrowTower1")
-        let spriteComponent = TWSpriteComponent(node: nil, texture: texture)
+        let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())
+
+        let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         spriteComponent.addToNodeKey()
         addComponent(TWTeamComponent(team: team))

@@ -81,6 +81,17 @@ class TWEntityManager {
         return nil
     }
     
+    func buildTower(type: TowerType, posX: CGFloat, posY: CGFloat, team: Team) {
+        
+        let tower = TWTower(type: type, team: team, entityManager: self)
+        if let spriteComponent = tower.component(ofType: TWSpriteComponent.self) {
+            spriteComponent.node.position = CGPoint(x: posX, y: posY)
+            spriteComponent.node.zPosition = 2
+            //tower.addTWRangeComponent(spriteComponent: spriteComponent)
+        }
+        add(tower)
+    }
+    
     func update(_ dt: CFTimeInterval) {
         for componentSystem in componentSystems {
             componentSystem.update(deltaTime: dt)

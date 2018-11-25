@@ -26,7 +26,7 @@ class TWBlock: GKEntity {
         node.position = position
         node.physicsBody = SKPhysicsBody(rectangleOf: size)
         node.physicsBody!.isDynamic = false
-        let spriteComponent = TWSpriteComponent(node: node, texture: nil)
+        let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
     }
     

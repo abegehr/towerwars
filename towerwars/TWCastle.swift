@@ -32,7 +32,7 @@ class TWCastle: GKEntity {
         node.zPosition = 100
         
         // spriteComponent
-        let spriteComponent = TWSpriteComponent(node: node, texture: nil)
+        let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         
         // teamComponent
