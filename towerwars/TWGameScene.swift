@@ -184,12 +184,13 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                             
                         }
                     }
-                    
                 }
-                
             }
-            
         }
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+
     }
     
 }
