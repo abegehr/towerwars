@@ -165,16 +165,16 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
             // get visual nodes
             if let towerNode1 = towerNode2.parent, let creepNode1 = creepNode2.parent {
 
-                /*
+                
                 print("creepNode2: ",creepNode2)
                 print("creepNode1: ",creepNode1)
                 print("towerNode2: ", towerNode2)
                 print("towerNode1: ",towerNode1)
-                */
+                
                 
                 // get entities
                 //TODO: next line leeds to fatal error: "Unexpectedly found nil while unwrapping an Optional value"
-                if let creepEntity = creepNode1.userData!["entity"] as? TWCreep {
+                if let creepEntity = creepNode2.userData!["entity"] as? TWCreep {
                     if let towerEntity = towerNode1.userData!["entity"] as? TWTower {
                     
                         // get range component
