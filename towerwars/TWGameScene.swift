@@ -171,7 +171,10 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                     
                         // get range component
                         if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
+                            
+                            //add our creep to the array
                             rangeComponent.addCreepToRange(creep: creepEntity)
+                            
                         }
                     }
                 }
@@ -180,7 +183,25 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-
+        // get range nodes
+        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
+            print("creep entered range")
+            
+            // get visual nodes
+            if let towerVisualNode = towerRangeNode.parent{
+                
+                // get entities
+                if let creepEntity = creepNode.userData!["entity"] as? TWCreep {
+                    if let towerEntity = towerVisualNode.userData!["entity"] as? TWTower {
+                        
+                        // get range component
+                        if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
+                            rangeComponent.removeCreepFromRange(creep: creepEntity)
+                        }
+                    }
+                }
+            }
+        }
     }
     
 }
