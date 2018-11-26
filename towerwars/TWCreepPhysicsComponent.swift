@@ -3,22 +3,19 @@ import GameplayKit
 
 class TWCreepPhysicsComponent: GKComponent {
     
-    let obligatoryNode: SKShapeNode?
     
     init(spriteComponent: TWSpriteComponent) {
-        self.obligatoryNode = SKShapeNode(circleOfRadius: w / 2)
         super.init()
         
-        self.obligatoryNode?.physicsBody = SKPhysicsBody(circleOfRadius: w / 2)
+        let pBody = SKPhysicsBody(circleOfRadius: w / 2)
         
-        if let pb = self.obligatoryNode?.physicsBody{
-            //physics changes
-            pb.isDynamic = true
-            pb.categoryBitMask = creepCategory
-            pb.contactTestBitMask = towerRangeCircleCategory
-            pb.collisionBitMask = 0
-        }
-        spriteComponent.node.addChild(obligatoryNode!)
+        //physics changes
+        pBody.isDynamic = true
+        pBody.categoryBitMask = creepCategory
+        pBody.contactTestBitMask = towerRangeCircleCategory
+        pBody.collisionBitMask = 0
+        
+        spriteComponent.node.physicsBody = pBody
     }
     
     required init?(coder aDecoder: NSCoder) {

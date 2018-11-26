@@ -28,13 +28,15 @@ class TWCastleComponent: GKComponent {
                 return
         }
         
-        let newCreep = TWCreep(position: spriteComponent.node.position, team: teamComponent.team)
+        let newCreep = TWCreep(position: CGPoint(x: spriteComponent.node.position.x, y: spriteComponent.node.position.y-100), team: teamComponent.team)
+        print("position to spawn: ",spriteComponent.node.position)
         
         if let pathComponent = entity?.component(ofType: TWPathComponent.self) {
             newCreep.addComponent(pathComponent)
         }
         
         entityManager.add(newCreep)
+        print("creep added")
     }
     
     override func update(deltaTime seconds: TimeInterval) {

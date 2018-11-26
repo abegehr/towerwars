@@ -38,12 +38,13 @@ class TWCreep: GKEntity {
         
         // spriteComponent
         let radius = Float(15)
-        /*let node = SKShapeNode(circleOfRadius: CGFloat(radius))
-        node.fillColor = .blue*/
-        
-        let texture = SKTexture(imageNamed: "quirk1")
-        let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())
+        let node = SKShapeNode(circleOfRadius: CGFloat(radius))
+        node.fillColor = .blue
         node.position = position
+
+        /*todo with texture
+        let texture = SKTexture(imageNamed: "quirk1")
+        let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())*/
 
         //todo double physics?
         //node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
@@ -53,6 +54,10 @@ class TWCreep: GKEntity {
         //to access the entity later:
         spriteComponent.addToNodeKey()
         
+        //physicsComponent
+        let creepPhysicsComponent = TWCreepPhysicsComponent(spriteComponent: spriteComponent)
+        addComponent(creepPhysicsComponent)
+        
         // pathMoveComponent
         let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius))
         addComponent(pathMoveComponent)
@@ -60,10 +65,6 @@ class TWCreep: GKEntity {
         // teamComponent
         let teamComponent = TWTeamComponent(team: team)
         addComponent(teamComponent)
-        
-        //physicsComponent
-        let creepPhysicsComponent = TWCreepPhysicsComponent(spriteComponent: spriteComponent)
-        addComponent(creepPhysicsComponent)
 
     }
     
