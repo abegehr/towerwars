@@ -151,9 +151,7 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                 
         //physics changes
         physicsWorld.contactDelegate = self
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
-        entityManager = TWEntityManager(scene: self)
         //building tower
         entityManager.buildTower(type: "arrow", posX: 0.0, posY: 0.0, team: Team(rawValue: 1)!)
 
@@ -175,6 +173,7 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                 */
                 
                 // get entities
+                //TODO: next line leeds to fatal error: "Unexpectedly found nil while unwrapping an Optional value"
                 if let creepEntity = creepNode1.userData!["entity"] as? TWCreep {
                     if let towerEntity = towerNode1.userData!["entity"] as? TWTower {
                     
