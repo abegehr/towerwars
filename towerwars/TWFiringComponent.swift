@@ -41,7 +41,7 @@ class TWFiringComponent : GKComponent {
             self.findTarget()
             //if we have a target:
             if let targetCreep = self.targetCreep {
-                print("found a target")
+                //print("found a target")
                 
                 //for now: check if it the next shot kills it and if so, remove it from range
                 if (targetCreep.component(ofType: TWHealthComponent.self)?.health)!-CGFloat(self.attackDamage) <= CGFloat(0.0) {
@@ -51,6 +51,8 @@ class TWFiringComponent : GKComponent {
                 //deal damage to it
                 targetCreep.component(ofType: TWHealthComponent.self)?.takeDamage(CGFloat(self.attackDamage))
 
+            } else {
+                //print("no target found")
             }
         }
     }
