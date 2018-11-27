@@ -38,16 +38,14 @@ class TWCreep: GKEntity {
         
         // spriteComponent
         let radius = Float(15)
-        let node = SKShapeNode(circleOfRadius: CGFloat(radius))
+        /*let node = SKShapeNode(circleOfRadius: CGFloat(radius))
         node.fillColor = .blue
-        node.position = position
+        node.position = position*/
 
-        /*todo with texture
+        //todo with texture
         let texture = SKTexture(imageNamed: "quirk1")
-        let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())*/
-
-        //todo double physics?
-        //node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
+        let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())
+        node.position = position
         
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)

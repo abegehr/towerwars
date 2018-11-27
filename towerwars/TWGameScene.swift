@@ -160,7 +160,6 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         // get range nodes
         if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
-            print("creep entered range")
             
             // get visual nodes
             if let towerVisualNode = towerRangeNode.parent{
@@ -185,7 +184,6 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     func didEnd(_ contact: SKPhysicsContact) {
         // get range nodes
         if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
-            print("creep entered range")
             
             // get visual nodes
             if let towerVisualNode = towerRangeNode.parent{
