@@ -33,7 +33,7 @@ class TWCreep: GKEntity {
     
     
     
-    init(position: CGPoint, team: Team) {
+    init(position: CGPoint, team: Team, entityManager: TWEntityManager) {
         super.init()
         
         // spriteComponent
@@ -58,6 +58,10 @@ class TWCreep: GKEntity {
         let creepPhysicsComponent = TWCreepPhysicsComponent(spriteComponent: spriteComponent)
         addComponent(creepPhysicsComponent)
         
+        //healthComponent
+        let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0, entityManager: entityManager)
+        addComponent(healthComponent)
+        
         // pathMoveComponent
         let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius))
         addComponent(pathMoveComponent)
@@ -65,6 +69,7 @@ class TWCreep: GKEntity {
         // teamComponent
         let teamComponent = TWTeamComponent(team: team)
         addComponent(teamComponent)
+        
 
     }
     

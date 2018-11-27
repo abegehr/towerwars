@@ -170,10 +170,10 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                     if let towerEntity = towerVisualNode.userData!["entity"] as? TWTower {
                     
                         // get range component
-                        if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
+                        if let firingComponent = towerEntity.component(ofType: TWFiringComponent.self) {
                             
                             //add our creep to the array
-                            rangeComponent.addCreepToRange(creep: creepEntity)
+                            firingComponent.addCreepToRange(creep: creepEntity)
                             
                         }
                     }
@@ -195,8 +195,8 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                     if let towerEntity = towerVisualNode.userData!["entity"] as? TWTower {
                         
                         // get range component
-                        if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
-                            rangeComponent.removeCreepFromRange(creep: creepEntity)
+                        if let firingComponent = towerEntity.component(ofType: TWFiringComponent.self) {
+                            firingComponent.removeCreepFromRange(creep: creepEntity)
                         }
                     }
                 }

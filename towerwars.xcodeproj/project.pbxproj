@@ -30,6 +30,7 @@
 		E197658821A9E41400804429 /* TWTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658721A9E41400804429 /* TWTower.swift */; };
 		E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658B21A9E64E00804429 /* TWRangeComponent.swift */; };
 		E197658E21A9E6F400804429 /* TWCreepPhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658D21A9E6F400804429 /* TWCreepPhysicsComponent.swift */; };
+		E197659221AD795500804429 /* TWFiringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197659121AD795500804429 /* TWFiringComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		E197658721A9E41400804429 /* TWTower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWTower.swift; sourceTree = "<group>"; };
 		E197658B21A9E64E00804429 /* TWRangeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWRangeComponent.swift; sourceTree = "<group>"; };
 		E197658D21A9E6F400804429 /* TWCreepPhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCreepPhysicsComponent.swift; sourceTree = "<group>"; };
+		E197659121AD795500804429 /* TWFiringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWFiringComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */,
 				E197658B21A9E64E00804429 /* TWRangeComponent.swift */,
 				E197658D21A9E6F400804429 /* TWCreepPhysicsComponent.swift */,
+				E197659121AD795500804429 /* TWFiringComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */,
 				3A1A465E21A49182002EEF44 /* TWMap.swift in Sources */,
 				3A1A466021A49DE3002EEF44 /* TWPathComponent.swift in Sources */,
+				E197659221AD795500804429 /* TWFiringComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
