@@ -9,8 +9,7 @@ class TWFiringComponent : GKComponent {
     let attackDamage: Float = 1
     init(type: TowerType) {
         super.init()
-        
-        
+        attack()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +34,10 @@ class TWFiringComponent : GKComponent {
     }
     
     func attack() {
-        
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            for creep in self.creepsInRange {
+                creep.component(ofType: TWHealthComponent.self)?.takeDamage(CGFloat(self.attackDamage))
+            }
+        }
     }
 }
