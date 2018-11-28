@@ -35,21 +35,24 @@ class TWMap {
         let minY = scene.frame.minY
         let maxX = scene.frame.maxX
         let maxY = scene.frame.maxY
+        let height = scene.frame.height
+        let width = scene.frame.width
+        let padding = CGFloat(10)
         // right border
         let right_border = SKNode()
-        right_border.physicsBody = SKPhysicsBody(edgeFrom: CGPoint(x: maxX, y: minY), to: CGPoint(x: maxX, y: maxY))
+        right_border.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: padding, height: height), center: CGPoint(x: maxX+0.5*padding, y: 0))
         scene.addChild(right_border)
         // top border
         let top_border = SKNode()
-        top_border.physicsBody = SKPhysicsBody(edgeFrom: CGPoint(x: minX, y: maxY), to: CGPoint(x: minX, y: maxY))
+        top_border.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width, height: padding), center: CGPoint(x: 0, y: maxY+0.5*padding))
         scene.addChild(top_border)
         // left border
         let left_border = SKNode()
-        left_border.physicsBody = SKPhysicsBody(edgeFrom: CGPoint(x: minX, y: minY), to: CGPoint(x: minX, y: maxY))
+        left_border.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: padding, height: height), center: CGPoint(x: minX-0.5*padding, y: 0))
         scene.addChild(left_border)
         // bottom border
         let bottom_border = SKNode()
-        bottom_border.physicsBody = SKPhysicsBody(edgeFrom: CGPoint(x: minX, y: minY), to: CGPoint(x: minX, y: minY))
+        bottom_border.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width, height: padding), center: CGPoint(x: 0, y: minY-0.5*padding))
         scene.addChild(bottom_border)
         // borders
         border_nodes = [right_border, top_border, left_border, bottom_border]
