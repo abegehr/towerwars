@@ -21,7 +21,7 @@ class TWBlock: GKEntity {
         
         // spriteComponent
         let size = CGSize(width: width, height: width)
-        let node = SKShapeNode(rectOf: size, cornerRadius: CGFloat(0.1*width))
+        let node = TouchableShapeNode(rectOf: size, cornerRadius: CGFloat(0.1*width))
         node.position = position
         node.fillColor = .init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         node.strokeColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
