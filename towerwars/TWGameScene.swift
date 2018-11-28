@@ -85,16 +85,6 @@ class TWGameScene: SKScene {
         }
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            map.enemy_castles.forEach { enemy_caste in
-                if let enemy_castle_component = enemy_caste.component(ofType: TWCastleComponent.self) {
-                    enemy_castle_component.spawnCreep()
-                }
-            }
-        }
-    }
-    
     func showRestartMenu(_ won: Bool) {
         
         if gameOver {
