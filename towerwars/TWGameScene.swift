@@ -37,25 +37,29 @@ class TWGameScene: SKScene {
         
         // create map
         var blocks_at: [CGPoint] = []
-        blocks_at.append(CGPoint(x: 0, y: -200))
-        blocks_at.append(CGPoint(x: -50, y: -200))
-        blocks_at.append(CGPoint(x: -100, y: -200))
-        blocks_at.append(CGPoint(x: -150, y: -200))
-        blocks_at.append(CGPoint(x: -200, y: -200))
-        blocks_at.append(CGPoint(x: -250, y: -200))
+        // top row
+        blocks_at.append(CGPoint(x: 70, y: 200))
         blocks_at.append(CGPoint(x: 0, y: 200))
-        blocks_at.append(CGPoint(x: -50, y: 200))
-        blocks_at.append(CGPoint(x: -100, y: 200))
-        blocks_at.append(CGPoint(x: -150, y: 200))
-        blocks_at.append(CGPoint(x: -200, y: 200))
-        blocks_at.append(CGPoint(x: -250, y: 200))
+        blocks_at.append(CGPoint(x: -70, y: 200))
+        blocks_at.append(CGPoint(x: -140, y: 200))
+        blocks_at.append(CGPoint(x: -210, y: 200))
+        blocks_at.append(CGPoint(x: -280, y: 200))
+        // middle row
+        blocks_at.append(CGPoint(x: -70, y: 0))
         blocks_at.append(CGPoint(x: 0, y: 0))
-        blocks_at.append(CGPoint(x: 50, y: 0))
-        blocks_at.append(CGPoint(x: 100, y: 0))
-        blocks_at.append(CGPoint(x: 150, y: 0))
-        blocks_at.append(CGPoint(x: 200, y: 0))
-        blocks_at.append(CGPoint(x: 250, y: 0))
-        blocks_at.append(CGPoint(x: 50, y: 350))
+        blocks_at.append(CGPoint(x: 70, y: 0))
+        blocks_at.append(CGPoint(x: 140, y: 0))
+        blocks_at.append(CGPoint(x: 210, y: 0))
+        blocks_at.append(CGPoint(x: 280, y: 0))
+        // bottom row
+        blocks_at.append(CGPoint(x: 70, y: -200))
+        blocks_at.append(CGPoint(x: -0, y: -200))
+        blocks_at.append(CGPoint(x: -70, y: -200))
+        blocks_at.append(CGPoint(x: -140, y: -200))
+        blocks_at.append(CGPoint(x: -210, y: -200))
+        blocks_at.append(CGPoint(x: -280, y: -200))
+        //other
+        blocks_at.append(CGPoint(x: 60, y: 350))
         
         map = TWMap(scene: self, user_castle_at: CGPoint(x: 0, y: -600), enemy_castles_at: [CGPoint(x: 0, y: 600)], blocks_at: blocks_at, entityManager: entityManager)
     }

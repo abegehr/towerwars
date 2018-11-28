@@ -16,14 +16,15 @@ class TWBlock: GKEntity {
         return spriteComponent
     }
     
-    init(position: CGPoint) {
+    init(position: CGPoint, width: CGFloat = 60.0) {
         super.init()
         
         // spriteComponent
-        let texture = SKTexture(imageNamed: "Wall")
-        let size = texture.size()
-        let node = SKSpriteNode(texture: texture, color: .clear, size: size)
+        let size = CGSize(width: width, height: width)
+        let node = SKShapeNode(rectOf: size, cornerRadius: CGFloat(0.1*width))
         node.position = position
+        node.fillColor = .init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+        node.strokeColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
         node.physicsBody = SKPhysicsBody(rectangleOf: size)
         node.physicsBody!.isDynamic = false
         let spriteComponent = TWSpriteComponent(node: node)
