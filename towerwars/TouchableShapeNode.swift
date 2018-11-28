@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameKit
 
 class TouchableShapeNode: SKShapeNode {
     
@@ -21,7 +22,15 @@ class TouchableShapeNode: SKShapeNode {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touched")
+        print("touched – TouchableShapeNode")
+        
+        // pass touches to entity
+        //TODO: find a way to call touched generally on GKEntity. To make TouchableShapeNode generaly usable, not just by TWBlock
+        if let entity = self.userData?["entity"] as? TWBlock {
+            print("touched - entity: ", entity)
+            entity.touched()
+        }
+        
     }
     
 }

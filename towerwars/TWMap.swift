@@ -63,7 +63,7 @@ class TWMap {
         
         // blocks
         for block_at in blocks_at {
-            let block = TWBlock(position: block_at)
+            let block = TWBlock(position: block_at, entityManager: entityManager)
             blocks.append(block)
             entityManager.add(block)
         }

@@ -11,12 +11,17 @@ import GameplayKit
 
 class TWBlock: GKEntity {
     
+    let entityManager: TWEntityManager
+    
     var spriteComponent: TWSpriteComponent {
         guard let spriteComponent = component(ofType: TWSpriteComponent.self) else { fatalError("A Block entity must have a TWSpriteComponent.") }
         return spriteComponent
     }
     
-    init(position: CGPoint, width: CGFloat = 60.0) {
+    init(position: CGPoint, width: CGFloat = 60.0, entityManager: TWEntityManager) {
+        
+        self.entityManager = entityManager
+        
         super.init()
         
         // spriteComponent
@@ -29,10 +34,23 @@ class TWBlock: GKEntity {
         node.physicsBody!.isDynamic = false
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
+        spriteComponent.addToNodeKey()
+        
+        // buildTowerComponent
+        let buildTowerComponent = TWBuildTowerComponent(entityManager: entityManager)
+        addComponent(buildTowerComponent)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func touched() {
+        print("touched TWBlock")
+        
+        // build a tower
+        if let buildTowerComponent = self.component(ofType: TWBuildTowerComponent.self) {
+            buildTowerComponent.buildTower(team: .team1)
+        }
+    }
 }
