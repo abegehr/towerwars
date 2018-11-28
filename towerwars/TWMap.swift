@@ -79,7 +79,12 @@ class TWMap {
         
         // enemy castles
         for enemy_castle_at in enemy_castles_at {
+            // create castle
             let enemy_castle = TWCastle(color: TWMap.enemy_castle_color, position: enemy_castle_at, team: .team2, entityManager: entityManager)
+            
+            // add Ai component
+            let aiComponent = TWAiComponent()
+            enemy_castle.addComponent(aiComponent)
             
             // find creep path
             // enemy castle graphnode
