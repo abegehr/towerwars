@@ -92,7 +92,7 @@ class TWMap {
             obstacle_graph.connectUsingObstacles(node: enemy_castle_graphnode)
             // find path nodes
             let path_nodes = obstacle_graph.findPath(from: enemy_castle_graphnode, to: user_castle_graphnode) as! [GKGraphNode2D]
-            print("path_nodes: ", path_nodes)
+            //print("path_nodes: ", path_nodes)
             // path found?
             if (path_nodes.count < 2) {
                 print("TWMap – Error: No path found.")
