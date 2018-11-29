@@ -35,7 +35,7 @@ class TWHealthComponent: GKComponent {
         healthBar.position = CGPoint(x: 0, y: barOffset)
         parentNode.addChild(healthBar)
         
-        healthBar.isHidden = false
+        healthBar.isHidden = barWidth <= 0
         super.init()
     }
     
