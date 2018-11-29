@@ -9,6 +9,10 @@
 import SpriteKit
 import GameplayKit
 
+//colors
+var TWPink = UIColor(red: 0.9804, green: 0.0196, blue: 1, alpha: 1.0) /* #fa05ff */
+var TWBlue = UIColor(red: 0.0196, green: 0.149, blue: 1, alpha: 1.0) /* #0526ff */
+
 class TWGameScene: SKScene, SKPhysicsContactDelegate {
     
     private var lastUpdateTime : TimeInterval = 0
@@ -26,10 +30,6 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     //coins
     let coin1Label = SKLabelNode(fontNamed: "Courier-Bold")
     let margin = CGFloat(90)
-    
-    //colors
-    let TWPink = UIColor(red: 0.9804, green: 0.0196, blue: 1, alpha: 1.0) /* #fa05ff */
-    let TWBlue = UIColor(red: 0.0196, green: 0.149, blue: 1, alpha: 1.0) /* #0526ff */
     
     override init(size: CGSize) {
         super.init(size: size)
