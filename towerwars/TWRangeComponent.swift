@@ -18,17 +18,19 @@ class TWRangeComponent : GKComponent {
     
     var range: CGFloat
     var creepsInRange: [TWCreep] = []
-    var circleNode: SKShapeNode?
+    var circleNode: SKNode?
     
     init(type: TowerType, spriteComponent: TWSpriteComponent) {
         self.range = ranges[type]!
-        let circle = CGRect(x: 0.0 - self.range, y: 0.0 - self.range, width: self.range * 2, height: self.range * 2)
-        self.circleNode = SKShapeNode(rect: circle, cornerRadius: self.range)
+        
+        //let circle = CGRect(x: 0.0 - self.range, y: 0.0 - self.range, width: self.range * 2, height: self.range * 2)
+        self.circleNode = SKNode() //SKShapeNode(rect: circle, cornerRadius: self.range)
+        
         super.init()
         
         if let circleNode = self.circleNode{
             circleNode.position = CGPoint(x: 0.0, y: 0.0)
-            circleNode.strokeColor = .white
+            //circleNode.strokeColor = .white
             //circleNode.fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
             circleNode.physicsBody = SKPhysicsBody(circleOfRadius: self.range)
             circleNode.physicsBody!.isDynamic = false

@@ -14,11 +14,13 @@ class TWCastleComponent: GKComponent {
     let entityManager: TWEntityManager
     var coins: Int
     
-    init(entityManager: TWEntityManager, coins: Int = 100) {
+    init(entityManager: TWEntityManager, coins: Int = 10) {
         self.entityManager = entityManager
         self.coins = coins
         
         super.init()
+        
+        // earn a coin every second
         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.coins += 1
         }

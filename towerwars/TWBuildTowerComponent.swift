@@ -42,11 +42,22 @@ class TWBuildTowerComponent: GKComponent {
             entityManager.buildTower(type: "arrow", posX: position.x, posY: position.y, team: .team1)
             
             return true
+        } else {
+            
+            if let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) {
+                // show a label
+                let label = SKLabelNode(text: "costs 10 coins")
+                spriteComponent.node.addChild(label)
+                
+                let fade_in = SKAction.group([SKAction.scale(to: 2, duration: 0.4), SKAction.fadeIn(withDuration: 0.4)])
+                let fade_out = SKAction.group([SKAction.scale(to: 1, duration: 0.4), SKAction.fadeOut(withDuration: 0.4)])
+                let label_action = SKAction.sequence([fade_in, fade_out, SKAction.removeFromParent()])
+                
+                label.run(label_action)
+            }
         }
         
         return false
     }
     
 }
-
-

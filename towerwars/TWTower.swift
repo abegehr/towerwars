@@ -21,7 +21,7 @@ class TWTower : GKEntity {
         spriteComponent.addToNodeKey()
         addComponent(TWTeamComponent(team: team))
         addComponent(TWRangeComponent(type: self.type, spriteComponent: spriteComponent))
-        addComponent(TWFiringComponent(type: self.type))
+        addComponent(TWFiringComponent(type: self.type, entityManager: entityManager))
         //todo: firing component
     }
     

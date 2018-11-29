@@ -3,14 +3,22 @@ import GameplayKit
 
 class TWFiringComponent : GKComponent {
     
+    var entityManager: TWEntityManager
+    
     //todo attackType with array like range[type!]
     //var attackType: CGFloat
     var creepsInRange: [TWCreep] = []
     var targetCreep: TWCreep?
     let attackDamage: Float = 1
-    init(type: TowerType) {
+    let cooldown: Double = 1
+    
+    init(type: TowerType, entityManager: TWEntityManager) {
+        
+        self.entityManager = entityManager
+        
         super.init()
-        attack()
+        
+        attack_target()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,19 +42,33 @@ class TWFiringComponent : GKComponent {
         }
     }
     
+    func runFiringAnimation() {
+        guard let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) else {
+            return
+        }
+        
+        let firingAnimation = SKAction.sequence([SKAction.scale(to: 1.1, duration: 0.1), SKAction.scale(to: 1.0, duration: 0.1)])
+        
+        spriteComponent.node.run(firingAnimation)
+    }
+    
     //this will just keep going
-    func attack() {
-        let cooldown = 1.0
-        _ = Timer.scheduledTimer(withTimeInterval: cooldown, repeats: true) { timer in
+    func attack_target() {
+        _ = Timer.scheduledTimer(withTimeInterval: self.cooldown, repeats: true) { _ in
+            
             //update our target
             self.findTarget()
             //if we have a target:
             if let targetCreep = self.targetCreep {
                 //print("found a target")
+                self.runFiringAnimation()
                 
                 //for now: check if it the next shot kills it and if so, remove it from range
                 if (targetCreep.component(ofType: TWHealthComponent.self)?.health)!-CGFloat(self.attackDamage) <= CGFloat(0.0) {
+                    // shot kills creep
                     self.removeCreepFromRange(creep: targetCreep)
+                    // earns one coin
+                    //self.earn_coin()
                 }
                 
                 //deal damage to it
@@ -76,4 +98,16 @@ class TWFiringComponent : GKComponent {
         
         return
     }
+    
+    func earn_coin() {
+        if let teamComponent = entity?.component(ofType: TWTeamComponent.self) {
+            if let castle = entityManager.castleForTeam(teamComponent.team) {
+                if let castleComponent = castle.component(ofType: TWCastleComponent.self) {
+                    //TODO: problematic since many creep are spawned as the game progresses
+                    castleComponent.coins += 1
+                }
+            }
+        }
+    }
+    
 }
