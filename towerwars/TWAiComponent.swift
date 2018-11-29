@@ -15,9 +15,20 @@ class TWAiComponent: GKComponent {
         super.init()
         
         // spawn creeps every 1 second
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
+        var counter = 0.0
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: {timer in
+            counter += timer.timeInterval
+            
+            let counter_stages = ceil(counter / 30.0)
+            
+            // n: creeps to spawn
+            let n = Int(counter_stages)
+            
             if let castleComponent = self.entity?.component(ofType: TWCastleComponent.self) {
-                castleComponent.spawnCreep()
+                print("counter: ", counter, " spawning creeps: ", n)
+                for _ in 1...n {
+                    castleComponent.spawnCreep()
+                }
             }
         })
     }
