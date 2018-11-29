@@ -41,6 +41,7 @@ class TWCreep: GKEntity {
         // spriteComponent
         let node = SKShapeNode(circleOfRadius: radius)
         node.fillColor = color
+        node.strokeColor = TWPink
         node.position = position
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)

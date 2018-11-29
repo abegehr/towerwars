@@ -15,8 +15,8 @@ func CGPoint_to_vector2(point: CGPoint) -> vector_float2 {
 
 class TWMap {
     
-    static let user_castle_color: UIColor = .yellow
-    static let enemy_castle_color: UIColor = .red
+    static let user_castle_color: UIColor = TWBlue
+    static let enemy_castle_color: UIColor = TWPink
     
     let entityManager: TWEntityManager
     
