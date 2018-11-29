@@ -31,23 +31,23 @@ class TWCreep: GKEntity {
         return creepPhysicsComponent
     }
     
-    
-    
     init(position: CGPoint, team: Team, entityManager: TWEntityManager) {
         super.init()
         
+        // settings
+        let radius = CGFloat(15)
+        let color = UIColor.blue
+        
         // spriteComponent
-        let radius = Float(15)
-        let node = SKShapeNode(circleOfRadius: CGFloat(radius))
-        node.fillColor = .blue
+        let node = SKShapeNode(circleOfRadius: radius)
+        node.fillColor = color
         node.position = position
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
-        //to access the entity later:
         spriteComponent.addToNodeKey()
         
-        // physicsComponent
-        let creepPhysicsComponent = TWCreepPhysicsComponent(spriteComponent: spriteComponent)
+        // creepPhysicsComponent
+        let creepPhysicsComponent = TWCreepPhysicsComponent(radius: radius, spriteComponent: spriteComponent)
         addComponent(creepPhysicsComponent)
         
         // healthComponent
@@ -61,8 +61,6 @@ class TWCreep: GKEntity {
         // teamComponent
         let teamComponent = TWTeamComponent(team: team)
         addComponent(teamComponent)
-        
-
     }
     
     required init?(coder aDecoder: NSCoder) {

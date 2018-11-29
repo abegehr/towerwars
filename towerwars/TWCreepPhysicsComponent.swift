@@ -4,12 +4,13 @@ import GameplayKit
 class TWCreepPhysicsComponent: GKComponent {
     
     
-    init(spriteComponent: TWSpriteComponent) {
+    init(radius: CGFloat, spriteComponent: TWSpriteComponent) {
         super.init()
         
-        let pBody = SKPhysicsBody(circleOfRadius: w / 2)
         
-        //physics changes
+        let pBody = SKPhysicsBody(circleOfRadius: radius)
+        
+        // physics changes
         pBody.isDynamic = true
         pBody.categoryBitMask = creepCategory
         pBody.contactTestBitMask = towerRangeCircleCategory
