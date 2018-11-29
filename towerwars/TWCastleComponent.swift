@@ -12,9 +12,12 @@ import GameplayKit
 class TWCastleComponent: GKComponent {
     
     let entityManager: TWEntityManager
+    var coins: Int
     
-    init(entityManager: TWEntityManager) {
+    init(entityManager: TWEntityManager, coins: Int = 100) {
         self.entityManager = entityManager
+        self.coins = coins
+        
         super.init()
     }
     
