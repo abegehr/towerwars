@@ -46,7 +46,10 @@ class TWBuildTowerComponent: GKComponent {
             
             if let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) {
                 // show a label
-                let label = SKLabelNode(text: "costs 10 coins")
+                let label = SKLabelNode(fontNamed: "Arial")
+                label.text = "10 coins"
+                label.fontSize = 18
+                label.fontColor = SKColor.red
                 spriteComponent.node.addChild(label)
                 
                 let fade_in = SKAction.group([SKAction.scale(to: 2, duration: 0.4), SKAction.fadeIn(withDuration: 0.4)])
