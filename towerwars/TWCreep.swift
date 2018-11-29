@@ -38,25 +38,19 @@ class TWCreep: GKEntity {
         
         // spriteComponent
         let radius = Float(15)
-        /*let node = SKShapeNode(circleOfRadius: CGFloat(radius))
+        let node = SKShapeNode(circleOfRadius: CGFloat(radius))
         node.fillColor = .blue
-        node.position = position*/
-
-        //todo with texture
-        let texture = SKTexture(imageNamed: "quirk1")
-        let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())
         node.position = position
-        
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         //to access the entity later:
         spriteComponent.addToNodeKey()
         
-        //physicsComponent
+        // physicsComponent
         let creepPhysicsComponent = TWCreepPhysicsComponent(spriteComponent: spriteComponent)
         addComponent(creepPhysicsComponent)
         
-        //healthComponent
+        // healthComponent
         let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0, entityManager: entityManager)
         addComponent(healthComponent)
         
