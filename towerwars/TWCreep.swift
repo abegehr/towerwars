@@ -26,17 +26,39 @@ class TWCreep: GKEntity {
         return teamComponent
     }
     
-    init(position: CGPoint, team: Team) {
+    var creepPhysicsComponent: TWCreepPhysicsComponent {
+        guard let creepPhysicsComponent = component(ofType: TWCreepPhysicsComponent.self) else { fatalError("A Creep entity must have a TWCreepPhysicsComponent.") }
+        return creepPhysicsComponent
+    }
+    
+    
+    
+    init(position: CGPoint, team: Team, entityManager: TWEntityManager) {
         super.init()
         
         // spriteComponent
         let radius = Float(15)
-        let node = SKShapeNode(circleOfRadius: CGFloat(radius))
-        node.position = position
+        /*let node = SKShapeNode(circleOfRadius: CGFloat(radius))
         node.fillColor = .blue
-        node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
+        node.position = position*/
+
+        //todo with texture
+        let texture = SKTexture(imageNamed: "quirk1")
+        let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())
+        node.position = position
+        
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
+        //to access the entity later:
+        spriteComponent.addToNodeKey()
+        
+        //physicsComponent
+        let creepPhysicsComponent = TWCreepPhysicsComponent(spriteComponent: spriteComponent)
+        addComponent(creepPhysicsComponent)
+        
+        //healthComponent
+        let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0, entityManager: entityManager)
+        addComponent(healthComponent)
         
         // pathMoveComponent
         let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius))
@@ -45,6 +67,8 @@ class TWCreep: GKEntity {
         // teamComponent
         let teamComponent = TWTeamComponent(team: team)
         addComponent(teamComponent)
+        
+
     }
     
     required init?(coder aDecoder: NSCoder) {

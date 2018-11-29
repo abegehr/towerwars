@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class TWGameScene: SKScene {
+class TWGameScene: SKScene, SKPhysicsContactDelegate {
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -141,4 +141,60 @@ class TWGameScene: SKScene {
         }
     }
     
+    override func didMove(to view: SKView) {
+                
+        //physics changes
+        physicsWorld.contactDelegate = self
+        
+        //building tower
+        entityManager.buildTower(type: "arrow", posX: 0.0, posY: 0.0, team: Team(rawValue: 1)!)
+
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        // get range nodes
+        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
+            
+            // get visual nodes
+            if let towerVisualNode = towerRangeNode.parent{
+
+                // get entities
+                if let creepEntity = creepNode.userData!["entity"] as? TWCreep {
+                    if let towerEntity = towerVisualNode.userData!["entity"] as? TWTower {
+                    
+                        // get range component
+                        if let firingComponent = towerEntity.component(ofType: TWFiringComponent.self) {
+                            
+                            //add our creep to the array
+                            firingComponent.addCreepToRange(creep: creepEntity)
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        // get range nodes
+        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
+            
+            // get visual nodes
+            if let towerVisualNode = towerRangeNode.parent{
+                
+                // get entities
+                if let creepEntity = creepNode.userData!["entity"] as? TWCreep {
+                    if let towerEntity = towerVisualNode.userData!["entity"] as? TWTower {
+                        
+                        // get range component
+                        if let firingComponent = towerEntity.component(ofType: TWFiringComponent.self) {
+                            firingComponent.removeCreepFromRange(creep: creepEntity)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
+

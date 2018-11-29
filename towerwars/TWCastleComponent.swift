@@ -31,8 +31,8 @@ class TWCastleComponent: GKComponent {
                 return
         }
         
-        let newCreep = TWCreep(position: spriteComponent.node.position, team: teamComponent.team)
-        
+        let newCreep = TWCreep(position: CGPoint(x: spriteComponent.node.position.x, y: spriteComponent.node.position.y), team: teamComponent.team, entityManager: entityManager)
+
         if let pathComponent = entity?.component(ofType: TWPathComponent.self) {
             newCreep.addComponent(pathComponent)
         }

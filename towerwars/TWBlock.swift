@@ -32,6 +32,10 @@ class TWBlock: GKEntity {
         node.strokeColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
         node.physicsBody = SKPhysicsBody(rectangleOf: size)
         node.physicsBody!.isDynamic = false
+        //physics changes (maybe temporarily): adjusted bitmasks so that it doesn't collide with a creep (contact function in gameScene would be triggered)
+        node.physicsBody!.categoryBitMask = creepCategory
+        node.physicsBody!.contactTestBitMask = 2
+        node.physicsBody!.collisionBitMask = 0
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         spriteComponent.addToNodeKey()

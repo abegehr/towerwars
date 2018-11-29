@@ -29,6 +29,9 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+        
+        let skView = self.view as! SKView
+        skView.showsPhysics = true
     }
     
     override var shouldAutorotate: Bool {
