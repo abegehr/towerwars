@@ -15,12 +15,21 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     
     // Game over detection
     var gameOver = false
+    var playTime: Int = 0
     
     // entity manager
     var entityManager: TWEntityManager!
     
     // map
     var map: TWMap!
+    
+    //coins
+    let coin1Label = SKLabelNode(fontNamed: "Courier-Bold")
+    let margin = CGFloat(90)
+    
+    //colors
+    let TWPink = UIColor(red: 0.9804, green: 0.0196, blue: 1, alpha: 1.0) /* #fa05ff */
+    let TWBlue = UIColor(red: 0.0196, green: 0.149, blue: 1, alpha: 1.0) /* #0526ff */
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -62,6 +71,8 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         blocks_at.append(CGPoint(x: 60, y: 350))
         
         map = TWMap(scene: self, user_castle_at: CGPoint(x: 0, y: -600), enemy_castles_at: [CGPoint(x: 0, y: 600)], blocks_at: blocks_at, entityManager: entityManager)
+        
+        self.startTimer()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -92,11 +103,12 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         }
         gameOver = true
         
-        let message = won ? "You win" : "You lose"
+        let message = won ? "You win" : "Game Over."
         
+        //"message" label always exists
         let label = SKLabelNode(fontNamed: "Courier-Bold")
-        label.fontSize = 100
-        label.fontColor = SKColor.black
+        label.fontSize = 90
+        label.fontColor = TWBlue
         label.position = CGPoint(x: 0, y: 0)
         label.zPosition = 1
         label.verticalAlignmentMode = .center
@@ -104,9 +116,29 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         label.setScale(0)
         addChild(label)
         
+        var timeLabel: SKLabelNode?
+        if !won {
+            
+            //"timeLabel" label only exists in case of loss
+            let timeMessage = "You lasted \(self.playTime) seconds!"
+            timeLabel = SKLabelNode(fontNamed: "Courier-Bold")
+            
+            if let timeLabel = timeLabel {
+                timeLabel.fontSize = 40
+                timeLabel.fontColor = TWPink
+                timeLabel.position = CGPoint(x: 0, y: -100)
+                timeLabel.zPosition = label.zPosition
+                timeLabel.verticalAlignmentMode = label.verticalAlignmentMode
+                timeLabel.text = timeMessage
+                timeLabel.setScale(0)
+                addChild(timeLabel)
+            }
+        }
+        
         let scaleAction = SKAction.scale(to: 1.0, duration: 0.5)
         scaleAction.timingMode = SKActionTimingMode.easeInEaseOut
         label.run(scaleAction)
+        timeLabel?.run(scaleAction)
         
     }
     
@@ -139,6 +171,14 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                 showRestartMenu(true)
             }
         }
+        
+        //coin label: the part that needs to be updated
+        if let castle1 = entityManager.castleForTeam(.team1) {
+            let humanCastle = castle1.component(ofType: TWCastleComponent.self) 
+            coin1Label.text = "\(humanCastle!.coins)"
+            
+        }
+
     }
     
     override func didMove(to view: SKView) {
@@ -148,6 +188,21 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         
         //building tower
         entityManager.buildTower(type: "arrow", posX: 0.0, posY: 0.0, team: Team(rawValue: 1)!)
+        
+        //coin label
+        let coin1 = SKSpriteNode(imageNamed: "coin")
+        //coin1.position = CGPoint(x: margin + coin1.size.width/2, y: size.height - margin - coin1.size.height/2)
+        coin1.position = CGPoint(x: -size.width/2 + margin, y: size.height/2 - margin)
+        addChild(coin1)
+        coin1Label.fontSize = 50
+        coin1Label.fontColor = TWPink
+        coin1Label.position = CGPoint(x: coin1.position.x + coin1.size.width/2 + 20, y: coin1.position.y)
+        //coin1Label.position = CGPoint(x: -100, y: 400)
+        coin1Label.zPosition = 1
+        coin1Label.horizontalAlignmentMode = .left
+        coin1Label.verticalAlignmentMode = .center
+        coin1Label.text = "10"
+        self.addChild(coin1Label)
 
     }
     
@@ -193,6 +248,12 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                     }
                 }
             }
+        }
+    }
+    
+    func startTimer(){
+        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.playTime += 1
         }
     }
     
