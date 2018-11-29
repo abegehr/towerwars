@@ -36,7 +36,7 @@ class TWFiringComponent : GKComponent {
     
     //this will just keep going
     func attack() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
+        _ = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
             //update our target
             self.findTarget()
             //if we have a target:
