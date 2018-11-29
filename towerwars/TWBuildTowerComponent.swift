@@ -32,7 +32,7 @@ class TWBuildTowerComponent: GKComponent {
         }
         
         // enough coins?
-        let cost = 100
+        let cost = 10
         if (castleComponent.coins >= cost) {
             let position = spriteComponent.node.position
             print("building tower at: ", position)
