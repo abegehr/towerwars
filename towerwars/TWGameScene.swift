@@ -25,6 +25,7 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     
     //coins
     let coin1Label = SKLabelNode(fontNamed: "Courier-Bold")
+    let margin = CGFloat(90)
     
     //colors
     let TWPink = UIColor(red: 0.9804, green: 0.0196, blue: 1, alpha: 1.0) /* #fa05ff */
@@ -189,10 +190,14 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         entityManager.buildTower(type: "arrow", posX: 0.0, posY: 0.0, team: Team(rawValue: 1)!)
         
         //coin label
+        let coin1 = SKSpriteNode(imageNamed: "coin")
+        //coin1.position = CGPoint(x: margin + coin1.size.width/2, y: size.height - margin - coin1.size.height/2)
+        coin1.position = CGPoint(x: -size.width/2 + margin, y: size.height/2 - margin)
+        addChild(coin1)
         coin1Label.fontSize = 50
-        coin1Label.fontColor = SKColor.black
-        //coin1Label.position = CGPoint(x: coin1.position.x + coin1.size.width/2 + margin, y: coin1.position.y)
-        coin1Label.position = CGPoint(x: -100, y: 400)
+        coin1Label.fontColor = TWPink
+        coin1Label.position = CGPoint(x: coin1.position.x + coin1.size.width/2 + 20, y: coin1.position.y)
+        //coin1Label.position = CGPoint(x: -100, y: 400)
         coin1Label.zPosition = 1
         coin1Label.horizontalAlignmentMode = .left
         coin1Label.verticalAlignmentMode = .center
