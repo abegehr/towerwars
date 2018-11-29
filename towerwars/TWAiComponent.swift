@@ -22,7 +22,7 @@ class TWAiComponent: GKComponent {
             let counter_stages = ceil(counter / 30.0)
             
             // n: creeps to spawn
-            let n = Int(counter_stages)
+            let n = Int(ceil(counter_stages*0.66))
             
             if let castleComponent = self.entity?.component(ofType: TWCastleComponent.self) {
                 print("counter: ", counter, " spawning creeps: ", n)
