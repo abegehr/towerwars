@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
         let sceneNode = TWGameScene(size: CGSize(width: 640, height: 1334))
         
         // Set the scale mode to scale to fit the window
-        sceneNode.scaleMode = .aspectFill
+        sceneNode.scaleMode = .aspectFit
         
         // Present the scene
         if let view = self.view as! SKView? {
