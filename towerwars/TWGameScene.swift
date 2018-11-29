@@ -15,12 +15,17 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     
     // Game over detection
     var gameOver = false
+    var playTime: Int = 0
     
     // entity manager
     var entityManager: TWEntityManager!
     
     // map
     var map: TWMap!
+    
+    //colors
+    let TWPink = UIColor(red: 0.9804, green: 0.0196, blue: 1, alpha: 1.0) /* #fa05ff */
+    let TWBlue = UIColor(red: 0.0196, green: 0.149, blue: 1, alpha: 1.0) /* #0526ff */
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -62,6 +67,8 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         blocks_at.append(CGPoint(x: 60, y: 350))
         
         map = TWMap(scene: self, user_castle_at: CGPoint(x: 0, y: -600), enemy_castles_at: [CGPoint(x: 0, y: 600)], blocks_at: blocks_at, entityManager: entityManager)
+        
+        self.startTimer()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -92,11 +99,11 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         }
         gameOver = true
         
-        let message = won ? "You win" : "You lose"
+        let message = won ? "You win" : "Game Over."
         
         let label = SKLabelNode(fontNamed: "Courier-Bold")
-        label.fontSize = 100
-        label.fontColor = SKColor.black
+        label.fontSize = 90
+        label.fontColor = TWBlue
         label.position = CGPoint(x: 0, y: 0)
         label.zPosition = 1
         label.verticalAlignmentMode = .center
@@ -104,9 +111,27 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         label.setScale(0)
         addChild(label)
         
+        var timeLabel: SKLabelNode?
+        if !won {
+            let timeMessage = "You lasted \(self.playTime) seconds!"
+            timeLabel = SKLabelNode(fontNamed: "Courier-Bold")
+            
+            if let timeLabel = timeLabel {
+                timeLabel.fontSize = 40
+                timeLabel.fontColor = TWPink
+                timeLabel.position = CGPoint(x: 0, y: -100)
+                timeLabel.zPosition = label.zPosition
+                timeLabel.verticalAlignmentMode = label.verticalAlignmentMode
+                timeLabel.text = timeMessage
+                timeLabel.setScale(0)
+                addChild(timeLabel)
+            }
+        }
+        
         let scaleAction = SKAction.scale(to: 1.0, duration: 0.5)
         scaleAction.timingMode = SKActionTimingMode.easeInEaseOut
         label.run(scaleAction)
+        timeLabel?.run(scaleAction)
         
     }
     
@@ -193,6 +218,12 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
                     }
                 }
             }
+        }
+    }
+    
+    func startTimer(){
+        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.playTime += 1
         }
     }
     
