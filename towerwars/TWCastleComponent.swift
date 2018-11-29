@@ -19,6 +19,9 @@ class TWCastleComponent: GKComponent {
         self.coins = coins
         
         super.init()
+        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.coins += 1
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
