@@ -17,5 +17,10 @@ class TWSpriteComponent: GKSKNodeComponent {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func addToNodeKey() {
+        node.userData = NSMutableDictionary()
+        node.userData!["entity"] = self.entity!
+    }
 }
 

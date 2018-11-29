@@ -27,6 +27,9 @@
 		3AAD7624219B648600C44D29 /* TWCastleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7623219B648600C44D29 /* TWCastleComponent.swift */; };
 		3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */; };
 		3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */; };
+		3AD8549521AF30CE004D3B9F /* TWAiComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8549421AF30CE004D3B9F /* TWAiComponent.swift */; };
+		3AD8549921AF3A45004D3B9F /* TouchableShapeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8549821AF3A45004D3B9F /* TouchableShapeNode.swift */; };
+		3AD8549B21AF3CC5004D3B9F /* TWBuildTowerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8549A21AF3CC5004D3B9F /* TWBuildTowerComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		3AAD7623219B648600C44D29 /* TWCastleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCastleComponent.swift; sourceTree = "<group>"; };
 		3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWTeamComponent.swift; sourceTree = "<group>"; };
 		3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSpriteComponent.swift; sourceTree = "<group>"; };
+		3AD8549421AF30CE004D3B9F /* TWAiComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWAiComponent.swift; sourceTree = "<group>"; };
+		3AD8549821AF3A45004D3B9F /* TouchableShapeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchableShapeNode.swift; sourceTree = "<group>"; };
+		3AD8549A21AF3CC5004D3B9F /* TWBuildTowerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBuildTowerComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +113,9 @@
 				3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */,
 				3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */,
 				3AAD7623219B648600C44D29 /* TWCastleComponent.swift */,
+				3AD8549421AF30CE004D3B9F /* TWAiComponent.swift */,
 				3A82B0F9219C1DB900501A90 /* TWHealthComponent.swift */,
+				3AD8549A21AF3CC5004D3B9F /* TWBuildTowerComponent.swift */,
 				3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */,
 				3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */,
 			);
@@ -152,6 +160,7 @@
 				3A1A465D21A49182002EEF44 /* TWMap.swift */,
 				3A0D2A26218B43E100D3F112 /* Entities */,
 				3A0D2A24218B43CF00D3F112 /* Components */,
+				3AD8549721AF3A17004D3B9F /* Helpers */,
 				3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */,
 				3A3A8DAC215E1AB400E07741 /* GameViewController.swift */,
 				3A3A8DAE215E1AB400E07741 /* Main.storyboard */,
@@ -178,6 +187,14 @@
 				3A3A8DCC215E1AB800E07741 /* Info.plist */,
 			);
 			path = towerwarsUITests;
+			sourceTree = "<group>";
+		};
+		3AD8549721AF3A17004D3B9F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8549821AF3A45004D3B9F /* TouchableShapeNode.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,11 +329,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AAD7624219B648600C44D29 /* TWCastleComponent.swift in Sources */,
+				3AD8549B21AF3CC5004D3B9F /* TWBuildTowerComponent.swift in Sources */,
 				3A0D2A28218B46D700D3F112 /* TWEntityManager.swift in Sources */,
 				3A3A8DAB215E1AB400E07741 /* TWGameScene.swift in Sources */,
 				3A8CF0F42178818500EA69C3 /* TWPathMoveBehavior.swift in Sources */,
 				3A0D2A2A218B540600D3F112 /* TWCastle.swift in Sources */,
 				3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */,
+				3AD8549921AF3A45004D3B9F /* TouchableShapeNode.swift in Sources */,
+				3AD8549521AF30CE004D3B9F /* TWAiComponent.swift in Sources */,
 				3A8CF0F62178A71700EA69C3 /* TWBlock.swift in Sources */,
 				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
 				3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */,
