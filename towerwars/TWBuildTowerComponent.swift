@@ -32,11 +32,14 @@ class TWBuildTowerComponent: GKComponent {
         }
         
         // enough coins?
-        if (castleComponent.coins > 0) {
+        let cost = 100
+        if (castleComponent.coins >= cost) {
             let position = spriteComponent.node.position
             print("building tower at: ", position)
             
-            castleComponent.coins -= 1
+            castleComponent.coins -= cost
+            
+            entityManager.buildTower(type: "arrow", posX: position.x, posY: position.y, team: .team1)
             
             return true
         }

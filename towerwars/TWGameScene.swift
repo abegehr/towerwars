@@ -186,9 +186,6 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         //physics changes
         physicsWorld.contactDelegate = self
         
-        //building tower
-        entityManager.buildTower(type: "arrow", posX: 0.0, posY: 0.0, team: Team(rawValue: 1)!)
-        
         //coin label
         let coin1 = SKSpriteNode(imageNamed: "coin")
         //coin1.position = CGPoint(x: margin + coin1.size.width/2, y: size.height - margin - coin1.size.height/2)
@@ -214,8 +211,8 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
             if let towerVisualNode = towerRangeNode.parent{
 
                 // get entities
-                if let creepEntity = creepNode.userData!["entity"] as? TWCreep {
-                    if let towerEntity = towerVisualNode.userData!["entity"] as? TWTower {
+                if let creepEntity = creepNode.userData?["entity"] as? TWCreep {
+                    if let towerEntity = towerVisualNode.userData?["entity"] as? TWTower {
                     
                         // get range component
                         if let firingComponent = towerEntity.component(ofType: TWFiringComponent.self) {
@@ -238,8 +235,8 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
             if let towerVisualNode = towerRangeNode.parent{
                 
                 // get entities
-                if let creepEntity = creepNode.userData!["entity"] as? TWCreep {
-                    if let towerEntity = towerVisualNode.userData!["entity"] as? TWTower {
+                if let creepEntity = creepNode.userData?["entity"] as? TWCreep {
+                    if let towerEntity = towerVisualNode.userData?["entity"] as? TWTower {
                         
                         // get range component
                         if let firingComponent = towerEntity.component(ofType: TWFiringComponent.self) {
