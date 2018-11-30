@@ -10,6 +10,7 @@
 		3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04BE0421613EDB00B8D3AA /* TWCreep.swift */; };
 		3A0D2A28218B46D700D3F112 /* TWEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */; };
 		3A0D2A2A218B540600D3F112 /* TWCastle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D2A29218B540600D3F112 /* TWCastle.swift */; };
+		3A14F5EF21B18D1D00C83278 /* TWBackgroundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F5EE21B18D1D00C83278 /* TWBackgroundNode.swift */; };
 		3A1A465E21A49182002EEF44 /* TWMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A465D21A49182002EEF44 /* TWMap.swift */; };
 		3A1A466021A49DE3002EEF44 /* TWPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A465F21A49DE3002EEF44 /* TWPathComponent.swift */; };
 		3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DA4215E1AB400E07741 /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 		3A04BE0421613EDB00B8D3AA /* TWCreep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCreep.swift; sourceTree = "<group>"; };
 		3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWEntityManager.swift; sourceTree = "<group>"; };
 		3A0D2A29218B540600D3F112 /* TWCastle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCastle.swift; sourceTree = "<group>"; };
+		3A14F5EE21B18D1D00C83278 /* TWBackgroundNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBackgroundNode.swift; sourceTree = "<group>"; };
 		3A1A465D21A49182002EEF44 /* TWMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWMap.swift; sourceTree = "<group>"; };
 		3A1A465F21A49DE3002EEF44 /* TWPathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPathComponent.swift; sourceTree = "<group>"; };
 		3A3A8DA1215E1AB400E07741 /* towerwars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = towerwars.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				3AD8549821AF3A45004D3B9F /* TouchableShapeNode.swift */,
+				3A14F5EE21B18D1D00C83278 /* TWBackgroundNode.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				E197658821A9E41400804429 /* TWTower.swift in Sources */,
 				3A0D2A2A218B540600D3F112 /* TWCastle.swift in Sources */,
 				3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */,
+				3A14F5EF21B18D1D00C83278 /* TWBackgroundNode.swift in Sources */,
 				3AD8549921AF3A45004D3B9F /* TouchableShapeNode.swift in Sources */,
 				3AD8549521AF30CE004D3B9F /* TWAiComponent.swift in Sources */,
 				3A8CF0F62178A71700EA69C3 /* TWBlock.swift in Sources */,

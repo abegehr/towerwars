@@ -30,6 +30,11 @@ class TWMap {
         
         self.entityManager = entityManager
         
+        // background node
+        let backgroundNode = TWBackgroundNode(size: scene.size, color1: CIColor(color: TWMap.enemy_castle_color), color2: CIColor(color: TWMap.user_castle_color), direction: .Up)
+        backgroundNode.zPosition = -1
+        scene.addChild(backgroundNode)
+        
         // border
         let minX = scene.frame.minX
         let minY = scene.frame.minY
