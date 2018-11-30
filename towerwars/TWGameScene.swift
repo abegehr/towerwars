@@ -46,29 +46,41 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         
         // create map
         var blocks_at: [CGPoint] = []
-        // top row
+        // top row (right)
+        blocks_at.append(CGPoint(x: 120, y: 400))
+        blocks_at.append(CGPoint(x: 200, y: 330))
+        blocks_at.append(CGPoint(x: 280, y: 260))
+        // top row 2 (left)
         blocks_at.append(CGPoint(x: 70, y: 200))
         blocks_at.append(CGPoint(x: 0, y: 200))
         blocks_at.append(CGPoint(x: -70, y: 200))
         blocks_at.append(CGPoint(x: -140, y: 200))
         blocks_at.append(CGPoint(x: -210, y: 200))
         blocks_at.append(CGPoint(x: -280, y: 200))
-        // middle row
+        // middle row (right)
+        blocks_at.append(CGPoint(x: -240, y: 40))
+        blocks_at.append(CGPoint(x: -240, y: -40))
         blocks_at.append(CGPoint(x: -70, y: 0))
         blocks_at.append(CGPoint(x: 0, y: 0))
         blocks_at.append(CGPoint(x: 70, y: 0))
         blocks_at.append(CGPoint(x: 140, y: 0))
         blocks_at.append(CGPoint(x: 210, y: 0))
         blocks_at.append(CGPoint(x: 280, y: 0))
-        // bottom row
+        // bottom row (left)
         blocks_at.append(CGPoint(x: 70, y: -200))
         blocks_at.append(CGPoint(x: -0, y: -200))
         blocks_at.append(CGPoint(x: -70, y: -200))
         blocks_at.append(CGPoint(x: -140, y: -200))
         blocks_at.append(CGPoint(x: -210, y: -200))
         blocks_at.append(CGPoint(x: -280, y: -200))
-        //other
-        blocks_at.append(CGPoint(x: 60, y: 350))
+        // bottom row 2 (right)
+        blocks_at.append(CGPoint(x: -140, y: -400))
+        blocks_at.append(CGPoint(x: -70, y: -400))
+        blocks_at.append(CGPoint(x: 0, y: -400))
+        blocks_at.append(CGPoint(x: 70, y: -400))
+        blocks_at.append(CGPoint(x: 140, y: -400))
+        blocks_at.append(CGPoint(x: 210, y: -400))
+        blocks_at.append(CGPoint(x: 280, y: -400))
         
         map = TWMap(scene: self, user_castle_at: CGPoint(x: 0, y: -600), enemy_castles_at: [CGPoint(x: 0, y: 600)], blocks_at: blocks_at, entityManager: entityManager)
         
