@@ -1,5 +1,9 @@
-# Towerwars
-An iOS game by Tom Gülenman and Antopn Begehr
+# TowerWars
+
+Defend you castle by building towers!
+
+## Story
+TowerWars is an early version of an iOS game developed by [Tom Gülenmann](mailto:tguelenman@gmail.com) and [Anton Begehr](mailto:a.begehr@gmail.com). At the moment only one tower and a single level is supported. We plan to expand the app and ultimately make it available on the App Store.
 
 ## Implementation
 
