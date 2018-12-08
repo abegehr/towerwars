@@ -1,28 +1,52 @@
 import SpriteKit
 import GameplayKit
 
-typealias TowerType = String
-
+enum TowerType: Int {
+    case arrow = 1
+    
+    static let allValues = [arrow]
+}
 
 class TWTower : GKEntity {
     
-    var type: TowerType
+    var spriteComponent: TWSpriteComponent {
+        guard let spriteComponent = component(ofType: TWSpriteComponent.self) else { fatalError("A Castle entity must have a TWSpriteComponent.") }
+        return spriteComponent
+    }
     
-    //todo: EntityManager?
-    init(type: TowerType, team: Team, entityManager: TWEntityManager) {
-        self.type = type
+    var teamComponent: TWTeamComponent {
+        guard let teamComponent = component(ofType: TWTeamComponent.self) else { fatalError("A Castle entity must have a TWTeamComponent.") }
+        return teamComponent
+    }
+    
+    var rangeComponent: TWRangeComponent {
+        guard let rangeComponent = component(ofType: TWRangeComponent.self) else { fatalError("A Castle entity must have a TWRangeComponent.") }
+        return rangeComponent
+    }
+    
+    var firingComponent: TWFiringComponent {
+        guard let firingComponent = component(ofType: TWFiringComponent.self) else { fatalError("A Castle entity must have a TWFiringComponent.") }
+        return firingComponent
+    }
+    
+    init(range: CGFloat, team: Team, entityManager: TWEntityManager) {
         super.init()
-        //todo depend on type:
+        
+        // spriteComponent
         let texture = SKTexture(imageNamed: "arrowTower1")
         let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())
-
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         spriteComponent.addToNodeKey()
+        
+        // teamComponent
         addComponent(TWTeamComponent(team: team))
-        addComponent(TWRangeComponent(type: self.type, spriteComponent: spriteComponent))
-        addComponent(TWFiringComponent(type: self.type, entityManager: entityManager))
-        //todo: firing component
+        
+        // rangeComponent
+        addComponent(TWRangeComponent(range: range, spriteComponent: spriteComponent))
+        
+        // firingComponent
+        addComponent(TWFiringComponent(entityManager: entityManager))
     }
     
     required init?(coder aDecoder: NSCoder) {

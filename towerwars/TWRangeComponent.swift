@@ -1,27 +1,24 @@
 import SpriteKit
 import GameplayKit
 
-var w: CGFloat {
-    return (UIScreen.main.bounds.width + UIScreen.main.bounds.height) * 0.05
-}
-
 let creepCategory:UInt32 = 0x1 << 0
 let towerRangeCircleCategory:UInt32 = 0x1 << 1
 
-var ranges: [String: CGFloat] = [
-    "arrow": w * 3,
-    "cannon": w * 2,
-]
-
 class TWRangeComponent : GKComponent {
     
-    
     var range: CGFloat
-    var creepsInRange: [TWCreep] = []
     var circleNode: SKNode?
     
-    init(type: TowerType, spriteComponent: TWSpriteComponent) {
-        self.range = ranges[type]!
+    var creepsInRange: [TWCreep?] = []
+    var targetCreep: TWCreep? {
+        if !creepsInRange.isEmpty {
+            return creepsInRange[0]
+        }
+        return nil
+    }
+    
+    init(range: CGFloat, spriteComponent: TWSpriteComponent) {
+        self.range = range
         
         //let circle = CGRect(x: 0.0 - self.range, y: 0.0 - self.range, width: self.range * 2, height: self.range * 2)
         self.circleNode = SKNode() //SKShapeNode(rect: circle, cornerRadius: self.range)
@@ -38,6 +35,20 @@ class TWRangeComponent : GKComponent {
             circleNode.physicsBody!.contactTestBitMask = creepCategory
             circleNode.physicsBody!.collisionBitMask = creepCategory
             spriteComponent.node.addChild(circleNode)
+        }
+    }
+    
+    func addCreepToRange(creep: TWCreep) {
+        // add creep to in range
+        if !(creepsInRange.contains(creep) ) {
+            creepsInRange.append(creep)
+        }
+    }
+    
+    func removeCreepFromRange(creep: TWCreep) {
+        // remove creep from in range
+        if let index = creepsInRange.firstIndex(of: creep) {
+            creepsInRange.remove(at: index)
         }
     }
     

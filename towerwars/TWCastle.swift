@@ -16,9 +16,19 @@ class TWCastle: GKEntity {
         return spriteComponent
     }
     
+    var teamComponent: TWTeamComponent {
+        guard let teamComponent = component(ofType: TWTeamComponent.self) else { fatalError("A Castle entity must have a TWTeamComponent.") }
+        return teamComponent
+    }
+    
     var castleComponent: TWCastleComponent {
         guard let castleComponent = component(ofType: TWCastleComponent.self) else { fatalError("A Castle entity must have a TWCastleComponent.") }
         return castleComponent
+    }
+    
+    var healthComponent: TWHealthComponent {
+        guard let healthComponent = component(ofType: TWHealthComponent.self) else { fatalError("A Castle entity must have a TWHealthComponent.") }
+        return healthComponent
     }
     
     init(color: UIColor, position: CGPoint, team: Team, entityManager: TWEntityManager) {

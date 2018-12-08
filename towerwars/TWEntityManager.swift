@@ -82,14 +82,21 @@ class TWEntityManager {
     }
     
     func buildTower(type: TowerType, posX: CGFloat, posY: CGFloat, team: Team) {
+        let tower: TWTower?
         
-        let tower = TWTower(type: type, team: team, entityManager: self)
-        if let spriteComponent = tower.component(ofType: TWSpriteComponent.self) {
-            spriteComponent.node.position = CGPoint(x: posX, y: posY)
-            spriteComponent.node.zPosition = 2
-            //tower.addTWRangeComponent(spriteComponent: spriteComponent)
+        // tower types
+        switch type {
+        case .arrow:
+            tower = TWTower(range: 3*w, team: team, entityManager: self)
         }
-        add(tower)
+        
+        if tower != nil {
+            if let spriteComponent = tower!.component(ofType: TWSpriteComponent.self) {
+                spriteComponent.node.position = CGPoint(x: posX, y: posY)
+                spriteComponent.node.zPosition = 2
+            }
+            add(tower!)
+        }
     }
     
     func update(_ dt: CFTimeInterval) {

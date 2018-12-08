@@ -9,9 +9,14 @@
 import SpriteKit
 import GameplayKit
 
-//colors
+// colors
 var TWPink = UIColor(red: 0.9804, green: 0.0196, blue: 1, alpha: 1.0) /* #fa05ff */
 var TWBlue = UIColor(red: 0.0196, green: 0.149, blue: 1, alpha: 1.0) /* #0526ff */
+
+// size measure
+var w: CGFloat {
+    return (UIScreen.main.bounds.width + UIScreen.main.bounds.height) * 0.05
+}
 
 class TWGameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -27,9 +32,8 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     // map
     var map: TWMap!
     
-    //coins
+    // coins
     let coin1Label = SKLabelNode(fontNamed: "Courier-Bold")
-    let margin = CGFloat(90)
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -83,30 +87,45 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         blocks_at.append(CGPoint(x: 280, y: -400))
         
         map = TWMap(scene: self, user_castle_at: CGPoint(x: 0, y: -600), enemy_castles_at: [CGPoint(x: 0, y: 600)], blocks_at: blocks_at, entityManager: entityManager)
-        
-        self.startTimer()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func sceneDidLoad() {
+    override func didMove(to view: SKView) {
+        
+        //physics changes
+        physicsWorld.contactDelegate = self
+        
+        // score timer
+        self.startTimer()
+        
+        //coin label
+        let coin1 = SKSpriteNode(imageNamed: "coin")
+        let margin = CGFloat(90)
+        //coin1.position = CGPoint(x: margin + coin1.size.width/2, y: size.height - margin - coin1.size.height/2)
+        coin1.position = CGPoint(x: -size.width/2 + margin, y: size.height/2 - margin)
+        addChild(coin1)
+        coin1Label.fontSize = 50
+        coin1Label.fontColor = TWPink
+        coin1Label.position = CGPoint(x: coin1.position.x + coin1.size.width/2 + 20, y: coin1.position.y)
+        //coin1Label.position = CGPoint(x: -100, y: 400)
+        coin1Label.zPosition = 1
+        coin1Label.horizontalAlignmentMode = .left
+        coin1Label.verticalAlignmentMode = .center
+        coin1Label.text = "10"
+        self.addChild(coin1Label)
         
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (touches.first == nil) {
-            return
-        }
-        
-        if gameOver {
-            let newScene = TWGameScene(size: size)
-            newScene.scaleMode = scaleMode
-            view?.presentScene(newScene, transition: SKTransition.flipHorizontal(withDuration: 0.5))
-            return
+    func startTimer(){
+        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.playTime += 1
         }
     }
+    
+    // MARK: Menu
     
     func showRestartMenu(_ won: Bool) {
         
@@ -154,6 +173,58 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    //MARK: Touches
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (touches.first == nil) {
+            return
+        }
+        
+        if gameOver {
+            let newScene = TWGameScene(size: size)
+            newScene.scaleMode = scaleMode
+            view?.presentScene(newScene, transition: SKTransition.flipHorizontal(withDuration: 0.5))
+            return
+        }
+    }
+    
+    //MARK: physicsBody contact
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        // get range nodes
+        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
+            // get visual nodes
+            if let towerVisualNode = towerRangeNode.parent{
+                // get entities
+                if let creepEntity = creepNode.userData?["entity"] as? TWCreep, let towerEntity = towerVisualNode.userData?["entity"] as? TWTower {
+                    // get range component
+                    if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
+                        // add creep to in range
+                        rangeComponent.addCreepToRange(creep: creepEntity)
+                    }
+                }
+            }
+        }
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        // get range nodes
+        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
+            // get visual nodes
+            if let towerVisualNode = towerRangeNode.parent{
+                // get entities
+                if let creepEntity = creepNode.userData?["entity"] as? TWCreep, let towerEntity = towerVisualNode.userData?["entity"] as? TWTower {
+                    // get rangeComponent
+                    if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
+                        rangeComponent.removeCreepFromRange(creep: creepEntity)
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: update
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
@@ -186,84 +257,11 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         
         //coin label: the part that needs to be updated
         if let castle1 = entityManager.castleForTeam(.team1) {
-            let humanCastle = castle1.component(ofType: TWCastleComponent.self) 
+            let humanCastle = castle1.component(ofType: TWCastleComponent.self)
             coin1Label.text = "\(humanCastle!.coins)"
             
         }
-
-    }
-    
-    override func didMove(to view: SKView) {
-                
-        //physics changes
-        physicsWorld.contactDelegate = self
         
-        //coin label
-        let coin1 = SKSpriteNode(imageNamed: "coin")
-        //coin1.position = CGPoint(x: margin + coin1.size.width/2, y: size.height - margin - coin1.size.height/2)
-        coin1.position = CGPoint(x: -size.width/2 + margin, y: size.height/2 - margin)
-        addChild(coin1)
-        coin1Label.fontSize = 50
-        coin1Label.fontColor = TWPink
-        coin1Label.position = CGPoint(x: coin1.position.x + coin1.size.width/2 + 20, y: coin1.position.y)
-        //coin1Label.position = CGPoint(x: -100, y: 400)
-        coin1Label.zPosition = 1
-        coin1Label.horizontalAlignmentMode = .left
-        coin1Label.verticalAlignmentMode = .center
-        coin1Label.text = "10"
-        self.addChild(coin1Label)
-
-    }
-    
-    func didBegin(_ contact: SKPhysicsContact) {
-        // get range nodes
-        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
-            
-            // get visual nodes
-            if let towerVisualNode = towerRangeNode.parent{
-
-                // get entities
-                if let creepEntity = creepNode.userData?["entity"] as? TWCreep {
-                    if let towerEntity = towerVisualNode.userData?["entity"] as? TWTower {
-                    
-                        // get range component
-                        if let firingComponent = towerEntity.component(ofType: TWFiringComponent.self) {
-                            
-                            //add our creep to the array
-                            firingComponent.addCreepToRange(creep: creepEntity)
-                            
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func didEnd(_ contact: SKPhysicsContact) {
-        // get range nodes
-        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
-            
-            // get visual nodes
-            if let towerVisualNode = towerRangeNode.parent{
-                
-                // get entities
-                if let creepEntity = creepNode.userData?["entity"] as? TWCreep {
-                    if let towerEntity = towerVisualNode.userData?["entity"] as? TWTower {
-                        
-                        // get range component
-                        if let firingComponent = towerEntity.component(ofType: TWFiringComponent.self) {
-                            firingComponent.removeCreepFromRange(creep: creepEntity)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func startTimer(){
-        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.playTime += 1
-        }
     }
     
 }

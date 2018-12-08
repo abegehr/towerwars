@@ -16,6 +16,16 @@ class TWCreep: GKEntity {
         return spriteComponent
     }
     
+    var creepPhysicsComponent: TWCreepPhysicsComponent {
+        guard let creepPhysicsComponent = component(ofType: TWCreepPhysicsComponent.self) else { fatalError("A Creep entity must have a TWCreepPhysicsComponent.") }
+        return creepPhysicsComponent
+    }
+    
+    var healthComponent: TWHealthComponent {
+        guard let healthComponent = component(ofType: TWHealthComponent.self) else { fatalError("A Creep entity must have a TWHealthComponent.") }
+        return healthComponent
+    }
+    
     var pathMoveComponent: TWPathMoveComponent {
         guard let pathMoveComponent = component(ofType: TWPathMoveComponent.self) else { fatalError("A Creep entity must have a TWPathMoveComponent.") }
         return pathMoveComponent
@@ -24,11 +34,6 @@ class TWCreep: GKEntity {
     var teamComponent: TWTeamComponent {
         guard let teamComponent = component(ofType: TWTeamComponent.self) else { fatalError("A Creep entity must have a TWTeamComponent.") }
         return teamComponent
-    }
-    
-    var creepPhysicsComponent: TWCreepPhysicsComponent {
-        guard let creepPhysicsComponent = component(ofType: TWCreepPhysicsComponent.self) else { fatalError("A Creep entity must have a TWCreepPhysicsComponent.") }
-        return creepPhysicsComponent
     }
     
     init(position: CGPoint, team: Team, entityManager: TWEntityManager) {
