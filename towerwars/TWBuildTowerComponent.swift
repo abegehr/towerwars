@@ -34,18 +34,18 @@ class TWBuildTowerComponent: GKComponent {
         // enough coins?
         let cost = 10
         if (castleComponent.coins >= cost) {
-            let position = spriteComponent.node.position
-            print("building tower at: ", position)
-            
+            // enough coins
             castleComponent.coins -= cost
             
-            entityManager.buildTower(type: "arrow", posX: position.x, posY: position.y, team: .team1)
+            // building tower
+            let position = spriteComponent.node.position
+            entityManager.buildTower(type: .arrow, posX: position.x, posY: position.y, team: .team1)
             
             return true
         } else {
-            
+            // not enough coins
             if let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) {
-                // show a label
+                // show not enough coins error
                 let label = SKLabelNode(fontNamed: "Arial")
                 label.text = "10 coins"
                 label.fontSize = 18

@@ -18,6 +18,11 @@ class TWBlock: GKEntity {
         return spriteComponent
     }
     
+    var buildTowerComponent: TWBuildTowerComponent {
+        guard let buildTowerComponent = component(ofType: TWBuildTowerComponent.self) else { fatalError("A Block entity must have a TWBuildTowerComponent.") }
+        return buildTowerComponent
+    }
+    
     init(position: CGPoint, width: CGFloat = 60.0, entityManager: TWEntityManager) {
         
         self.entityManager = entityManager

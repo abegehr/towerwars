@@ -14,7 +14,7 @@ class TWAiComponent: GKComponent {
     override init() {
         super.init()
         
-        // spawn creeps every 1 second
+        // spawn creeps every 2 seconds
         var counter = 0.0
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: {timer in
             counter += timer.timeInterval
