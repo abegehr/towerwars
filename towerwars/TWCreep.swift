@@ -59,7 +59,6 @@ class TWCreep: GKEntity {
         // spriteComponent
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
-        spriteComponent.addToNodeKey()
         
         // inRangeComponent
         let inRangeComponent = TWInRangeComponent()

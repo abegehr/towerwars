@@ -38,7 +38,6 @@ class TWTower : GKEntity {
         // spriteComponent
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
-        spriteComponent.addToNodeKey()
         
         // teamComponent
         addComponent(TWTeamComponent(team: team))

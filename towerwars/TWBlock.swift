@@ -41,7 +41,6 @@ class TWBlock: GKEntity {
         node.physicsBody!.categoryBitMask = mapBitMask
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
-        spriteComponent.addToNodeKey()
         
         // buildTowerComponent
         let buildTowerComponent = TWBuildTowerComponent(entityManager: entityManager)
