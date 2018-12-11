@@ -41,6 +41,10 @@ class TWEntityManager {
     }
     
     func remove(_ entity: GKEntity) {
+        if let inRangeComponent = entity.component(ofType: TWInRangesComponent.self) {
+            inRangeComponent.removeFromAllRanges()
+        }
+        
         if let spriteNode = entity.component(ofType: TWSpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
