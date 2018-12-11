@@ -16,9 +16,9 @@ class TWCreep: GKEntity {
         return spriteComponent
     }
     
-    var inRangeComponent: TWInRangeComponent {
-        guard let inRangeComponent = component(ofType: TWInRangeComponent.self) else { fatalError("A Creep entity must have a TWInRangeComponent.") }
-        return inRangeComponent
+    var inRangesComponent: TWInRangesComponent {
+        guard let inRangesComponent = component(ofType: TWInRangesComponent.self) else { fatalError("A Creep entity must have a TWInRangesComponent.") }
+        return inRangesComponent
     }
     
     var healthComponent: TWHealthComponent {
@@ -60,9 +60,9 @@ class TWCreep: GKEntity {
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         
-        // inRangeComponent
-        let inRangeComponent = TWInRangeComponent()
-        addComponent(inRangeComponent)
+        // inRangesComponent
+        let inRangesComponent = TWInRangesComponent()
+        addComponent(inRangesComponent)
         
         // healthComponent
         let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0, entityManager: entityManager)

@@ -50,9 +50,9 @@ class TWRangeComponent : GKComponent {
         if !(inRange.contains(entity) ) {
             inRange.insert(entity)
             
-            // update TWInRangeComponent
-            if let inRangeComponent = entity.component(ofType: TWInRangeComponent.self) {
-                inRangeComponent.inRanges.insert(self)
+            // update TWInRangesComponent
+            if let inRangesComponent = entity.component(ofType: TWInRangesComponent.self) {
+                inRangesComponent.inRanges.insert(self)
             }
         }
     }
@@ -60,9 +60,9 @@ class TWRangeComponent : GKComponent {
     func removeFromRange(entity: GKEntity) {
         inRange.remove(entity)
         
-        // update TWInRangeComponent
-        if let inRangeComponent = entity.component(ofType: TWInRangeComponent.self) {
-            inRangeComponent.inRanges.remove(self)
+        // update TWInRangesComponent
+        if let inRangesComponent = entity.component(ofType: TWInRangesComponent.self) {
+            inRangesComponent.inRanges.remove(self)
         }
     }
     

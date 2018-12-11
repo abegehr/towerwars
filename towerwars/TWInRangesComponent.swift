@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class TWInRangeComponent: GKComponent {
+class TWInRangesComponent: GKComponent {
     
     var inRanges: Set<TWRangeComponent> = []
     

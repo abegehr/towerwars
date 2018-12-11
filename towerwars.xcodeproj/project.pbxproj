@@ -33,7 +33,7 @@
 		3AD8549B21AF3CC5004D3B9F /* TWBuildTowerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8549A21AF3CC5004D3B9F /* TWBuildTowerComponent.swift */; };
 		E197658821A9E41400804429 /* TWTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658721A9E41400804429 /* TWTower.swift */; };
 		E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658B21A9E64E00804429 /* TWRangeComponent.swift */; };
-		E197658E21A9E6F400804429 /* TWInRangeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658D21A9E6F400804429 /* TWInRangeComponent.swift */; };
+		E197658E21A9E6F400804429 /* TWInRangesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658D21A9E6F400804429 /* TWInRangesComponent.swift */; };
 		E197659221AD795500804429 /* TWFiringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197659121AD795500804429 /* TWFiringComponent.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +87,7 @@
 		3AD8549A21AF3CC5004D3B9F /* TWBuildTowerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBuildTowerComponent.swift; sourceTree = "<group>"; };
 		E197658721A9E41400804429 /* TWTower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWTower.swift; sourceTree = "<group>"; };
 		E197658B21A9E64E00804429 /* TWRangeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWRangeComponent.swift; sourceTree = "<group>"; };
-		E197658D21A9E6F400804429 /* TWInRangeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWInRangeComponent.swift; sourceTree = "<group>"; };
+		E197658D21A9E6F400804429 /* TWInRangesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWInRangesComponent.swift; sourceTree = "<group>"; };
 		E197659121AD795500804429 /* TWFiringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWFiringComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +129,7 @@
 				3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */,
 				3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */,
 				E197658B21A9E64E00804429 /* TWRangeComponent.swift */,
-				E197658D21A9E6F400804429 /* TWInRangeComponent.swift */,
+				E197658D21A9E6F400804429 /* TWInRangesComponent.swift */,
 				E197659121AD795500804429 /* TWFiringComponent.swift */,
 			);
 			name = Components;
@@ -359,7 +359,7 @@
 				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
 				3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */,
 				3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */,
-				E197658E21A9E6F400804429 /* TWInRangeComponent.swift in Sources */,
+				E197658E21A9E6F400804429 /* TWInRangesComponent.swift in Sources */,
 				3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */,
 				3A82B0FA219C1DB900501A90 /* TWHealthComponent.swift in Sources */,
 				3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */,
