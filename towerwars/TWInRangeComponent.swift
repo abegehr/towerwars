@@ -3,8 +3,14 @@ import GameplayKit
 
 class TWInRangeComponent: GKComponent {
     
+    var inRanges: Set<TWRangeComponent> = []
+    
     override init() {
         super.init()
+    }
+    
+    override func didAddToEntity() {
+        super.didAddToEntity()
         
         // get spriteComponent
         if let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) {
@@ -21,6 +27,12 @@ class TWInRangeComponent: GKComponent {
             if let physicsBody = spriteComponent.node.physicsBody {
                 physicsBody.categoryBitMask = inRangeBitMask
             }
+        }
+    }
+    
+    func removeFromAllRanges() {
+        for range in inRanges {
+            range.removeFromRange(entity: entity!)
         }
     }
     

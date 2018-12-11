@@ -7,11 +7,12 @@ let inRangeBitMask:UInt32 = 0x1 << 2
 
 class TWRangeComponent : GKComponent {
     
-    var inRange: [GKEntity?] = []
+    var node = SKNode()
     
+    var inRange: Set<GKEntity> = []
     var target: GKEntity? {
         if !inRange.isEmpty {
-            return inRange[0]
+            return inRange.first
         }
         return nil
     }
@@ -19,22 +20,24 @@ class TWRangeComponent : GKComponent {
     init(range: CGFloat) {
         super.init()
         
+        // physicsBody
+        let physicsBody = SKPhysicsBody(circleOfRadius: range)
+        physicsBody.isDynamic = false
+        physicsBody.categoryBitMask = rangeBitMask
+        physicsBody.contactTestBitMask = inRangeBitMask
+        
+        node.physicsBody = physicsBody
+    }
+    
+    override func didAddToEntity() {
         // get spriteComponent
         if let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) {
             
-            // physicsBody
-            let physicsBody = SKPhysicsBody(circleOfRadius: range)
-            physicsBody.isDynamic = false
-            physicsBody.categoryBitMask = rangeBitMask
-            physicsBody.contactTestBitMask = inRangeBitMask
-            
-            // node
-            let node = SKNode()
-            node.physicsBody = physicsBody
             // add entity to node userData
             node.userData = NSMutableDictionary()
             node.userData!["entity"] = entity!
             
+            // add rangeNode to spriteComponent.node
             spriteComponent.node.addChild(node)
         }
     }
@@ -45,13 +48,21 @@ class TWRangeComponent : GKComponent {
     
     func addToRange(entity: GKEntity) {
         if !(inRange.contains(entity) ) {
-            inRange.append(entity)
+            inRange.insert(entity)
+            
+            // update TWInRangeComponent
+            if let inRangeComponent = entity.component(ofType: TWInRangeComponent.self) {
+                inRangeComponent.inRanges.insert(self)
+            }
         }
     }
     
     func removeFromRange(entity: GKEntity) {
-        if let index = inRange.firstIndex(of: entity) {
-            inRange.remove(at: index)
+        inRange.remove(entity)
+        
+        // update TWInRangeComponent
+        if let inRangeComponent = entity.component(ofType: TWInRangeComponent.self) {
+            inRangeComponent.inRanges.remove(self)
         }
     }
     
