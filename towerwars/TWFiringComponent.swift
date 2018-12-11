@@ -35,19 +35,19 @@ class TWFiringComponent : GKComponent {
         _ = Timer.scheduledTimer(withTimeInterval: self.cooldown, repeats: true) { _ in
             // get rangeComponent
             if let rangeComponent = self.entity?.component(ofType: TWRangeComponent.self) {
-                // get targetCreep
-                if let targetCreep = rangeComponent.targetCreep {
+                // get target
+                if let target = rangeComponent.target {
                     
                     self.runFiringAnimation()
                     
                     // tmp: removing creep from range if next shot kills it
                     // todo: remove dead creeps from range automatically
-                    if (targetCreep.component(ofType: TWHealthComponent.self)?.health)!-CGFloat(self.attackDamage) <= CGFloat(0.0) {
-                        rangeComponent.removeCreepFromRange(creep: targetCreep)
+                    if (target.component(ofType: TWHealthComponent.self)?.health)!-CGFloat(self.attackDamage) <= CGFloat(0.0) {
+                        rangeComponent.removeFromRange(entity: target)
                     }
                     
                     // deal damage
-                    targetCreep.component(ofType: TWHealthComponent.self)?.takeDamage(CGFloat(self.attackDamage))
+                    target.component(ofType: TWHealthComponent.self)?.takeDamage(CGFloat(self.attackDamage))
                 }
             }
         }

@@ -191,35 +191,30 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
     //MARK: physicsBody contact
     
     func didBegin(_ contact: SKPhysicsContact) {
-        // get range nodes
-        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
-            // get visual nodes
-            if let towerVisualNode = towerRangeNode.parent{
-                // get entities
-                if let creepEntity = creepNode.userData?["entity"] as? TWCreep, let towerEntity = towerVisualNode.userData?["entity"] as? TWTower {
-                    // get range component
-                    if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
-                        // add creep to in range
-                        rangeComponent.addCreepToRange(creep: creepEntity)
+        // get range and inRange nodes
+        if let rangeNode = contact.bodyA.node, let inRangeNode = contact.bodyB.node {
+                // get range and inRange entities
+                if let rangeEntity = rangeNode.userData?["entity"] as? GKEntity, let inRangeEntity = inRangeNode.userData?["entity"] as? GKEntity {
+                    // get rangeComponent
+                    if let rangeComponent = rangeEntity.component(ofType: TWRangeComponent.self) {
+                        // add entity to range
+                        rangeComponent.addToRange(entity: inRangeEntity)
                     }
                 }
-            }
         }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-        // get range nodes
-        if let towerRangeNode = contact.bodyA.node, let creepNode = contact.bodyB.node {
-            // get visual nodes
-            if let towerVisualNode = towerRangeNode.parent{
-                // get entities
-                if let creepEntity = creepNode.userData?["entity"] as? TWCreep, let towerEntity = towerVisualNode.userData?["entity"] as? TWTower {
+        // get range and inRange nodes
+        if let rangeNode = contact.bodyA.node, let inRangeNode = contact.bodyB.node {
+            // get range and inRange entities
+                if let rangeEntity = rangeNode.userData?["entity"] as? GKEntity, let inRangeEntity = inRangeNode.userData?["entity"] as? TWTower {
                     // get rangeComponent
-                    if let rangeComponent = towerEntity.component(ofType: TWRangeComponent.self) {
-                        rangeComponent.removeCreepFromRange(creep: creepEntity)
+                    if let rangeComponent = rangeEntity.component(ofType: TWRangeComponent.self) {
+                        // remove entity from Range
+                        rangeComponent.removeFromRange(entity: inRangeEntity)
                     }
                 }
-            }
         }
     }
     

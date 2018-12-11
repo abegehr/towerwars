@@ -16,9 +16,9 @@ class TWCreep: GKEntity {
         return spriteComponent
     }
     
-    var creepPhysicsComponent: TWCreepPhysicsComponent {
-        guard let creepPhysicsComponent = component(ofType: TWCreepPhysicsComponent.self) else { fatalError("A Creep entity must have a TWCreepPhysicsComponent.") }
-        return creepPhysicsComponent
+    var inRangeComponent: TWInRangeComponent {
+        guard let inRangeComponent = component(ofType: TWInRangeComponent.self) else { fatalError("A Creep entity must have a TWInRangeComponent.") }
+        return inRangeComponent
     }
     
     var healthComponent: TWHealthComponent {
@@ -41,20 +41,29 @@ class TWCreep: GKEntity {
         
         // settings
         let radius = CGFloat(15)
-        let color = UIColor.blue
+        let fillColor = UIColor.blue
+        let strokeColor = TWPink
+        
+        // physicsBody
+        let physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        physicsBody.isDynamic = true
+        physicsBody.collisionBitMask = mapBitMask
+        
+        // node
+        let node = SKShapeNode(circleOfRadius: radius)
+        node.fillColor = fillColor
+        node.strokeColor = strokeColor
+        node.position = position
+        node.physicsBody = physicsBody
         
         // spriteComponent
-        let node = SKShapeNode(circleOfRadius: radius)
-        node.fillColor = color
-        node.strokeColor = TWPink
-        node.position = position
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         spriteComponent.addToNodeKey()
         
-        // creepPhysicsComponent
-        let creepPhysicsComponent = TWCreepPhysicsComponent(radius: radius, spriteComponent: spriteComponent)
-        addComponent(creepPhysicsComponent)
+        // inRangeComponent
+        let inRangeComponent = TWInRangeComponent()
+        addComponent(inRangeComponent)
         
         // healthComponent
         let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0, entityManager: entityManager)

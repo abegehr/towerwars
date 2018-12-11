@@ -32,9 +32,10 @@ class TWTower : GKEntity {
     init(range: CGFloat, team: Team, entityManager: TWEntityManager) {
         super.init()
         
+        // node
+        let node = SKSpriteNode(imageNamed: "arrowTower1")
+        
         // spriteComponent
-        let texture = SKTexture(imageNamed: "arrowTower1")
-        let node = SKSpriteNode(texture: texture, color: .white, size: texture.size())
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         spriteComponent.addToNodeKey()
@@ -43,7 +44,7 @@ class TWTower : GKEntity {
         addComponent(TWTeamComponent(team: team))
         
         // rangeComponent
-        addComponent(TWRangeComponent(range: range, spriteComponent: spriteComponent))
+        addComponent(TWRangeComponent(range: range))
         
         // firingComponent
         addComponent(TWFiringComponent(entityManager: entityManager))

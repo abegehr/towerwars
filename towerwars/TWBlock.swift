@@ -38,9 +38,7 @@ class TWBlock: GKEntity {
         node.physicsBody = SKPhysicsBody(rectangleOf: size)
         node.physicsBody!.isDynamic = false
         //physics changes (maybe temporarily): adjusted bitmasks so that it doesn't collide with a creep (contact function in gameScene would be triggered)
-        node.physicsBody!.categoryBitMask = creepCategory
-        node.physicsBody!.contactTestBitMask = 2
-        node.physicsBody!.collisionBitMask = 0
+        node.physicsBody!.categoryBitMask = mapBitMask
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
         spriteComponent.addToNodeKey()
