@@ -38,7 +38,7 @@ class TWCreep: GKEntity {
         return teamComponent
     }
     
-    init(radius: CGFloat = 15, fillColor: UIColor = .blue, strokeColor: TWPink, position: CGPoint, team: Team, entityManager: TWEntityManager) {
+    init(radius: CGFloat = 15, fillColor: UIColor = .blue, strokeColor: UIColor = TWPink, position: CGPoint, team: Team, entityManager: TWEntityManager) {
         
         self.entityManager = entityManager
         
