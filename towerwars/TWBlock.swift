@@ -1,5 +1,5 @@
 //
-//  TWWall.swift
+//  TWBlock.swift
 //  towerwars
 //
 //  Created by Anton Begehr on 18.10.18.
@@ -18,33 +18,16 @@ class TWBlock: GKEntity {
         return spriteComponent
     }
     
-    var buildTowerComponent: TWBuildTowerComponent {
-        guard let buildTowerComponent = component(ofType: TWBuildTowerComponent.self) else { fatalError("A Block entity must have a TWBuildTowerComponent.") }
-        return buildTowerComponent
-    }
-    
-    init(position: CGPoint, width: CGFloat = 60.0, entityManager: TWEntityManager) {
+    init(node: SKNode, position: CGPoint, entityManager: TWEntityManager) {
         
         self.entityManager = entityManager
         
         super.init()
         
         // spriteComponent
-        let size = CGSize(width: width, height: width)
-        let node = TouchableShapeNode(rectOf: size, cornerRadius: CGFloat(0.1*width))
         node.position = position
-        node.fillColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
-        node.strokeColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
-        node.physicsBody = SKPhysicsBody(rectangleOf: size)
-        node.physicsBody!.isDynamic = false
-        //physics changes (maybe temporarily): adjusted bitmasks so that it doesn't collide with a creep (contact function in gameScene would be triggered)
-        node.physicsBody!.categoryBitMask = mapBitMask
         let spriteComponent = TWSpriteComponent(node: node)
         addComponent(spriteComponent)
-        
-        // buildTowerComponent
-        let buildTowerComponent = TWBuildTowerComponent(entityManager: entityManager)
-        addComponent(buildTowerComponent)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -75,7 +75,7 @@ class TWMap {
                 
                 //check for blocks in the matrix
                 if blocks_at[i][j] == "b"{
-                    let block = TWBlock(position: pos, entityManager: entityManager)
+                    let block = TWWall(position: pos, entityManager: entityManager)
                     blocks.append(block)
                     entityManager.add(block)
                 }
