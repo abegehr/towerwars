@@ -31,6 +31,8 @@
 		3AD8549521AF30CE004D3B9F /* TWAiComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8549421AF30CE004D3B9F /* TWAiComponent.swift */; };
 		3AD8549921AF3A45004D3B9F /* TouchableShapeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8549821AF3A45004D3B9F /* TouchableShapeNode.swift */; };
 		3AD8549B21AF3CC5004D3B9F /* TWBuildTowerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8549A21AF3CC5004D3B9F /* TWBuildTowerComponent.swift */; };
+		E13874C821C2DB2E009820DE /* TWGrass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13874C721C2DB2E009820DE /* TWGrass.swift */; };
+		E13874CA21C2DEE3009820DE /* TWPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13874C921C2DEE3009820DE /* TWPath.swift */; };
 		E197658821A9E41400804429 /* TWTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658721A9E41400804429 /* TWTower.swift */; };
 		E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658B21A9E64E00804429 /* TWRangeComponent.swift */; };
 		E197658E21A9E6F400804429 /* TWInRangesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658D21A9E6F400804429 /* TWInRangesComponent.swift */; };
@@ -85,6 +87,8 @@
 		3AD8549421AF30CE004D3B9F /* TWAiComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWAiComponent.swift; sourceTree = "<group>"; };
 		3AD8549821AF3A45004D3B9F /* TouchableShapeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchableShapeNode.swift; sourceTree = "<group>"; };
 		3AD8549A21AF3CC5004D3B9F /* TWBuildTowerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBuildTowerComponent.swift; sourceTree = "<group>"; };
+		E13874C721C2DB2E009820DE /* TWGrass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWGrass.swift; sourceTree = "<group>"; };
+		E13874C921C2DEE3009820DE /* TWPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWPath.swift; sourceTree = "<group>"; };
 		E197658721A9E41400804429 /* TWTower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWTower.swift; sourceTree = "<group>"; };
 		E197658B21A9E64E00804429 /* TWRangeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWRangeComponent.swift; sourceTree = "<group>"; };
 		E197658D21A9E6F400804429 /* TWInRangesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWInRangesComponent.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				3A8CF0F52178A71700EA69C3 /* TWBlock.swift */,
 				E197658721A9E41400804429 /* TWTower.swift */,
 				3A04BE0421613EDB00B8D3AA /* TWCreep.swift */,
+				E13874C721C2DB2E009820DE /* TWGrass.swift */,
+				E13874C921C2DEE3009820DE /* TWPath.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 				3A04BE0521613EDB00B8D3AA /* TWCreep.swift in Sources */,
 				3A14F5EF21B18D1D00C83278 /* TWBackgroundNode.swift in Sources */,
 				3AD8549921AF3A45004D3B9F /* TouchableShapeNode.swift in Sources */,
+				E13874CA21C2DEE3009820DE /* TWPath.swift in Sources */,
 				3AD8549521AF30CE004D3B9F /* TWAiComponent.swift in Sources */,
 				3A8CF0F62178A71700EA69C3 /* TWBlock.swift in Sources */,
 				E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */,
@@ -362,6 +369,7 @@
 				E197658E21A9E6F400804429 /* TWInRangesComponent.swift in Sources */,
 				3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */,
 				3A82B0FA219C1DB900501A90 /* TWHealthComponent.swift in Sources */,
+				E13874C821C2DB2E009820DE /* TWGrass.swift in Sources */,
 				3AAD7628219B689B00C44D29 /* TWSpriteComponent.swift in Sources */,
 				3A1A465E21A49182002EEF44 /* TWMap.swift in Sources */,
 				3A1A466021A49DE3002EEF44 /* TWPathComponent.swift in Sources */,
