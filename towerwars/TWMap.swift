@@ -26,7 +26,7 @@ class TWMap {
     private var blocks = [GKEntity]()
     private var obstacle_graph: GKObstacleGraph<GKGraphNode2D>
     
-    init(scene: SKScene, user_castle_at: CGPoint, enemy_castles_at: [CGPoint], blocks_at: [CGPoint], entityManager: TWEntityManager) {
+    init(scene: SKScene, user_castle_at: CGPoint, enemy_castles_at: [CGPoint], blocks_at: [[Int]], entityManager: TWEntityManager) {
         
         self.entityManager = entityManager
         
@@ -66,11 +66,15 @@ class TWMap {
         user_castle = TWCastle(color: TWMap.user_castle_color, position: user_castle_at, team: .team1, entityManager: entityManager)
         entityManager.add(user_castle)
         
-        // blocks
-        for block_at in blocks_at {
-            let block = TWBlock(position: block_at, entityManager: entityManager)
-            blocks.append(block)
-            entityManager.add(block)
+        // build blocks from 2-dimensional array
+        for i in 0..<blocks_at.count {
+            for j in 0..<blocks_at[i].count {
+                if blocks_at[i][j] == 1{
+                    let block = TWBlock(position: CGPoint(x: j*70-280, y: 420-i*70), entityManager: entityManager)
+                    blocks.append(block)
+                    entityManager.add(block)
+                }
+            }
         }
         
         // obstacle graphs

@@ -48,22 +48,44 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         // entity manager
         entityManager = TWEntityManager(scene: self)
         
+        //temporarly disabled a few blocks to
+        //make working on the matrix map creation easier
+        //also changed all Y-coordinates to be a multiple of 70
+        
         // create map
-        var blocks_at: [CGPoint] = []
+        var blocks_at: [[Int]] = []
+        
+        blocks_at = [
+            [1,1,1,1,1,0,0,0,0],
+            [1,0,0,0,0,0,0,0,0],
+            [1,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,1],
+            [0,0,0,0,0,0,0,1,1]
+        ]
+        
+        /************
         // top row (right)
-        blocks_at.append(CGPoint(x: 120, y: 400))
+        /*blocks_at.append(CGPoint(x: 120, y: 400))
         blocks_at.append(CGPoint(x: 200, y: 330))
-        blocks_at.append(CGPoint(x: 280, y: 260))
+        blocks_at.append(CGPoint(x: 280, y: 260))*/
         // top row 2 (left)
-        blocks_at.append(CGPoint(x: 70, y: 200))
-        blocks_at.append(CGPoint(x: 0, y: 200))
-        blocks_at.append(CGPoint(x: -70, y: 200))
-        blocks_at.append(CGPoint(x: -140, y: 200))
-        blocks_at.append(CGPoint(x: -210, y: 200))
-        blocks_at.append(CGPoint(x: -280, y: 200))
+        blocks_at.append(CGPoint(x: 70, y: 210))
+        blocks_at.append(CGPoint(x: 0, y: 210))
+        blocks_at.append(CGPoint(x: -70, y: 210))
+        blocks_at.append(CGPoint(x: -140, y: 210))
+        blocks_at.append(CGPoint(x: -210, y: 210))
+        blocks_at.append(CGPoint(x: -280, y: 210))
         // middle row (right)
-        blocks_at.append(CGPoint(x: -240, y: 40))
-        blocks_at.append(CGPoint(x: -240, y: -40))
+        /*blocks_at.append(CGPoint(x: -240, y: 40))
+        blocks_at.append(CGPoint(x: -240, y: -40))*/
         blocks_at.append(CGPoint(x: -70, y: 0))
         blocks_at.append(CGPoint(x: 0, y: 0))
         blocks_at.append(CGPoint(x: 70, y: 0))
@@ -71,21 +93,37 @@ class TWGameScene: SKScene, SKPhysicsContactDelegate {
         blocks_at.append(CGPoint(x: 210, y: 0))
         blocks_at.append(CGPoint(x: 280, y: 0))
         // bottom row (left)
-        blocks_at.append(CGPoint(x: 70, y: -200))
-        blocks_at.append(CGPoint(x: -0, y: -200))
-        blocks_at.append(CGPoint(x: -70, y: -200))
-        blocks_at.append(CGPoint(x: -140, y: -200))
-        blocks_at.append(CGPoint(x: -210, y: -200))
-        blocks_at.append(CGPoint(x: -280, y: -200))
+        blocks_at.append(CGPoint(x: 70, y: -210))
+        blocks_at.append(CGPoint(x: -0, y: -210))
+        blocks_at.append(CGPoint(x: -70, y: -210))
+        blocks_at.append(CGPoint(x: -140, y: -210))
+        blocks_at.append(CGPoint(x: -210, y: -210))
+        blocks_at.append(CGPoint(x: -280, y: -210))
         // bottom row 2 (right)
-        blocks_at.append(CGPoint(x: -140, y: -400))
-        blocks_at.append(CGPoint(x: -70, y: -400))
-        blocks_at.append(CGPoint(x: 0, y: -400))
-        blocks_at.append(CGPoint(x: 70, y: -400))
-        blocks_at.append(CGPoint(x: 140, y: -400))
-        blocks_at.append(CGPoint(x: 210, y: -400))
-        blocks_at.append(CGPoint(x: 280, y: -400))
-        
+        blocks_at.append(CGPoint(x: -140, y: -420))
+        blocks_at.append(CGPoint(x: -70, y: -420))
+        blocks_at.append(CGPoint(x: 0, y: -420))
+        blocks_at.append(CGPoint(x: 70, y: -420))
+        blocks_at.append(CGPoint(x: 140, y: -420))
+        blocks_at.append(CGPoint(x: 210, y: -420))
+        blocks_at.append(CGPoint(x: 280, y: -420))
+        //testing blocks
+        blocks_at.append(CGPoint(x: 280, y: -350))
+        blocks_at.append(CGPoint(x: 280, y: -280))
+        blocks_at.append(CGPoint(x: 280, y: -210))
+        blocks_at.append(CGPoint(x: 280, y: -140))
+        blocks_at.append(CGPoint(x: 280, y: -70))
+        blocks_at.append(CGPoint(x: 280, y: 0))
+        blocks_at.append(CGPoint(x: 280, y: 70))
+        blocks_at.append(CGPoint(x: 280, y: 140))
+        blocks_at.append(CGPoint(x: 280, y: 210))
+        blocks_at.append(CGPoint(x: 280, y: 280))
+        blocks_at.append(CGPoint(x: 280, y: 350))
+        blocks_at.append(CGPoint(x: 280, y: 420))
+
+        **************/
+
+
         map = TWMap(scene: self, user_castle_at: CGPoint(x: 0, y: -600), enemy_castles_at: [CGPoint(x: 0, y: 600)], blocks_at: blocks_at, entityManager: entityManager)
     }
     
