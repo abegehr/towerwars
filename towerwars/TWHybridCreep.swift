@@ -15,7 +15,7 @@ class TWHybridCreep: TWCreep {
         // remove entity
         entityManager.remove(self)
         
-        // TODO: spawn two minicreeps
+        // spawn two minicreeps
         // get necessary components
         if let spriteComponent = component(ofType: TWSpriteComponent.self),
             let teamComponent = component(ofType: TWTeamComponent.self),
