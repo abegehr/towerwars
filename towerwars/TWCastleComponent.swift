@@ -45,7 +45,7 @@ class TWCastleComponent: GKComponent {
             return
         }
         
-        let newCreep = TWCreep(position: position, team: teamComponent.team, entityManager: entityManager)
+        let newCreep = TWHybridCreep(position: position, team: teamComponent.team, entityManager: entityManager)
         
         if let pathComponent = entity?.component(ofType: TWPathComponent.self) {
             newCreep.addComponent(pathComponent)
