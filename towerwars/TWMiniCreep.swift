@@ -13,16 +13,11 @@ class TWMiniCreep: TWCreep {
     
     init(position: CGPoint, team: Team, entityManager: TWEntityManager) {
         
-        super.init(radius: 11, fillColor: TWPink, strokeColor: .blue, health: 1.0, position:position, team: team, entityManager: entityManager)
+        super.init(radius: 11, fillColor: TWPink, strokeColor: .blue, health: 1.0, position: position, team: team, entityManager: entityManager)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func kill() {
-        // remove entity
-        entityManager.remove(self)
     }
     
 }
