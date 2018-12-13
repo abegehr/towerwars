@@ -13,7 +13,7 @@ class TWMiniCreep: TWCreep {
     
     init(position: CGPoint, team: Team, entityManager: TWEntityManager) {
         
-        super.init(radius: 8, fillColor: TWPink, position:position, team: team, entityManager: entityManager)
+        super.init(radius: 11, fillColor: TWPink, strokeColor: .blue, position:position, team: team, entityManager: entityManager)
     }
     
     required init?(coder aDecoder: NSCoder) {
