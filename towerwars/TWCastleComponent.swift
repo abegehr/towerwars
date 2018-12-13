@@ -31,13 +31,22 @@ class TWCastleComponent: GKComponent {
     }
     
     func spawnCreep() {
-        guard let teamComponent = entity?.component(ofType: TWTeamComponent.self),
-            let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) else {
-                return
+        guard let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) else {
+            return
         }
         
-        let newCreep = TWCreep(position: CGPoint(x: spriteComponent.node.position.x, y: spriteComponent.node.position.y), team: teamComponent.team, entityManager: entityManager)
+        let position = CGPoint(x: spriteComponent.node.position.x, y: spriteComponent.node.position.y)
 
+        spawnCreep(at: position)
+    }
+    
+    func spawnCreep(at position: CGPoint) {
+        guard let teamComponent = entity?.component(ofType: TWTeamComponent.self) else {
+            return
+        }
+        
+        let newCreep = TWCreep(position: position, team: teamComponent.team, entityManager: entityManager)
+        
         if let pathComponent = entity?.component(ofType: TWPathComponent.self) {
             newCreep.addComponent(pathComponent)
         }
