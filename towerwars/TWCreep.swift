@@ -38,7 +38,7 @@ class TWCreep: GKEntity {
         return teamComponent
     }
     
-    init(radius: CGFloat = 15, fillColor: UIColor = .blue, strokeColor: UIColor = TWPink, position: CGPoint, team: Team, entityManager: TWEntityManager) {
+    init(radius: CGFloat = 15, fillColor: UIColor = .blue, strokeColor: UIColor = TWPink, health: CGFloat = 2.0, position: CGPoint, team: Team, entityManager: TWEntityManager) {
         
         self.entityManager = entityManager
         
@@ -70,7 +70,7 @@ class TWCreep: GKEntity {
         addComponent(inRangesComponent)
         
         // healthComponent
-        let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0)
+        let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: health)
         addComponent(healthComponent)
         
         // pathMoveComponent
