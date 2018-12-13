@@ -11,6 +11,8 @@ import GameplayKit
 
 class TWCreep: GKEntity {
     
+    let entityManager: TWEntityManager
+    
     var spriteComponent: TWSpriteComponent {
         guard let spriteComponent = component(ofType: TWSpriteComponent.self) else { fatalError("A Creep entity must have a TWSpriteComponent.") }
         return spriteComponent
@@ -37,6 +39,9 @@ class TWCreep: GKEntity {
     }
     
     init(position: CGPoint, team: Team, entityManager: TWEntityManager) {
+        
+        self.entityManager = entityManager
+        
         super.init()
         
         // settings
@@ -65,7 +70,7 @@ class TWCreep: GKEntity {
         addComponent(inRangesComponent)
         
         // healthComponent
-        let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0, entityManager: entityManager)
+        let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0)
         addComponent(healthComponent)
         
         // pathMoveComponent
@@ -79,6 +84,11 @@ class TWCreep: GKEntity {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func kill() {
+        // remove entity
+        entityManager.remove(self)
     }
     
 }

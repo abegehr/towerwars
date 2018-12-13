@@ -15,17 +15,15 @@ class TWHealthComponent: GKComponent {
     var health: CGFloat
     let healthBarFullWidth: CGFloat
     let healthBar: SKShapeNode
-    let entityManager: TWEntityManager
     
     //TODO: add sounds
     //let soundAction = SKAction.playSoundFileNamed("smallHit.wav", waitForCompletion: false)
     
     init(parentNode: SKNode, barWidth: CGFloat,
-         barOffset: CGFloat, health: CGFloat, entityManager: TWEntityManager) {
+         barOffset: CGFloat, health: CGFloat) {
         
         self.fullHealth = health
         self.health = health
-        self.entityManager = entityManager
         
         healthBarFullWidth = barWidth
         healthBar = SKShapeNode(rectOf:
@@ -52,12 +50,9 @@ class TWHealthComponent: GKComponent {
         healthBar.run(scaleAction)
         
         if health == 0 {
-            if let entity = entity {
-                // Never remove the castle
-                let castleComponent = entity.component(ofType: TWCastleComponent.self)
-                if castleComponent == nil {
-                    entityManager.remove(entity)
-                }
+            // test types
+            if let creep = entity as? TWCreep {
+                creep.kill()
             }
         }
         
