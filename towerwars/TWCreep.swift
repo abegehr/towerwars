@@ -38,7 +38,7 @@ class TWCreep: GKEntity {
         return teamComponent
     }
     
-    init(radius: CGFloat = 15, fillColor: UIColor = .blue, position: CGPoint, team: Team, entityManager: TWEntityManager) {
+    init(radius: CGFloat = 15, fillColor: UIColor = .blue, strokeColor: TWPink, position: CGPoint, team: Team, entityManager: TWEntityManager) {
         
         self.entityManager = entityManager
         
@@ -47,7 +47,7 @@ class TWCreep: GKEntity {
         // settings
         //radius
         //fillColor
-        let strokeColor = TWPink
+        //strokeColor
         
         // physicsBody
         let physicsBody = SKPhysicsBody(circleOfRadius: radius)
