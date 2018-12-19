@@ -26,7 +26,7 @@ class TWMap {
     private var blocks = [GKEntity]()
     private var obstacle_graph: GKObstacleGraph<GKGraphNode2D>
     
-    init(scene: SKScene, user_castle_at: CGPoint, enemy_castles_at: [CGPoint], blocks_at: [CGPoint], entityManager: TWEntityManager) {
+    init(scene: SKScene, user_castle_at: CGPoint, enemy_castles_at: [CGPoint], blocks_at: [[String]], entityManager: TWEntityManager) {
         
         self.entityManager = entityManager
         
@@ -66,11 +66,34 @@ class TWMap {
         user_castle = TWCastle(color: TWMap.user_castle_color, position: user_castle_at, team: .team1, entityManager: entityManager)
         entityManager.add(user_castle)
         
-        // blocks
-        for block_at in blocks_at {
-            let block = TWBlock(position: block_at, entityManager: entityManager)
-            blocks.append(block)
-            entityManager.add(block)
+        // build map from 2-dimensional array
+        for i in 0..<blocks_at.count {
+            for j in 0..<blocks_at[i].count {
+                
+                //get the current position to place something
+                let pos = CGPoint(x: j*70-280, y: 420-i*70)
+                
+                //check for blocks in the matrix
+                if blocks_at[i][j] == "b"{
+                    let block = TWWall(position: pos, entityManager: entityManager)
+                    blocks.append(block)
+                    entityManager.add(block)
+                }
+                
+                //check for path
+                else if blocks_at[i][j] == "p"{
+                    let block = TWPath(position: pos, entityManager: entityManager)
+                    blocks.append(block)
+                    entityManager.add(block)
+                }
+                
+                //there should at least be grass
+                else {
+                    let block = TWGrass(position: pos, entityManager: entityManager)
+                    blocks.append(block)
+                    entityManager.add(block)
+                }
+            }
         }
         
         // obstacle graphs
