@@ -46,7 +46,7 @@ class TWCreep: GKEntity {
         // physicsBody
         let physicsBody = node.physicsBody ?? SKPhysicsBody(circleOfRadius: 15)
         physicsBody.isDynamic = true
-        physicsBody.collisionBitMask = mapBitMask
+        physicsBody.collisionBitMask = mapBitMask | inRangeBitMask
         node.physicsBody = physicsBody
         
         // spriteComponent
