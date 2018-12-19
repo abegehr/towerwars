@@ -40,12 +40,6 @@ class TWFiringComponent : GKComponent {
                     
                     self.runFiringAnimation()
                     
-                    // tmp: removing creep from range if next shot kills it
-                    // todo: remove dead creeps from range automatically
-                    if (target.component(ofType: TWHealthComponent.self)?.health)!-CGFloat(self.attackDamage) <= CGFloat(0.0) {
-                        rangeComponent.removeFromRange(entity: target)
-                    }
-                    
                     // deal damage
                     target.component(ofType: TWHealthComponent.self)?.takeDamage(CGFloat(self.attackDamage))
                 }
