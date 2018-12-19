@@ -17,6 +17,8 @@ class TWAiComponent: GKComponent {
         // spawn creeps every 2 seconds
         var counter = 0.0
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: {timer in
+            //PROBLEM: this counter keeps running after the fame was restarted. It does not spawn creeps thow. Will new creep spawning techniques solve this?
+            
             counter += timer.timeInterval
             
             let counter_stages = ceil(counter / 30.0)
