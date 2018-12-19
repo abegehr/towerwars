@@ -38,7 +38,7 @@ class TWCreep: GKEntity {
         return teamComponent
     }
     
-    init(health: CGFloat = 2.0, showHealthbar: Bool = true, node: SKNode, team: Team, entityManager: TWEntityManager) {
+    init(strength: Double = 2.0, health: Double = 2.0, showHealthbar: Bool = true, node: SKNode, team: Team, entityManager: TWEntityManager) {
         self.entityManager = entityManager
         
         super.init()
@@ -65,6 +65,10 @@ class TWCreep: GKEntity {
         let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: CGFloat(barWidth), barOffset: 25.0, health: health)
         addComponent(healthComponent)
         
+        // hitComponent
+        let hitComponent = TWHitComponent(strength: strength)
+        addComponent(hitComponent)
+        
         // pathMoveComponent
         let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15))
         addComponent(pathMoveComponent)
@@ -74,7 +78,7 @@ class TWCreep: GKEntity {
         addComponent(teamComponent)
     }
     
-    convenience init(radius: CGFloat = 15, fillColor: UIColor = .blue, strokeColor: UIColor = TWPink, health: CGFloat = 2.0, showHealthbar: Bool = true, position: CGPoint, team: Team, entityManager: TWEntityManager) {
+    convenience init(radius: CGFloat = 15, fillColor: UIColor = .blue, strokeColor: UIColor = TWPink, strength: Double = 2.0, health: Double = 2.0, showHealthbar: Bool = true, position: CGPoint, team: Team, entityManager: TWEntityManager) {
         
         // node
         let node = SKShapeNode(circleOfRadius: radius)
@@ -83,7 +87,7 @@ class TWCreep: GKEntity {
         node.position = position
         node.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         
-        self.init(health: health, showHealthbar: showHealthbar, node: node, team: team, entityManager: entityManager)
+        self.init(strength: strength, health: health, showHealthbar: showHealthbar, node: node, team: team, entityManager: entityManager)
     }
     
     

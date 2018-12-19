@@ -5,7 +5,7 @@ class TWFiringComponent : GKComponent {
     
     var entityManager: TWEntityManager
     
-    let attackDamage: Float = 1
+    let attackDamage: Double = 1
     let cooldown: Double = 1
     
     init(entityManager: TWEntityManager) {
@@ -41,7 +41,7 @@ class TWFiringComponent : GKComponent {
                     self.runFiringAnimation()
                     
                     // deal damage
-                    target.component(ofType: TWHealthComponent.self)?.takeDamage(CGFloat(self.attackDamage))
+                    target.component(ofType: TWHealthComponent.self)?.takeDamage(self.attackDamage)
                 }
             }
         }

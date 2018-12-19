@@ -21,6 +21,7 @@
 		3A3A8DB5215E1AB800E07741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A8DB3215E1AB800E07741 /* LaunchScreen.storyboard */; };
 		3A3A8DC0215E1AB800E07741 /* towerwarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DBF215E1AB800E07741 /* towerwarsTests.swift */; };
 		3A3A8DCB215E1AB800E07741 /* towerwarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A8DCA215E1AB800E07741 /* towerwarsUITests.swift */; };
+		3A45BF0521CAE4F400A72693 /* TWHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BF0421CAE4F400A72693 /* TWHitComponent.swift */; };
 		3A82B0FA219C1DB900501A90 /* TWHealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82B0F9219C1DB900501A90 /* TWHealthComponent.swift */; };
 		3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */; };
 		3A8CF0F42178818500EA69C3 /* TWPathMoveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */; };
@@ -76,6 +77,7 @@
 		3A3A8DC6215E1AB800E07741 /* towerwarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = towerwarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3A8DCA215E1AB800E07741 /* towerwarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = towerwarsUITests.swift; sourceTree = "<group>"; };
 		3A3A8DCC215E1AB800E07741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A45BF0421CAE4F400A72693 /* TWHitComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWHitComponent.swift; sourceTree = "<group>"; };
 		3A82B0F9219C1DB900501A90 /* TWHealthComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWHealthComponent.swift; sourceTree = "<group>"; };
 		3A8CF0F121775A9600EA69C3 /* TWPathMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPathMoveComponent.swift; sourceTree = "<group>"; };
 		3A8CF0F32178818500EA69C3 /* TWPathMoveBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWPathMoveBehavior.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				3AD8549A21AF3CC5004D3B9F /* TWBuildTowerComponent.swift */,
 				3AAD7625219B64BF00C44D29 /* TWTeamComponent.swift */,
 				3AAD7627219B689B00C44D29 /* TWSpriteComponent.swift */,
+				3A45BF0421CAE4F400A72693 /* TWHitComponent.swift */,
 				E197658B21A9E64E00804429 /* TWRangeComponent.swift */,
 				E197658D21A9E6F400804429 /* TWInRangesComponent.swift */,
 				E197659121AD795500804429 /* TWFiringComponent.swift */,
@@ -362,6 +365,7 @@
 				E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */,
 				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
 				3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */,
+				3A45BF0521CAE4F400A72693 /* TWHitComponent.swift in Sources */,
 				3AAD7626219B64BF00C44D29 /* TWTeamComponent.swift in Sources */,
 				E197658E21A9E6F400804429 /* TWInRangesComponent.swift in Sources */,
 				3A3A8DA5215E1AB400E07741 /* AppDelegate.swift in Sources */,

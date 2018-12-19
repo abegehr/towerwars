@@ -11,8 +11,8 @@ import GameplayKit
 
 class TWHealthComponent: GKComponent {
     
-    let fullHealth: CGFloat
-    var health: CGFloat
+    let fullHealth: Double
+    var health: Double
     let healthBarFullWidth: CGFloat
     let healthBar: SKShapeNode
     
@@ -20,7 +20,7 @@ class TWHealthComponent: GKComponent {
     //let soundAction = SKAction.playSoundFileNamed("smallHit.wav", waitForCompletion: false)
     
     init(parentNode: SKNode, barWidth: CGFloat,
-         barOffset: CGFloat, health: CGFloat) {
+         barOffset: CGFloat, health: Double) {
         
         self.fullHealth = health
         self.health = health
@@ -41,11 +41,11 @@ class TWHealthComponent: GKComponent {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @discardableResult func takeDamage(_ damage: CGFloat) -> Bool {
+    @discardableResult func takeDamage(_ damage: Double) -> Bool {
         health = max(health - damage, 0)
         
         healthBar.isHidden = false
-        let healthScale = health/fullHealth
+        let healthScale = CGFloat(health/fullHealth)
         let scaleAction = SKAction.scaleX(to: healthScale, duration: 0.5)
         healthBar.run(scaleAction)
         
