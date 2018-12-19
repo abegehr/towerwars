@@ -54,7 +54,7 @@ class TWCastle: GKEntity {
         addComponent(castleComponent)
         
         // healthComponent
-        let healthComponent = TWHealthComponent(parentNode: spriteComponent.node, barWidth: 100, barOffset: 0, health: 100, entityManager: entityManager)
+        let healthComponent = TWHealthComponent(parentNode: spriteComponent.node, barWidth: 100, barOffset: 0, health: 100)
         addComponent(healthComponent)
     }
     

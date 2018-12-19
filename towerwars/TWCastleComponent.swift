@@ -31,13 +31,22 @@ class TWCastleComponent: GKComponent {
     }
     
     func spawnCreep() {
-        guard let teamComponent = entity?.component(ofType: TWTeamComponent.self),
-            let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) else {
-                return
+        guard let spriteComponent = entity?.component(ofType: TWSpriteComponent.self) else {
+            return
         }
         
-        let newCreep = TWCreep(position: CGPoint(x: spriteComponent.node.position.x, y: spriteComponent.node.position.y), team: teamComponent.team, entityManager: entityManager)
+        let position = CGPoint(x: spriteComponent.node.position.x, y: spriteComponent.node.position.y)
 
+        spawnCreep(at: position)
+    }
+    
+    func spawnCreep(at position: CGPoint) {
+        guard let teamComponent = entity?.component(ofType: TWTeamComponent.self) else {
+            return
+        }
+        
+        let newCreep = TWHybridCreep(position: position, team: teamComponent.team, entityManager: entityManager)
+        
         if let pathComponent = entity?.component(ofType: TWPathComponent.self) {
             newCreep.addComponent(pathComponent)
         }
@@ -70,8 +79,8 @@ class TWCastleComponent: GKComponent {
                 // remove enemyCreep
                 entityManager.remove(enemyCreep)
                 // decrease castle health
-                if let castleHealthComponent = entity?.component(ofType: TWHealthComponent.self) {
-                    castleHealthComponent.takeDamage(2) //TODO: determine damage by using a TWHitComponent
+                if let castleHealthComponent = entity?.component(ofType: TWHealthComponent.self), let enemyHitComponent = enemyCreep.component(ofType: TWHitComponent.self) {
+                    castleHealthComponent.takeDamage(enemyHitComponent.strength)
                 }
             }
         }

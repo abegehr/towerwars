@@ -73,12 +73,24 @@ class TWEntityManager {
         }
     }
     
-    func castleForTeam(_ team: Team) -> GKEntity? {
+    func castleComponentForTeam(_ team: Team) -> TWCastleComponent? {
         for entity in entities {
             if let teamComponent = entity.component(ofType: TWTeamComponent.self),
-                let _ = entity.component(ofType: TWCastleComponent.self) {
+                let castleComponent = entity.component(ofType: TWCastleComponent.self) {
                 if teamComponent.team == team {
-                    return entity
+                    return castleComponent
+                }
+            }
+        }
+        return nil
+    }
+    
+    func castleForTeam(_ team: Team) -> TWCastle? {
+        for entity in entities {
+            if let castle = entity as? TWCastle,
+                let teamComponent = entity.component(ofType: TWTeamComponent.self) {
+                if teamComponent.team == team {
+                    return castle
                 }
             }
         }

@@ -11,6 +11,8 @@ import GameplayKit
 
 class TWCreep: GKEntity {
     
+    let entityManager: TWEntityManager
+    
     var spriteComponent: TWSpriteComponent {
         guard let spriteComponent = component(ofType: TWSpriteComponent.self) else { fatalError("A Creep entity must have a TWSpriteComponent.") }
         return spriteComponent
@@ -36,24 +38,15 @@ class TWCreep: GKEntity {
         return teamComponent
     }
     
-    init(position: CGPoint, team: Team, entityManager: TWEntityManager) {
+    init(strength: Double = 2.0, health: Double = 2.0, showHealthbar: Bool = true, node: SKNode, team: Team, entityManager: TWEntityManager) {
+        self.entityManager = entityManager
+        
         super.init()
         
-        // settings
-        let radius = CGFloat(15)
-        let fillColor = UIColor.blue
-        let strokeColor = TWPink
-        
         // physicsBody
-        let physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        let physicsBody = node.physicsBody ?? SKPhysicsBody(circleOfRadius: 15)
         physicsBody.isDynamic = true
         physicsBody.collisionBitMask = mapBitMask
-        
-        // node
-        let node = SKShapeNode(circleOfRadius: radius)
-        node.fillColor = fillColor
-        node.strokeColor = strokeColor
-        node.position = position
         node.physicsBody = physicsBody
         
         // spriteComponent
@@ -65,11 +58,19 @@ class TWCreep: GKEntity {
         addComponent(inRangesComponent)
         
         // healthComponent
-        let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: 50.0, barOffset: 25.0, health: 2.0, entityManager: entityManager)
+        var barWidth = 50.0
+        if !showHealthbar {
+            barWidth = 0.0
+        }
+        let healthComponent = TWHealthComponent(parentNode: self.component(ofType: TWSpriteComponent.self)!.node, barWidth: CGFloat(barWidth), barOffset: 25.0, health: health)
         addComponent(healthComponent)
         
+        // hitComponent
+        let hitComponent = TWHitComponent(strength: strength)
+        addComponent(hitComponent)
+        
         // pathMoveComponent
-        let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15), radius: Float(radius))
+        let pathMoveComponent = TWPathMoveComponent(maxSpeed: 200, maxAcceleration: Float.random(in: 1 ... 15))
         addComponent(pathMoveComponent)
         
         // teamComponent
@@ -77,8 +78,26 @@ class TWCreep: GKEntity {
         addComponent(teamComponent)
     }
     
+    convenience init(radius: CGFloat = 15, fillColor: UIColor = .blue, strokeColor: UIColor = TWPink, strength: Double = 2.0, health: Double = 2.0, showHealthbar: Bool = true, position: CGPoint, team: Team, entityManager: TWEntityManager) {
+        
+        // node
+        let node = SKShapeNode(circleOfRadius: radius)
+        node.fillColor = fillColor
+        node.strokeColor = strokeColor
+        node.position = position
+        node.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        
+        self.init(strength: strength, health: health, showHealthbar: showHealthbar, node: node, team: team, entityManager: entityManager)
+    }
+    
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func kill() {
+        // remove entity
+        entityManager.remove(self)
     }
     
 }

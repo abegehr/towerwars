@@ -11,13 +11,12 @@ import GameplayKit
 
 class TWPathMoveComponent: GKAgent2D, GKAgentDelegate {
     
-    init(maxSpeed: Float, maxAcceleration: Float, radius: Float) {
+    init(maxSpeed: Float, maxAcceleration: Float) {
         super.init()
         
         self.delegate = self
         self.maxSpeed = maxSpeed
         self.maxAcceleration = maxAcceleration
-        self.radius = radius
         self.mass = 0.01
     }
     
