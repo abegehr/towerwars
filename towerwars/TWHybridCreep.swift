@@ -44,7 +44,7 @@ class TWHybridCreep: TWCreep {
         crop2.maskNode = mask2
         node.addChild(crop2)
         
-        super.init(health: 1.0, showHealthbar: false, node: node, team: team, entityManager: entityManager)
+        super.init(strength: 2.0, health: 1.0, showHealthbar: false, node: node, team: team, entityManager: entityManager)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,8 +67,8 @@ class TWHybridCreep: TWCreep {
             let team = teamComponent.team
             
             // blue and pink minicreeps
-            let blueMiniCreep = TWCreep(radius: radius, fillColor: .blue, strokeColor: TWPink, health: 1, showHealthbar: false, position: CGPoint(x: position.x, y: position.y + radius), team: team, entityManager: entityManager)
-            let pinkMiniCreep = TWCreep(radius: radius, fillColor: TWPink, strokeColor: .blue, health: 1, showHealthbar: false, position: CGPoint(x: position.x, y: position.y - radius), team: team, entityManager: entityManager)
+            let blueMiniCreep = TWCreep(radius: radius, fillColor: .blue, strokeColor: TWPink, strength: 1.0, health: 1, showHealthbar: false, position: CGPoint(x: position.x, y: position.y + radius), team: team, entityManager: entityManager)
+            let pinkMiniCreep = TWCreep(radius: radius, fillColor: TWPink, strokeColor: .blue, strength: 1.0, health: 1, showHealthbar: false, position: CGPoint(x: position.x, y: position.y - radius), team: team, entityManager: entityManager)
             
             // add pathComponent
             blueMiniCreep.addComponent(pathComponent)
