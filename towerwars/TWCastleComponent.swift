@@ -41,11 +41,19 @@ class TWCastleComponent: GKComponent {
     }
     
     func spawnCreep(at position: CGPoint) {
-        guard let teamComponent = entity?.component(ofType: TWTeamComponent.self) else {
+        guard let team = entity?.component(ofType: TWTeamComponent.self)?.team else {
             return
         }
         
-        let newCreep = TWHybridCreep(position: position, team: teamComponent.team, entityManager: entityManager)
+        // randomly decide which creep to spawn
+        var newCreep: TWCreep
+        if Float.random(in: 0..<1) >= 0.33 {
+            // hybrid creep
+            newCreep = TWHybridCreep(position: position, team: team, entityManager: entityManager)
+        } else {
+            // normal creep
+            newCreep = TWCreep(radius: 15.0, fillColor: .yellow, strokeColor: .red, strength: 1.0, health: 3.0, showHealthbar: true, position: position, team: team, entityManager: entityManager)
+        }
         
         if let pathComponent = entity?.component(ofType: TWPathComponent.self) {
             newCreep.addComponent(pathComponent)
