@@ -2,14 +2,22 @@ import SpriteKit
 
 class TWMenuScene: SKScene {
     
+    var background = SKSpriteNode(imageNamed: "mainBackground")
     var playButton = SKSpriteNode()
-    let playButtonTex = SKTexture(imageNamed: "play")
+    let playButtonTex = SKTexture(imageNamed: "playButton")
     
     override func didMove(to view: SKView) {
         
+        //TODO adjust size
+        //background
+        background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        addChild(background)
+        
+        //play button
         playButton = SKSpriteNode(texture: playButtonTex)
         playButton.position = CGPoint(x: frame.midX, y: frame.midY)
         self.addChild(playButton)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
