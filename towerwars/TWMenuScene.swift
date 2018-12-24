@@ -5,6 +5,7 @@ class TWMenuScene: SKScene {
     var background = SKSpriteNode(imageNamed: "mainBackground")
     var playButton = SKSpriteNode(imageNamed: "playButton")
     var optionsButton = SKSpriteNode(imageNamed: "options")
+    var helpButton = SKSpriteNode(imageNamed: "help")
     
     override func didMove(to view: SKView) {
         
@@ -18,8 +19,14 @@ class TWMenuScene: SKScene {
         self.addChild(playButton)
         
         //options button
-        optionsButton.position = CGPoint(x: frame.midX, y: frame.midY-200.0)
+        optionsButton.position = CGPoint(x: frame.midX/2+75, y: frame.midY-300.0)
+        optionsButton.size = CGSize(width: 150.0, height: 150.0)
         self.addChild(optionsButton)
+        
+        //help button
+        helpButton.position = CGPoint(x: frame.midX*(3/2)-75, y: frame.midY-300.0)
+        helpButton.size = CGSize(width: 150.0, height: 150.0)
+        self.addChild(helpButton)
         
     }
     
