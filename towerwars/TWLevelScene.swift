@@ -3,9 +3,9 @@ import SpriteKit
 class TWLevelScene: SKScene {
     
     var background = SKSpriteNode(imageNamed: "mainBackground")
-    //var levelButton = SKSpriteNode(imageNamed: "levelButton")
-    
-    //TODO do this in init
+    var backButton = SKSpriteNode(imageNamed: "zurueck")
+    //TODO do this in init?
+    //tutorials always show didMove though...
     override func didMove(to view: SKView) {
         
         //margins
@@ -23,8 +23,13 @@ class TWLevelScene: SKScene {
         background.size = frame.size
         background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         addChild(background)
+        
+        //back button
+        backButton.position = CGPoint(x: 0.0+marginX-25.0, y: frame.size.height-marginY+50.0)
+        backButton.size = CGSize(width: 125, height: 125)
+        addChild(backButton)
 
-        //create buttons
+        //create level buttons
         for i in 0..<15 {
             
             //create the button
@@ -62,6 +67,14 @@ class TWLevelScene: SKScene {
                     self.view?.presentScene(scene, transition: transition)
                 }
             }*/
+            
+            if node == backButton {
+                if view != nil {
+                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let scene:SKScene = TWMenuScene(size: self.size)
+                    self.view?.presentScene(scene, transition: transition)
+                }
+            }
         }
     }
 }
