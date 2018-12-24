@@ -41,6 +41,7 @@
 		E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658B21A9E64E00804429 /* TWRangeComponent.swift */; };
 		E197658E21A9E6F400804429 /* TWInRangesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197658D21A9E6F400804429 /* TWInRangesComponent.swift */; };
 		E197659221AD795500804429 /* TWFiringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197659121AD795500804429 /* TWFiringComponent.swift */; };
+		E19D968721D1079100DA6AC9 /* TWLevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D968621D1079100DA6AC9 /* TWLevelScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		E197658B21A9E64E00804429 /* TWRangeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWRangeComponent.swift; sourceTree = "<group>"; };
 		E197658D21A9E6F400804429 /* TWInRangesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWInRangesComponent.swift; sourceTree = "<group>"; };
 		E197659121AD795500804429 /* TWFiringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWFiringComponent.swift; sourceTree = "<group>"; };
+		E19D968621D1079100DA6AC9 /* TWLevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWLevelScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,8 @@
 				3A3A8DAA215E1AB400E07741 /* TWGameScene.swift */,
 				3A0D2A27218B46D700D3F112 /* TWEntityManager.swift */,
 				3A1A465D21A49182002EEF44 /* TWMap.swift */,
+				E130810C21CBE40800466829 /* TWMenuScene.swift */,
+				E19D968621D1079100DA6AC9 /* TWLevelScene.swift */,
 				3A0D2A26218B43E100D3F112 /* Entities */,
 				3A0D2A24218B43CF00D3F112 /* Components */,
 				3AD8549721AF3A17004D3B9F /* Helpers */,
@@ -206,7 +210,6 @@
 				3A3A8DB1215E1AB800E07741 /* Assets.xcassets */,
 				3A3A8DB3215E1AB800E07741 /* LaunchScreen.storyboard */,
 				3A3A8DB6215E1AB800E07741 /* Info.plist */,
-				E130810C21CBE40800466829 /* TWMenuScene.swift */,
 			);
 			path = towerwars;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				3AD8549521AF30CE004D3B9F /* TWAiComponent.swift in Sources */,
 				3A8CF0F62178A71700EA69C3 /* TWBlock.swift in Sources */,
 				E197658C21A9E64E00804429 /* TWRangeComponent.swift in Sources */,
+				E19D968721D1079100DA6AC9 /* TWLevelScene.swift in Sources */,
 				3A3A8DAD215E1AB400E07741 /* GameViewController.swift in Sources */,
 				3A8CF0F221775A9600EA69C3 /* TWPathMoveComponent.swift in Sources */,
 				3A45BF0521CAE4F400A72693 /* TWHitComponent.swift in Sources */,

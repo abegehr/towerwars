@@ -26,7 +26,7 @@ class TWMenuScene: SKScene {
             if node == playButton {
                 if view != nil {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                    let scene:SKScene = TWGameScene(size: self.size)
+                    let scene:SKScene = TWLevelScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
             }
