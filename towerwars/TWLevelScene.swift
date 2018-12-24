@@ -3,7 +3,7 @@ import SpriteKit
 class TWLevelScene: SKScene {
     
     var background = SKSpriteNode(imageNamed: "mainBackground")
-    //var levelButton = SKSpriteNode(imageNamed: "playButton")
+    //var levelButton = SKSpriteNode(imageNamed: "levelButton")
     
     //TODO do this in init
     override func didMove(to view: SKView) {
@@ -12,6 +12,7 @@ class TWLevelScene: SKScene {
         let marginX: CGFloat = 125.0
         let marginY: CGFloat = 200.0
         let paddingX: CGFloat = 25.0
+        let paddingY: CGFloat = 25.0
         
         //buttonSize
         let buttonWidth = CGFloat((frame.size.width-marginX)/3)
@@ -26,10 +27,24 @@ class TWLevelScene: SKScene {
         //create buttons
         for i in 0..<15 {
             
-            let levelButton = SKSpriteNode(imageNamed: "playButton")
-            levelButton.position = CGPoint(x: CGFloat(i%3)*(buttonWidth+paddingX)+marginX, y: 800.0-CGFloat(floor(Double(i/3)))*buttonHeight+marginY)
+            //create the button
+            let levelButton = SKSpriteNode(imageNamed: "levelButton")
+            levelButton.position = CGPoint(x: CGFloat(i%3)*(buttonWidth+paddingX)+marginX, y: 800.0-CGFloat(floor(Double(i/3)))*(buttonHeight+paddingY)+marginY)
             levelButton.size = buttonSize
+            
+            //create the label (level number)
+            let levelLabel = SKLabelNode(fontNamed: "Courier-Bold")
+            levelLabel.fontSize = 100
+            levelLabel.fontColor = TWPink
+            levelLabel.position = levelButton.position
+            levelLabel.text = String(i)
+            //levelLabel.zPosition = 1
+            levelLabel.horizontalAlignmentMode = .center
+            levelLabel.verticalAlignmentMode = .center
+            
+            //add button and label to the scene
             self.addChild(levelButton)
+            self.addChild(levelLabel)
             
         }
  
