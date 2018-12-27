@@ -55,6 +55,7 @@ class TWLevelScene: SKScene {
             levelLabels.append(levelLabel)
             
             //add button and label to the scene
+            //TODO: add label to button?
             self.addChild(levelButton)
             self.addChild(levelLabel)
             
@@ -100,6 +101,7 @@ class TWLevelScene: SKScene {
             if levelButtons.contains((node as? SKSpriteNode)) {
                 
                 let button = node as! SKSpriteNode
+                //TODO node.userdata?
                 let levelToLoad = levelButtons.index(of: button)!+1
                 print("Button clicked (around Label). Loading Level ",levelToLoad,".")
                 
