@@ -28,6 +28,10 @@ class TWMenuScene: SKScene {
         helpButton.size = CGSize(width: 150.0, height: 150.0)
         self.addChild(helpButton)
         
+        //modify zPosition to counter irregularity in nodes showing up
+        playButton.zPosition = 1.0
+        optionsButton.zPosition = 1.0
+        helpButton.zPosition = 1.0
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
