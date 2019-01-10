@@ -25,7 +25,7 @@ class TWLevelScene: SKScene {
         addChild(backButton)
 
         //not that good yet, 2 and 4 look pretty awkward
-        self.createMenu(buttonsPerLine: 3)
+        self.creatLevelButtonGrid(levels: 15, buttonsPerRow: 3)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -45,6 +45,8 @@ class TWLevelScene: SKScene {
                     
                 }
             }
+            
+            print("clicked: ", node)
             
             
             //user clicked on a level button (not on its label but around it)
@@ -77,23 +79,23 @@ class TWLevelScene: SKScene {
         }
     }
     
-    func createMenu(buttonsPerLine: Int) {
+    func creatLevelButtonGrid(levels: Int, buttonsPerRow: Int) {
         
         //paddings
-        let paddingX: CGFloat = 25.0*CGFloat(3/buttonsPerLine)
+        let paddingX: CGFloat = 25.0*CGFloat(3/buttonsPerRow)
         let paddingY: CGFloat = paddingX
         
         //buttonSize
-        let buttonWidth = CGFloat((frame.size.width-marginX)/CGFloat(buttonsPerLine))
+        let buttonWidth = CGFloat((frame.size.width-marginX)/CGFloat(buttonsPerRow))
         let buttonHeight = buttonWidth
         let buttonSize = CGSize(width: buttonWidth, height: buttonHeight)
         
         //create level buttons
-        for i in 0..<15 {
+        for i in 0..<levels {
             
             //create the button
             let levelButton = SKSpriteNode(imageNamed: "levelButton")
-            levelButton.position = CGPoint(x: CGFloat(i%buttonsPerLine)*(buttonWidth+paddingX)+marginX, y: 800.0-CGFloat(floor(Double(i/buttonsPerLine)))*(buttonHeight+paddingY)+marginY)
+            levelButton.position = CGPoint(x: CGFloat(i%buttonsPerRow)*(buttonWidth+paddingX)+marginX, y: 800.0-CGFloat(floor(Double(i/buttonsPerRow)))*(buttonHeight+paddingY)+marginY)
             levelButton.size = buttonSize
             levelButton.name = String(i+1)
             
