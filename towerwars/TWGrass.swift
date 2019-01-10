@@ -22,7 +22,7 @@ class TWGrass: TWBlock {
         let width = 60.0
         
         // node
-        let size = CGSize(width: width, height: width)
+        let size = CGSize(width: TWBlock.width, height: TWBlock.width)
         let node = TouchableShapeNode(rectOf: size, cornerRadius: CGFloat(0.1*width))
         node.position = position
         node.fillColor = .init(red: 0.1, green: 1.0, blue: 0.1, alpha: 1)

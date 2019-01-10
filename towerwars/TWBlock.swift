@@ -11,6 +11,8 @@ import GameplayKit
 
 class TWBlock: GKEntity {
     
+    static let width: Double = 60
+    
     let entityManager: TWEntityManager
     
     var spriteComponent: TWSpriteComponent {

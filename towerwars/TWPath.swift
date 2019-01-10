@@ -17,7 +17,7 @@ class TWPath: TWBlock {
         let width = 60.0
         
         // node
-        let size = CGSize(width: width, height: width)
+        let size = CGSize(width: TWBlock.width, height: TWBlock.width)
         let node = TouchableShapeNode(rectOf: size, cornerRadius: CGFloat(0.1*width))
         node.position = position
         node.fillColor = .init(red: 0.7, green: 0.7, blue: 0.1, alpha: 1)

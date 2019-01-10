@@ -18,12 +18,9 @@ class TWWall: TWBlock {
     
     init(position: CGPoint, entityManager: TWEntityManager) {
         
-        // settings
-        let width = 60.0
-        
         // node
-        let size = CGSize(width: width, height: width)
-        let node = TouchableShapeNode(rectOf: size, cornerRadius: CGFloat(0.1*width))
+        let size = CGSize(width: TWBlock.width, height: TWBlock.width)
+        let node = TouchableShapeNode(rectOf: size, cornerRadius: CGFloat(0.1*TWBlock.width))
         node.fillColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
         node.strokeColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
         node.physicsBody = SKPhysicsBody(rectangleOf: size)
