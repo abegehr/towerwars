@@ -34,6 +34,12 @@ class TWTower : GKEntity {
         
         // node
         let node = SKSpriteNode(imageNamed: "arrowTower1")
+        // physicsBody
+        let size = CGSize(width: TWBlock.width, height: TWBlock.width)
+        let physicsBody = SKPhysicsBody(rectangleOf: size)
+        physicsBody.isDynamic = false
+        physicsBody.categoryBitMask = mapBitMask
+        node.physicsBody = physicsBody
         
         // spriteComponent
         let spriteComponent = TWSpriteComponent(node: node)
