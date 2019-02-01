@@ -125,11 +125,23 @@ class TWMap {
             if (path_nodes.count < 2) {
                 print("TWMap – Error: No path found.")
             } else {
+                // show path
+                path_nodes.forEach { node in
+                    let pos = node.position
+                    let point = CGPoint(x: CGFloat(pos[0]), y: CGFloat(pos[1]))
+                    let pointNode = SKShapeNode(circleOfRadius: 5)
+                    pointNode.position = point
+                    pointNode.fillColor = .red
+                    pointNode.lineWidth = 0
+                    scene.addChild(pointNode)
+                }
+                
                 // convert path nodes to path
                 let path = GKPath(graphNodes: path_nodes, radius: 20)
                 // add TWPathComponent
                 let pathComponent = TWPathComponent(path: path)
                 enemy_castle.addComponent(pathComponent)
+                
             }
             
             // add
